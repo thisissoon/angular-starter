@@ -58,7 +58,7 @@ To install a library such as angular we can simply do:
 bower install angular --save
 ```
 
-And this will download the angular package from bower and also update the `bower.json` file to include that package. You will still need to added the script tag to the `app/index.html` like so:
+And this will download the angular package from bower and also update the `bower.json` file to include that package. You will still need to add the script tag to the `app/index.html` like so:
 
 	<script src="components/angular/angular.js"></script>
 
