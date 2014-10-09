@@ -4,19 +4,19 @@
  * @class AnotherCtrl
  **/
 angular.module("snExampleApp").controller("AnotherCtrl", [
-    "$scope",
-    /**
-     * @constructor
-     * @param $scope {Object} contains data in controller
-     **/
-    function ($scope) {
+	"$scope",
+	/**
+	 * @constructor
+	 * @param $scope {Object} contains data in controller
+	 **/
+	function ($scope) {
 
-    	/**
-         * This is a variable in our view 
-         * @property foo
-         **/
-        $scope.bar = 456;
-		 
-    }
+		/**
+		 * This is a variable in our view
+		 * @property foo
+		 **/
+		$scope.bar = 456;
+
+	}
 
 ]);
