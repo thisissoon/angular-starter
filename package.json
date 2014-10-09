@@ -17,13 +17,14 @@
     "grunt-contrib-less": "0.11.0",
     "grunt-contrib-uglify": "0.4.0",
     "grunt-contrib-yuidoc": "0.5.2",
-    "grunt-processhtml": "0.3.3"
+    "grunt-processhtml": "0.3.3",
+    "yuidoc-bootstrap-theme": "1.0.4"
   },
   "devDependencies": {
     "connect-livereload": "0.4.0",
     "grunt-contrib-watch": "0.6.1",
-    "grunt-protractor-runner": "^1.1.4",
-    "grunt-protractor-webdriver": "^0.1.9",
+    "grunt-protractor-runner": "1.1.4",
+    "grunt-protractor-webdriver": "0.1.9",
     "protractor": "0.17.0"
   },
   "scripts": {

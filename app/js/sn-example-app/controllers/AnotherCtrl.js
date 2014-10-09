@@ -1,20 +1,21 @@
 "use strict";
 /**
  * Controller for "/another" view of app.
- * @class AnotherCtrl
- **/
+ * @class  AnotherCtrl
+ */
 angular.module("snExampleApp").controller("AnotherCtrl", [
 	"$scope",
 	/**
 	 * @constructor
-	 * @param $scope {Object} contains data in controller
-	 **/
+	 * @param  {Object} $scope
+	 */
 	function ($scope) {
 
 		/**
 		 * This is a variable in our view
-		 * @property foo
-		 **/
+		 * @property bar
+		 * @type {Number}
+		 */
 		$scope.bar = 456;
 
 	}

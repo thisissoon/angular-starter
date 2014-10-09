@@ -10,9 +10,9 @@ module.exports = function (grunt) {
             outputDir: "dist/",
 
             applicationFiles: [
-                "app/js/app.js",
-                "app/js/*.js", 
-                "app/js/**/*.js", 
+                "app/js/sn-example-app/app.js",
+                "app/js/*.js",
+                "app/js/**/*.js",
                 "app/js/**/**/*.js"
             ],
 
@@ -55,7 +55,7 @@ module.exports = function (grunt) {
                     "app/modules/**/**/*.html",
                     "app/partials/*.html",
                     "app/partials/**/*.html",
-                    "app/partials/**/**/*.html"                    
+                    "app/partials/**/**/*.html"
                 ],
                 tasks: ["less:development"],
                 options: {
@@ -244,7 +244,8 @@ module.exports = function (grunt) {
                 url: "<%= pkg.homepage %>",
                 options: {
                     paths: "app/js/",
-                /** themedir: "path/to/custom/theme/", **/
+                	themedir: "node_modules/yuidoc-bootstrap-theme",
+        			helpers: ["node_modules/yuidoc-bootstrap-theme/helpers/helpers.js"],
                     outdir: "docs/"
                 }
             }
@@ -252,7 +253,7 @@ module.exports = function (grunt) {
 
 
     });
-    
+
     grunt.loadNpmTasks("grunt-contrib-copy");
     grunt.loadNpmTasks("grunt-contrib-clean");
     grunt.loadNpmTasks("grunt-contrib-concat");
