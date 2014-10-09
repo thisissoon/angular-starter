@@ -271,6 +271,7 @@ module.exports = function (grunt) {
     grunt.registerTask("build", [
         "jshint",
         "jasmine",
+        "e2e",
         "clean:beforeBuild",
         "yuidoc",
         "less:production",
@@ -283,6 +284,7 @@ module.exports = function (grunt) {
     grunt.registerTask("stage", [
         "jshint",
         "jasmine",
+        "e2e",
         "clean:beforeBuild",
         "yuidoc",
         "less:development",
