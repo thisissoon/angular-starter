@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("snApp", ["ngRoute"])
+angular.module("snExampleApp", ["ngRoute"])
     .run([
         function () {
 

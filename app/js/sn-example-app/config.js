@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module("snApp")
+angular.module("snExampleApp")
     .config([
         "$routeProvider",
         function ($routeProvider) {

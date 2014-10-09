@@ -24,11 +24,20 @@ module.exports = function (grunt) {
         },
 
         connect: {
-            livereload: {
+            server: {
                 options: {
                     hostname: "0.0.0.0",
                     port: 8000,
                     livereload: true,
+                    open: "http://localhost:8000/app/"
+                }
+            },
+            servertest: {
+                options: {
+                    keepalive: false,
+                    hostname: "0.0.0.0",
+                    port: 8000,
+                    livereload: false,
                     open: "http://localhost:8000/app/"
                 }
             }
@@ -282,13 +291,13 @@ module.exports = function (grunt) {
 
     grunt.registerTask("server", [
         "less:development",
-        "connect",
+        "connect:server",
         "watch:css"
     ]);
 
     grunt.registerTask("serverall", [
         "less:development",
-        "connect",
+        "connect:server",
         "watch"
     ]);
 
@@ -298,7 +307,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask("e2e", [
-        "connect",
+        "connect:servertest",
         "protractor_webdriver",
         "protractor"
     ]);

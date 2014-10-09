@@ -5,7 +5,7 @@ describe("AnotherCtrl", function (){
     var scope;
 
     beforeEach(function(){
-        module("snApp");
+        module("snExampleApp");
     });
 
     beforeEach(inject(function ($rootScope, $controller) {
@@ -18,7 +18,7 @@ describe("AnotherCtrl", function (){
 
     }));
 
-    it("should have a variable foo which equals 456", function (){
+    it("should have a variable bar which equals 456", function (){
         expect(scope.bar).toBe(456);
     });
 

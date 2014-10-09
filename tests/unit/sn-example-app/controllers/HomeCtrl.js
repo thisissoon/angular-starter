@@ -5,7 +5,7 @@ describe("HomeCtrl", function (){
     var scope;
 
     beforeEach(function(){
-        module("snApp");
+        module("snExampleApp");
     });
 
     beforeEach(inject(function ($rootScope, $controller) {

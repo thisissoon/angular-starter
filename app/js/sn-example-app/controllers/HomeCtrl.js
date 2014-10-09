@@ -1,9 +1,9 @@
 "use strict";
 /**
- * Controller for "/another" view of app.
- * @class AnotherCtrl
+ * Controller for root view or "/" view of app.
+ * @class HomeCtrl
  **/
-angular.module("snApp").controller("AnotherCtrl", [
+angular.module("snExampleApp").controller("HomeCtrl", [
     "$scope",
     /**
      * @constructor
@@ -15,7 +15,7 @@ angular.module("snApp").controller("AnotherCtrl", [
          * This is a variable in our view 
          * @property foo
          **/
-        $scope.bar = 456;
+        $scope.foo = 123;
 		 
     }
 

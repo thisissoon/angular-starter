@@ -2,7 +2,7 @@
 
 /* https://github.com/angular/protractor/blob/master/docs/getting-started.md */
 
-describe("snApp", function() {
+describe("snExampleApp", function() {
 
     browser.get("app/index.html#/");
 
