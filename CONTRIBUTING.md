@@ -2,6 +2,7 @@
 
 This is a quick guide on how to make a contribution to this repo. This will
 help keep everything consistant by following our coding practises and guildlines. 
+* [LESS](app/less/css.md)
 
 ## Getting Started
 
