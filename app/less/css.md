@@ -11,38 +11,40 @@ Every repo should have an `.editorconfig` file included which will define spacin
 * Put spaces after `:` in property declarations: `color: red`
 * Put spaces before `{` in rule declarations: `.rule {`
 * Put only a single line breaks between rulesets:
+
 	
-	```
+	``` css
+
 	.rule-1 {
 		...
 	}
-	
+
 	.rule-2 {
 		...
 	}
-	
-	```
+		
+	``` 
 	
 * When grouping selectors, keep individual selectors to a single line.
 
-	```
+	``` css
 	.rule-1,
 	.rule-2 {
 		...
 	}
 	
-	```
+	``` 
 
 * Place closing braces of declaration blocks on a new line.
 * Each declaration should appear on its own line for more accurate error reporting:
 
-	```
+	``` css
 	.rule-1 {
 		background-color: black;
 		color: red; 
 	}
 	
-	```
+	``` 
 * Avoid unnecessary whitespace when nesting LESS code and only include blank lines directly above rule declarations
 
 
@@ -61,7 +63,7 @@ As a rule of thumb, avoid unnecessary nesting in LESS. At most, aim for three le
 
 Document styles with JSDocs style notation. Example: 
 
-```
+``` css
 /**
  * this block of code styles a regular version 
  * of a list within this module 
@@ -90,14 +92,14 @@ Document styles with JSDocs style notation. Example:
 		...
 	}
 }
-```
+``` 
 
 
 ### Examples
 
 Here are some good examples that apply the above guidelines:
 
-```
+``` css
 // Example of good basic formatting practices
 .styleguide-format {
   	color: #000000;
@@ -130,7 +132,7 @@ Here are some good examples that apply the above guidelines:
 	color: red
 	// other styles here
 }
-```
+``` 
 
 ## File organisation
 
@@ -179,7 +181,7 @@ css
 * If creating variable include variables only in a single location preferably a  `variables.less` file.
 * Use variables for colors for constancy and also allowing us to globally change colors throughout the site in just one place. Example:
 
-```
+``` css
 @black: #000000;
 @white: #ffffff;
 
@@ -187,7 +189,7 @@ css
 	background-color: @white;
 	color: @black;
 }
-```
+``` 
 
 
 ### Including LESS files
@@ -198,7 +200,7 @@ css
 
 Example:
 
-```
+``` css
 
 /**
  * our libraries here
@@ -215,7 +217,7 @@ Example:
  	@import "tablet/modules/footer.less";
 }
 
-```
+``` 
 
 This is also how Bootstrap's styles are to be included, should you need them.
 
@@ -254,7 +256,7 @@ Additionally, unit-less `line-height` is preferred because it does not inherit a
 
 Example:
 
-```
+``` css
 @initial-font-size: 16px;
 
 body {
@@ -262,7 +264,7 @@ body {
 	line-height: 1.2; // line-height will be 19px
 }
 
-```
+``` 
 
 ## Class naming conventions
 
@@ -280,7 +282,7 @@ When styling a component, start with an class namespace and nest styling within 
 
 
 
-```
+``` css
 
 .category-list { // class namespace
 
@@ -296,18 +298,18 @@ When styling a component, start with an class namespace and nest styling within 
   }
 }
 
-```
+``` 
 
 ## CSS Specificity guidelines
 
 If you must use an `id` selector (`#selector`) and this should only be because you cannot modify the html, for example a partial from a library. Make sure that you have no more than one in your rule declaration. A rule like the below is considered harmful:
 
 
-```
+``` css
 #header .search #quicksearch { 
 	... 
 }
-```
+``` 
 
 When modifying an existing element for a specific use, try to use specific class names. Instead of `.listings-layout.bigger` use rules like `.listings-layout.listings-bigger`. Think about searching your code in the future.
 
