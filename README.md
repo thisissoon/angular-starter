@@ -101,53 +101,55 @@ The build files will then be in the `dist/` directory.
 
 ## Directory Layout
 
-  app/                    --> all of the files to be used in production
-    components/           --> all of our javascript libraries (installed using bower)
-    css/                  --> css files
-      app.css             --> default stylesheet (generated using less)
-    img/                  --> image files
-    less/                 --> less folder
-      default/            --> styling appied to all screen sizes (e.g. fonts, colors etc..)
-        core/             --> core styling applied to all screen sizes 
-        modules/          --> module styling applied to all screen sizes
-      large/              --> styling appied to large screen screen sizes (overrides styling in default folder)
-        core/             --> core styling applied to large screen screen sizes
-        modules/          --> module styling applied to large screen screen sizes 
-      tablet/             --> styling appied to tablet screen sizes (overrides styling in default folder)
-        core/             --> core styling applied to tablet screens 
-        modules/          --> module styling applied to tablet screens
-      mobile/             --> styling appied to mobile screen sizes (overrides styling in default folder)
-        core/             --> core styling applied to mobile screens 
-        modules/          --> module styling applied to mobile screens  
-    index.html            --> app layout file (the main html template file of the app)
-    js/                   --> javascript files
-      {app}/              --> doIt angular app javascript files
-        {app}.js          --> angular initialisation
-        config.js         --> angular config
-        controllers/
-          {module}Ctrl.js --> controllers
-        directives/
-          {module}.js     --> directives
-      modules/            --> static html files for building and testing styling and mark up
-      {module}/
-        index.html
-      partials/           --> angular view partials (partial html templates)
-      partial1.html
-      partial2.html
-  tests/                  --> test config and source files
-    e2e/
-      specs/              --> end-to-end specs
-        {example}Spec.js    
-      scenarios.js
-      protractor-conf.js  --> config file for running e2e tests with Protractor
-    unit/                 --> unit level specs/tests
-      {app}/              --> follows the same folder structure as javascript files in app folder
-        controllers/      --> module folder
-          {module}Ctrl.js --> module controller
-        directives/
-          {module}.js     --> module directive
+```
 
+app/                    --> all of the files to be used in production
+  components/           --> all of our javascript libraries (installed using bower)
+  css/                  --> css files
+    app.css             --> default stylesheet (generated using less)
+  img/                  --> image files
+  less/                 --> less folder
+    default/            --> styling appied to all screen sizes (e.g. fonts, colors etc..)
+      core/             --> core styling applied to all screen sizes 
+      modules/          --> module styling applied to all screen sizes
+    large/              --> styling appied to large screen screen sizes (overrides styling in default folder)
+      core/             --> core styling applied to large screen screen sizes
+      modules/          --> module styling applied to large screen screen sizes 
+    tablet/             --> styling appied to tablet screen sizes (overrides styling in default folder)
+      core/             --> core styling applied to tablet screens 
+      modules/          --> module styling applied to tablet screens
+    mobile/             --> styling appied to mobile screen sizes (overrides styling in default folder)
+      core/             --> core styling applied to mobile screens 
+      modules/          --> module styling applied to mobile screens  
+  index.html            --> app layout file (the main html template file of the app)
+  js/                   --> javascript files
+    {app}/              --> doIt angular app javascript files
+      {app}.js          --> angular initialisation
+      config.js         --> angular config
+      controllers/
+        {module}Ctrl.js --> controllers
+      directives/
+        {module}.js     --> directives
+    modules/            --> static html files for building and testing styling and mark up
+    {module}/
+      index.html
+    partials/           --> angular view partials (partial html templates)
+    partial1.html
+    partial2.html
+tests/                  --> test config and source files
+  e2e/
+    specs/              --> end-to-end specs
+      {example}Spec.js
+    scenarios.js
+    protractor-conf.js  --> config file for running e2e tests with Protractor
+  unit/                 --> unit level specs/tests
+    {app}/              --> follows the same folder structure as javascript files in app folder
+      controllers/      --> module folder
+        {module}Ctrl.js --> module controller
+      directives/
+        {module}.js     --> module directive
 
+```
 
 ## Testing
 
