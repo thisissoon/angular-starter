@@ -22,5 +22,5 @@ describe("AnotherCtrl", function (){
         expect(scope.bar).toBe(456);
     });
 
-   
+
 });

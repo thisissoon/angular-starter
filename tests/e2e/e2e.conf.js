@@ -74,7 +74,7 @@ exports.config = {
   baseUrl: 'http://localhost:8000',
 
   // Selector for the element housing the angular app - this defaults to
-  // body, but is necessary if ng-app is on a descendant of <body>  
+  // body, but is necessary if ng-app is on a descendant of <body>
   rootElement: 'body',
 
   // A callback function called once protractor is ready and available, and
@@ -106,7 +106,7 @@ exports.config = {
   // Mocha has limited beta support. You will need to include your own
   // assertion framework if working with mocha.
   framework: 'jasmine',
-  
+
   // ----- Options to be passed to minijasminenode -----
   //
   // See the full list at https://github.com/juliemr/minijasminenode

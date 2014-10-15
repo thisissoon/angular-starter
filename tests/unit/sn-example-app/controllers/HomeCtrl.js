@@ -22,5 +22,5 @@ describe("HomeCtrl", function (){
         expect(scope.foo).toBe(123);
     });
 
-   
+
 });

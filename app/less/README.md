@@ -12,39 +12,39 @@ Every repo should have an `.editorconfig` file included which will define spacin
 * Put spaces before `{` in rule declarations: `.rule {`
 * Put only a single line breaks between rulesets:
 
-	
-	``` css
+  
+  ``` css
 
-	.rule-1 {
-		...
-	}
+  .rule-1 {
+    ...
+  }
 
-	.rule-2 {
-		...
-	}
-		
-	``` 
-	
+  .rule-2 {
+    ...
+  }
+    
+  ``` 
+  
 * When grouping selectors, keep individual selectors to a single line.
 
-	``` css
-	.rule-1,
-	.rule-2 {
-		...
-	}
-	
-	``` 
+  ``` css
+  .rule-1,
+  .rule-2 {
+    ...
+  }
+  
+  ``` 
 
 * Place closing braces of declaration blocks on a new line.
 * Each declaration should appear on its own line for more accurate error reporting:
 
-	``` css
-	.rule-1 {
-		background-color: black;
-		color: red; 
-	}
-	
-	``` 
+  ``` css
+  .rule-1 {
+    background-color: black;
+    color: red; 
+  }
+  
+  ``` 
 * Avoid unnecessary whitespace when nesting LESS code and only include blank lines directly above rule declarations
 
 
@@ -71,11 +71,11 @@ Document styles with JSDocs style notation. Example:
  * @example <span class="my-rule"></span>
  */
 .my-rule {
-	...
-	
-	&.active {
-		...
-	}
+  ...
+  
+  &.active {
+    ...
+  }
 }
 
 /**
@@ -86,11 +86,11 @@ Document styles with JSDocs style notation. Example:
  * @example <span class="my-rule variant"></span>
  */
 .my-rule.variant {
-	...
-	
-	&.active {
-		...
-	}
+  ...
+  
+  &.active {
+    ...
+  }
 }
 ``` 
 
@@ -102,16 +102,16 @@ Here are some good examples that apply the above guidelines:
 ``` css
 // Example of good basic formatting practices
 .styleguide-format {
-  	color: #000000;
-  	background-color: rgba(0, 0, 0, .5);
-  	border: 1px solid #f0f0f0;
+    color: #000000;
+    background-color: rgba(0, 0, 0, .5);
+    border: 1px solid #f0f0f0;
 }
 
 // Example of individual selectors getting their own lines (for error reporting)
 .multiple,
 .classes,
 .get-new-lines {
-	display: block;
+  display: block;
 }
 
 // Avoid unnecessary shorthand declarations
@@ -125,12 +125,12 @@ Here are some good examples that apply the above guidelines:
 
 // Avoid declaring rules specifically for a single property
 .color-red { // don't do this
-	color: red;
+  color: red;
 }
 
 .my-module-or-state { // do this instead
-	color: red
-	// other styles here
+  color: red
+  // other styles here
 }
 ``` 
 
@@ -143,32 +143,32 @@ In general, the CSS file organisation should follow something like this:
 css
 ├── desktop
 │   ├── core 
-│   │ 	├── typography.less
-│   │ 	└── colors.less
+│   │   ├── typography.less
+│   │   └── colors.less
 │   ├── modules 
-│   │ 	├── header.less
-│   │ 	└── nav.less
+│   │   ├── header.less
+│   │   └── nav.less
 ├── large
 │   ├── core 
-│   │ 	├── typography.less
-│   │ 	└── colors.less
+│   │   ├── typography.less
+│   │   └── colors.less
 │   ├── modules 
-│   │ 	├── header.less
-│   │ 	└── nav.less
+│   │   ├── header.less
+│   │   └── nav.less
 ├── tablet
 │   ├── core 
-│   │ 	├── typography.less
-│   │ 	└── colors.less
+│   │   ├── typography.less
+│   │   └── colors.less
 │   ├── modules 
-│   │ 	├── header.less
-│   │ 	└── nav.less
+│   │   ├── header.less
+│   │   └── nav.less
 └── mobile
     ├── core 
-    │ 	├── typography.less
-    │ 	└── colors.less
+    │   ├── typography.less
+    │   └── colors.less
     └── modules 
-      	├── header.less
-      	└── nav.less
+        ├── header.less
+        └── nav.less
 
     
 ```
@@ -186,8 +186,8 @@ css
 @white: #ffffff;
 
 .rule {
-	background-color: @white;
-	color: @black;
+  background-color: @white;
+  color: @black;
 }
 ``` 
 
@@ -213,8 +213,8 @@ Example:
 @import "default/core/buttons.less";
 
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-	@import "tablet/modules/header.less";
- 	@import "tablet/modules/footer.less";
+  @import "tablet/modules/header.less";
+  @import "tablet/modules/footer.less";
 }
 
 ``` 
@@ -260,8 +260,8 @@ Example:
 @initial-font-size: 16px;
 
 body {
-	font-size: @initial-font-size;
-	line-height: 1.2; // line-height will be 19px
+  font-size: @initial-font-size;
+  line-height: 1.2; // line-height will be 19px
 }
 
 ``` 
@@ -307,7 +307,7 @@ If you must use an `id` selector (`#selector`) and this should only be because y
 
 ``` css
 #header .search #quicksearch { 
-	... 
+  ... 
 }
 ``` 
 

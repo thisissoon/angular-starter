@@ -5,8 +5,8 @@
  * @requires ngRoute: https://docs.angularjs.org/api/ngRoute
  */
 angular.module("snExampleApp", ["ngRoute"])
-	.run([
-		function () {
+    .run([
+        function () {
 
-		}
-	]);
+        }
+    ]);

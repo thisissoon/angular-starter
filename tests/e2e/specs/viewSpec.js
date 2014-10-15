@@ -12,29 +12,29 @@ describe("snExampleApp", function() {
 
     describe("view1", function() {
 
-	    beforeEach(function() {
-	     	browser.get("app/index.html#/");
-	    });
+        beforeEach(function() {
+            browser.get("app/index.html#/");
+        });
 
 
-	    it("should render home partial when user navigates to /", function() {
-	     	expect(element.all(by.css("ng-view h1")).first().getText()).toEqual("Home");
-	    });
+        it("should render home partial when user navigates to /", function() {
+            expect(element.all(by.css("ng-view h1")).first().getText()).toEqual("Home");
+        });
 
-	  });
-
-
-	 describe("view2", function() {
-
-	    beforeEach(function() {
-	    	browser.get("app/index.html#/another");
-	    });
+      });
 
 
-	    it("should render another view when user navigates to /another", function() {
-	    	expect(element.all(by.css("ng-view h1")).first().getText()).toEqual("Another view");
-	    });
+     describe("view2", function() {
 
-	});
+        beforeEach(function() {
+            browser.get("app/index.html#/another");
+        });
+
+
+        it("should render another view when user navigates to /another", function() {
+            expect(element.all(by.css("ng-view h1")).first().getText()).toEqual("Another view");
+        });
+
+    });
 
 });

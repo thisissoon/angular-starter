@@ -113,8 +113,8 @@ module.exports = function (grunt) {
                 curly: true,
                 noarg: true,
                 quotmark: "double",
-				undef: true,
-				unused: true,
+                undef: true,
+                unused: true,
                 globalstrict: true,
                 globals: {
                     "angular": true
@@ -249,8 +249,8 @@ module.exports = function (grunt) {
                 url: "<%= pkg.homepage %>",
                 options: {
                     paths: "app/js/",
-                	themedir: "node_modules/yuidoc-bootstrap-theme",
-        			helpers: ["node_modules/yuidoc-bootstrap-theme/helpers/helpers.js"],
+                    themedir: "node_modules/yuidoc-bootstrap-theme",
+                    helpers: ["node_modules/yuidoc-bootstrap-theme/helpers/helpers.js"],
                     outdir: "docs/"
                 }
             }
