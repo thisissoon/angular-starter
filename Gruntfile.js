@@ -10,7 +10,6 @@ module.exports = function (grunt) {
             outputDir: "dist/",
 
             applicationFiles: [
-                "app/js/sn-example-app/app.js",
                 "app/js/*.js",
                 "app/js/**/*.js",
                 "app/js/**/**/*.js"
