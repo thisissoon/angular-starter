@@ -1,25 +1,25 @@
 "use strict";
 
-describe("HomeCtrl", function (){
+describe("AnotherCtrl", function (){
 
     var scope;
 
     beforeEach(function(){
-        module("snExampleApp");
+        module("soonExampleApp");
     });
 
     beforeEach(inject(function ($rootScope, $controller) {
 
         scope = $rootScope.$new();
 
-        $controller("HomeCtrl", {
+        $controller("AnotherCtrl", {
             $scope: scope
         });
 
     }));
 
-    it("should have a variable foo which equals 123", function (){
-        expect(scope.foo).toBe(123);
+    it("should have a variable bar which equals 456", function (){
+        expect(scope.bar).toBe(456);
     });
 
 
