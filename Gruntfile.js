@@ -292,8 +292,7 @@ module.exports = function (grunt) {
         "clean:beforeBuild",
         "yuidoc",
         "less:development",
-        "copy",
-        "processhtml:development"
+        "copy"
     ]);
 
     grunt.registerTask("server", [
