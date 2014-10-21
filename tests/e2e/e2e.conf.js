@@ -67,14 +67,14 @@ exports.config = {
   },
 
   // multiCapabilities: [{
-  //  'browserName': 'firefox'
-  //}, {
-  // 'browserName': 'chrome'
-  //}, {
-  // 'browserName': 'safari'
-  //}, {
-  //  'browserName': 'opera'
-  //}],
+  //   'browserName': 'firefox'
+  // }, {
+  //   'browserName': 'chrome'
+  // }, {
+  //   'browserName': 'safari'
+  // }, {
+  //   'browserName': 'opera'
+  // }],
 
   // ----- More information for your tests ----
   //

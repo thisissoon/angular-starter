@@ -36,8 +36,7 @@ module.exports = function (grunt) {
                     keepalive: false,
                     hostname: "0.0.0.0",
                     port: 8000,
-                    livereload: false,
-                    open: "http://localhost:8000/app/"
+                    livereload: false
                 }
             }
         },
@@ -150,11 +149,7 @@ module.exports = function (grunt) {
         },
 
         protractor_webdriver: {
-            dist: {
-                options: {
-
-                }
-            }
+            dist: {}
         },
 
         concat: {
@@ -226,11 +221,6 @@ module.exports = function (grunt) {
             options: {
                 data: {
                     message: "processing 'index.html' file"
-                }
-            },
-            development: {
-                files: {
-                    "<%= config.outputDir %>/index.html": ["app/index.html"]
                 }
             },
             dist: {
