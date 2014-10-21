@@ -1,13 +1,15 @@
 "use strict";
 /**
- * Controller for root view or "/" view of app.
+ * Controller for homepage view of soonExampleApp
+ * @author SOON_
+ * @module soonExampleApp
  * @class  HomeCtrl
  */
 angular.module("soonExampleApp").controller("HomeCtrl", [
     "$scope",
     /**
      * @constructor
-     * @param  {Object} $scope
+     * @param {Object} $scope
      */
     function ($scope) {
 

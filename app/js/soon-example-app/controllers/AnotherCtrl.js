@@ -1,13 +1,15 @@
 "use strict";
 /**
- * Controller for "/another" view of app.
+ * Controller for '/another' view of soonExampleApp.
+ * @author SOON_
+ * @module soonExampleApp
  * @class  AnotherCtrl
  */
 angular.module("soonExampleApp").controller("AnotherCtrl", [
     "$scope",
     /**
      * @constructor
-     * @param  {Object} $scope
+     * @param {Object} $scope
      */
     function ($scope) {
 
