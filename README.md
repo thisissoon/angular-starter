@@ -60,8 +60,9 @@ bower install angular --save
 
 And this will download the angular package from bower and also update the `bower.json` file to include that package. You will still need to add the script tag to the `app/index.html` like so:
 
+```html
   <script src="components/angular/angular.js"></script>
-
+```
 
 ### Run the Application
 
@@ -74,10 +75,10 @@ grunt server
 
 Now browse to the app at `http://localhost:8000/app/`.
 
-If you are doing any development you can instead run:
+If you are doing any javascript development you can instead run:
 
 ```
-grunt serverall
+grunt serverjs
 ```
 
 To run tests as well everytime a javascript file is updated
@@ -87,13 +88,13 @@ To run tests as well everytime a javascript file is updated
 To create a build to deploy for a staging environment simply run: 
 
 ```
-grunt stage
+grunt build:stage
 ```
 
 To create a build to deploy for a production environment simply run: 
 
 ```
-grunt release
+grunt build:production
 ```
 
 The build files will then be in the `dist/` directory.
@@ -127,27 +128,26 @@ app/                    --> all of the files to be used in production
       {app}.js          --> angular initialisation
       config.js         --> angular config
       controllers/
-        {module}Ctrl.js --> controllers
+        {view}Ctrl.js   --> controllers
       directives/
         {module}.js     --> directives
     modules/            --> static html files for building and testing styling and mark up
-    {module}/
-      index.html
+      {module}/
+        index.html
     partials/           --> angular view partials (partial html templates)
-    partial1.html
-    partial2.html
+      partial1.html
+      partial2.html
 tests/                  --> test config and source files
-  e2e/
-    specs/              --> end-to-end specs
+  e2e/                  --> end-to-end specs
+    specs/              
       {example}Spec.js
-    scenarios.js
-    protractor-conf.js  --> config file for running e2e tests with Protractor
+    e2e.conf.js         --> config file for running e2e tests with Protractor
   unit/                 --> unit level specs/tests
     {app}/              --> follows the same folder structure as javascript files in app folder
-      controllers/      --> module folder
-        {module}Ctrl.js --> module controller
+      controllers/      --> controller folder
+        {view}Ctrl.js   --> view controller tests
       directives/
-        {module}.js     --> module directive
+        {module}.js     --> module directive test
 
 ```
 
@@ -172,7 +172,7 @@ grunt test
 This script will start the Jasmine test runner to execute the unit tests. You can also run:
 
 ```
-grunt serverall
+grunt serverjs
 ```
 
 Where the grunt watch command will sit and watch the source and test files for changes and then re-run the tests whenever any of them change.
@@ -186,8 +186,8 @@ The angular-seed app comes with end-to-end tests, again written in [Jasmine][jas
 are run with the [Protractor][protractor] End-to-End test runner.  It uses native events and has
 special features for Angular applications.
 
-* the configuration is found at `test/e2e/e2e.conf.js`
-* the end-to-end tests are found in `test/e2e/specs/`
+* the configuration is found at `tests/e2e/e2e.conf.js`
+* the end-to-end tests are found in `tests/e2e/specs/`
 
 Protractor simulates interaction with our web app and verifies that the application responds
 correctly. Therefore, our web server needs to be serving up the application, so that Protractor
