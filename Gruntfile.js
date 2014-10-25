@@ -104,7 +104,7 @@ module.exports = function (grunt) {
                 "unused": true,
                 "globalstrict": true,
                 "globals": {
-                      "angular": true
+                    "angular": true
                 }
             }
         },
@@ -112,12 +112,27 @@ module.exports = function (grunt) {
         jasmine: {
             options: {
                 specs: ["tests/unit/**/*.js"],
-                keepRunner: true
+                keepRunner: true,
             },
             development: {
                 src: ["<%= config.applicationFiles %>"],
                 options: {
-                    vendor: ["<%= config.vendorFiles %>"]
+                    vendor: ["<%= config.vendorFiles %>"],
+                    template: require("grunt-template-jasmine-istanbul"),
+                    templateOptions: {
+                        coverage: "coverage/coverage.json",
+                        report: [
+                            {
+                                type: "html",
+                                options: {
+                                    dir: "coverage/html"
+                                }
+                            },
+                            {
+                                type: "text-summary"
+                            }
+                        ]
+                    }
                 }
             },
             stage: {
