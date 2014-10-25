@@ -186,7 +186,7 @@ The angular-seed app comes with end-to-end tests, again written in [Jasmine][jas
 are run with the [Protractor][protractor] End-to-End test runner.  It uses native events and has
 special features for Angular applications.
 
-* the configuration is found at `tests/e2e/e2e.conf.js`
+* the configuration is found at `tests/e2e/protractor.conf.js`
 * the end-to-end tests are found in `tests/e2e/specs/`
 
 Protractor simulates interaction with our web app and verifies that the application responds
