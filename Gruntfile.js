@@ -8,18 +8,8 @@ module.exports = function (grunt) {
 
         config: {
             outputDir: "dist/",
-
-            applicationFiles: [
-                "app/js/*.js",
-                "app/js/**/*.js",
-                "app/js/**/**/*.js"
-            ],
-
-            vendorFiles: [
-                "app/components/angular/angular.js",
-                "app/components/angular-mocks/angular-mocks.js",
-                "app/components/angular-route/angular-route.js",
-            ]
+            applicationFiles: grunt.file.readJSON("scripts.json").application,
+            vendorFiles: grunt.file.readJSON("scripts.json").vendor
         },
 
         connect: {
@@ -66,11 +56,11 @@ module.exports = function (grunt) {
                     "app/js/*.js",
                     "app/js/**/*.js",
                     "app/js/**/**/*.js",
-                    "test/unit/**/*.js",
-                    "test/unit/**/**/*.js",
-                    "test/unit/**/**/**/*.js"
+                    "tests/unit/*.js",
+                    "tests/unit/**/*.js",
+                    "tests/unit/**/**/*.js"
                 ],
-                tasks: ["jshint", "jasmine"],
+                tasks: ["jshint", "jasmine:development"],
                 options: {
                     nospawn: false,
                     livereload: true
@@ -79,22 +69,20 @@ module.exports = function (grunt) {
         },
 
         less: {
+            options: {
+                paths: ["app/less/"],
+                cleancss: false
+            },
             development: {
-                options: {
-                    paths: ["app/less/"],
-                    cleancss: false
-                },
-                files: {
-                    "app/css/all.css": "app/less/main.less"
-                }
+                files: { "app/css/all.css": "app/less/main.less" }
+            },
+            stage: {
+                files: { "<%= config.outputDir %>/css/all.css": "app/less/main.less" }
             },
             production: {
+                files: { "<%= config.outputDir %>/css/all.min.css": "app/less/main.less" },
                 options: {
-                    paths: ["app/less/"],
                     cleancss: true
-                },
-                files: {
-                    "<%= config.outputDir %>/css/all.min.css": "app/less/main.less"
                 }
             }
         },
@@ -104,30 +92,39 @@ module.exports = function (grunt) {
                 src: ["<%= config.applicationFiles %>"]
             },
             options: {
-                strict: false,
-                browser: true,
-                devel: true,
-                asi: true,
-                curly: true,
-                noarg: true,
-                quotmark: "double",
-                undef: true,
-                unused: true,
-                globalstrict: true,
-                globals: {
-                    "angular": true
+                "indent": 4,
+                "strict": false,
+                "browser": true,
+                "devel": true,
+                "asi": true,
+                "curly": true,
+                "noarg": true,
+                "quotmark": "double",
+                "undef": true,
+                "unused": true,
+                "globalstrict": true,
+                "globals": {
+                      "angular": true
                 }
             }
         },
 
         jasmine: {
-            dist: {
+            options: {
+                specs: ["tests/unit/**/*.js"],
+                keepRunner: true
+            },
+            development: {
                 src: ["<%= config.applicationFiles %>"],
                 options: {
-                    specs: ["tests/unit/**/*.js"],
-                    keepRunner: true,
-                    vendor: "<%= config.vendorFiles %>"
+                    vendor: ["<%= config.vendorFiles %>"]
                 }
+            },
+            stage: {
+                src: ["<%= config.outputDir %>/js/app.js"]
+            },
+            production: {
+                src: ["<%= config.outputDir %>/js/app.min.js"]
             }
         },
 
@@ -154,18 +151,25 @@ module.exports = function (grunt) {
 
         concat: {
             options: {
-                separator: ";",
+                separator: ";"
             },
             dist: {
                 src: ["<%= config.vendorFiles %>", "<%= config.applicationFiles %>"],
-                dest: "<%= config.outputDir %>/js/app.js",
+                dest: "<%= config.outputDir %>/js/app.js"
             }
         },
 
         uglify: {
+            options: {
+                mangle: true,
+                compress: {
+                    drop_console: true
+                },
+                enclose: {}
+            },
             dist: {
                 files: {
-                    "<%= config.outputDir %>/js/app.min.js": ["<%= config.vendorFiles %>", "<%= config.applicationFiles %>"]
+                    "<%= config.outputDir %>/js/app.min.js": ["<%= config.outputDir %>/js/app.js"]
                 }
             }
         },
@@ -177,28 +181,6 @@ module.exports = function (grunt) {
                     cwd: "app/img",
                     src: ["**/*"],
                     dest: "<%= config.outputDir %>/img/"
-                }]
-            },
-            javascript: {
-                files: [{
-                    expand: true,
-                    cwd: "app/components",
-                    src: ["**/*"],
-                    dest: "<%= config.outputDir %>/components/"
-                },
-                {
-                    expand: true,
-                    cwd: "app/js",
-                    src: ["**/*"],
-                    dest: "<%= config.outputDir %>/js/"
-                }]
-            },
-            css: {
-                files: [{
-                    expand: true,
-                    cwd: "app/css",
-                    src: ["*.css"],
-                    dest: "<%= config.outputDir %>/css/"
                 }]
             },
             partials: {
@@ -213,7 +195,10 @@ module.exports = function (grunt) {
 
         clean: {
             beforeBuild: {
-                src: ["<%= config.outputDir %>"]
+                src: ["<%= config.outputDir %>", "docs"]
+            },
+            afterBuild: {
+                src: ["<%= config.outputDir %>/js/app.js"]
             }
         },
 
@@ -223,7 +208,12 @@ module.exports = function (grunt) {
                     message: "processing 'index.html' file"
                 }
             },
-            dist: {
+            stage: {
+                files: {
+                    "<%= config.outputDir %>/index.html": ["app/index.html"]
+                }
+            },
+            production: {
                 files: {
                     "<%= config.outputDir %>/index.html": ["app/index.html"]
                 }
@@ -262,27 +252,32 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-protractor-webdriver');
     grunt.loadNpmTasks("grunt-processhtml");
 
-    grunt.registerTask("build", [
-        "jshint",
-        "jasmine",
-        "e2e",
+    grunt.registerTask("build:production", [
         "clean:beforeBuild",
-        "yuidoc",
+        "jshint",
+        "minify",
+        "jasmine:production",
         "less:production",
-        "uglify",
-        "copy:images",
-        "copy:partials",
-        "processhtml:dist"
+        "copy",
+        "processhtml:production",
+        "yuidoc",
+        "clean:afterBuild"
     ]);
 
-    grunt.registerTask("stage", [
-        "jshint",
-        "jasmine",
-        "e2e",
+    grunt.registerTask("build:stage", [
         "clean:beforeBuild",
-        "yuidoc",
-        "less:development",
-        "copy"
+        "jshint",
+        "concat",
+        "jasmine:stage",
+        "less:stage",
+        "copy",
+        "processhtml:stage",
+        "yuidoc"
+    ]);
+
+    grunt.registerTask("minify", [
+        "concat",
+        "uglify"
     ]);
 
     grunt.registerTask("server", [
@@ -291,7 +286,7 @@ module.exports = function (grunt) {
         "watch:css"
     ]);
 
-    grunt.registerTask("serverall", [
+    grunt.registerTask("serverjs", [
         "less:development",
         "connect:server",
         "watch"
@@ -308,7 +303,7 @@ module.exports = function (grunt) {
         "protractor"
     ]);
 
-    grunt.registerTask("default", ["stage"]);
-    grunt.registerTask("release", ["build"]);
+    grunt.registerTask("default", ["build:production"]);
+    grunt.registerTask("release", ["build:production"]);
 
 };
