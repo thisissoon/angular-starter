@@ -8,6 +8,7 @@
         "app/js/soon-example-app/app.js",
         "app/js/soon-example-app/config.js",
         "app/js/soon-example-app/controllers/HomeCtrl.js",
-        "app/js/soon-example-app/controllers/AnotherCtrl.js"
+        "app/js/soon-example-app/controllers/AnotherCtrl.js",
+        "app/js/soon-example-app/controllers/ExampleFormCtrl.js"
     ]
 }

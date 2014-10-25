@@ -21,6 +21,10 @@ angular.module("soonExampleApp").config([
                 templateUrl: "partials/another-view.html",
                 controller: "AnotherCtrl"
             })
+            .when("/example-form", {
+                templateUrl: "partials/example-form.html",
+                controller: "ExampleFormCtrl"
+            })
             .otherwise({
                 redirectTo: "/"
             })
