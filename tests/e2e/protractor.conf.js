@@ -62,19 +62,19 @@ exports.config = {
   // https://code.google.com/p/selenium/wiki/DesiredCapabilities
   // and
   // https://code.google.com/p/selenium/source/browse/javascript/webdriver/capabilities.js
-  capabilities: {
-    'browserName': 'chrome'
-  },
-
-  // multiCapabilities: [{
-  //   'browserName': 'firefox'
-  // }, {
+  // capabilities: {
   //   'browserName': 'chrome'
+  // },
+
+  multiCapabilities: [{
+    'browserName': 'firefox'
+  }, {
+    'browserName': 'chrome'
   // }, {
   //   'browserName': 'safari'
   // }, {
   //   'browserName': 'opera'
-  // }],
+  }],
 
   // ----- More information for your tests ----
   //
