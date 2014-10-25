@@ -141,7 +141,7 @@ tests/                  --> test config and source files
   e2e/                  --> end-to-end specs
     specs/              
       {example}Spec.js
-    e2e.conf.js         --> config file for running e2e tests with Protractor
+    protractor.conf.js  --> config file for running e2e tests with Protractor
   unit/                 --> unit level specs/tests
     {app}/              --> follows the same folder structure as javascript files in app folder
       controllers/      --> controller folder
