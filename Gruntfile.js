@@ -118,6 +118,7 @@ module.exports = function (grunt) {
                 src: ["<%= config.applicationFiles %>"],
                 options: {
                     vendor: ["<%= config.vendorFiles %>"],
+                    helpers:["app/components/angular-mocks/angular-mocks.js"],
                     template: require("grunt-template-jasmine-istanbul"),
                     templateOptions: {
                         coverage: "coverage/coverage.json",
@@ -136,10 +137,10 @@ module.exports = function (grunt) {
                 }
             },
             stage: {
-                src: ["<%= config.outputDir %>/js/app.js"]
+                src: ["<%= config.outputDir %>/js/app.js", "app/components/angular-mocks/angular-mocks.js"]
             },
             production: {
-                src: ["<%= config.outputDir %>/js/app.min.js"]
+                src: ["<%= config.outputDir %>/js/app.min.js", "app/components/angular-mocks/angular-mocks.js"]
             }
         },
 
@@ -305,7 +306,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask("test", [
         "jshint",
-        "jasmine"
+        "jasmine:development"
     ]);
 
     grunt.registerTask("e2e", [
