@@ -61,7 +61,7 @@ bower install angular --save
 And this will download the angular package from bower and also update the `bower.json` file to include that package. You will still need to add the script tag to the `app/index.html` like so:
 
 ```html
-  <script src="components/angular/angular.js"></script>
+<script src="components/angular/angular.js"></script>
 ```
 
 ### Run the Application
@@ -197,17 +197,17 @@ can interact with it. You may need to run this command with superuser privileges
 npm install -g protractor
 ```
 
-To run end 2 end test we first need to install protractor with global permissions. In addition, since Protractor is built upon WebDriver we need to install this:
+To run end to end tests we first need to install protractor with global permissions. In addition, since Protractor is built upon WebDriver we need to install this:
 
 
 ```
-npm run update-webdriver
+webdriver-manager update --standalone --chrome
 ```
 
 This will download and install the latest version of the stand-alone WebDriver tool.
 
 Once you have ensured that the development web server hosting our application is up and running
-and WebDriver is updated, you can run the end-to-end tests using the supplied npm script:
+and WebDriver is updated, you can run the end-to-end tests using the supplied grunt task:
 
 ```
 grunt e2e

@@ -158,7 +158,11 @@ module.exports = function (grunt) {
         },
 
         protractor_webdriver: {
-            dist: {}
+            dist: {
+                options: {
+                    command: "webdriver-manager start",
+                }
+            }
         },
 
         concat: {

@@ -65,15 +65,18 @@ exports.config = {
   // capabilities: {
   //   'browserName': 'chrome'
   // },
+  //
+  // install safari driver here:
+  // https://code.google.com/p/selenium/issues/detail?id=7933#c33
 
   multiCapabilities: [{
     'browserName': 'firefox'
   }, {
     'browserName': 'chrome'
+  }, {
+    'browserName': 'safari'
   // }, {
-  //   'browserName': 'safari'
-  // }, {
-  //   'browserName': 'opera'
+  //   'browserName': 'internet explorer'
   }],
 
   // ----- More information for your tests ----
