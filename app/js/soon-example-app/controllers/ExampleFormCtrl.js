@@ -29,11 +29,11 @@ angular.module("soonExampleApp").controller("ExampleFormCtrl", [
             if ($scope.form.$valid) {
                 $scope.added = {
                     user: $scope.user
-                }
+                };
             } else {
-                delete $scope.added
+                delete $scope.added;
             }
-        }
+        };
 
     }
 

@@ -88,24 +88,11 @@ module.exports = function (grunt) {
         },
 
         jshint: {
+            options: {
+                jshintrc: ".jshintrc"
+            },
             dist: {
                 src: ["<%= config.applicationFiles %>"]
-            },
-            options: {
-                "indent": 4,
-                "strict": false,
-                "browser": true,
-                "devel": true,
-                "asi": true,
-                "curly": true,
-                "noarg": true,
-                "quotmark": "double",
-                "undef": true,
-                "unused": true,
-                "globalstrict": true,
-                "globals": {
-                    "angular": true
-                }
             }
         },
 

@@ -27,7 +27,7 @@ angular.module("soonExampleApp").config([
             })
             .otherwise({
                 redirectTo: "/"
-            })
+            });
 
     }
-])
+]);

@@ -2,6 +2,6 @@
 /**
  * @author SOON_
  * @module soonExampleApp
- * @requires ngRoute: https://docs.angularjs.org/api/ngRoute
+ * @requires ngRoute {@link https://docs.angularjs.org/api/ngRoute}
  */
-angular.module("soonExampleApp", ["ngRoute"])
+angular.module("soonExampleApp", ["ngRoute"]);
