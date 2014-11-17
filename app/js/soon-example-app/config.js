@@ -1,8 +1,8 @@
 "use strict";
 /**
- * Configuration for lovies.core dependencies are set here.
- * @author SOON_
+ * Configuration for soonExampleApp dependencies are set here.
  * @module soonExampleApp
+ * @author SOON_
  */
 angular.module("soonExampleApp").config([
     "$routeProvider",
