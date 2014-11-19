@@ -1,10 +1,10 @@
 "use strict";
 /**
- * Configuration for soonExampleApp dependencies are set here.
- * @module soonExampleApp
+ * Configuration for snExampleApp dependencies are set here.
+ * @module snExampleApp
  * @author SOON_
  */
-angular.module("soonExampleApp").config([
+angular.module("snExampleApp").config([
     "$routeProvider",
     /**
      * @constructor

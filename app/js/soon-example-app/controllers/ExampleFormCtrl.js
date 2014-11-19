@@ -1,11 +1,11 @@
 "use strict";
 /**
- * Controller for '/example-form' view of soonExampleApp.
+ * Controller for '/example-form' view of snExampleApp.
  * @class  ExampleFormCtrl
- * @module soonExampleApp
+ * @module snExampleApp
  * @author SOON_
  */
-angular.module("soonExampleApp").controller("ExampleFormCtrl", [
+angular.module("snExampleApp").controller("ExampleFormCtrl", [
     "$scope",
     /**
      * @constructor

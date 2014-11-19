@@ -1,11 +1,11 @@
 "use strict";
 /**
- * Controller for homepage view of soonExampleApp.
+ * Controller for homepage view of snExampleApp.
  * @class  HomeCtrl
- * @module soonExampleApp
+ * @module snExampleApp
  * @author SOON_
  */
-angular.module("soonExampleApp").controller("HomeCtrl", [
+angular.module("snExampleApp").controller("HomeCtrl", [
     "$scope",
     /**
      * @constructor

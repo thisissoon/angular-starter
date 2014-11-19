@@ -5,7 +5,7 @@ describe("AnotherCtrl", function (){
     var scope;
 
     beforeEach(function(){
-        module("soonExampleApp");
+        module("snExampleApp");
     });
 
     beforeEach(inject(function ($rootScope, $controller) {
