@@ -74,13 +74,19 @@ module.exports = function (grunt) {
                 cleancss: false
             },
             development: {
-                files: { "app/css/all.css": "app/less/main.less" }
+                files: { "app/css/all.css": "app/less/main.less" },
+                options: {
+                    sourceMap: true,
+                    sourceMapFilename: "app/css/all.css.map",
+                    sourceMapURL: "all.css.map",
+                    outputSourceFiles: true
+                }
             },
             stage: {
-                files: { "<%= config.outputDir %>/css/all.css": "app/less/main.less" }
+                files: { "<%= config.outputDir %>css/all.css": "app/less/main.less" }
             },
             production: {
-                files: { "<%= config.outputDir %>/css/all.min.css": "app/less/main.less" },
+                files: { "<%= config.outputDir %>css/all.min.css": "app/less/main.less" },
                 options: {
                     cleancss: true
                 }
@@ -124,22 +130,22 @@ module.exports = function (grunt) {
                 }
             },
             stage: {
-                src: ["<%= config.outputDir %>/js/app.js", "app/components/angular-mocks/angular-mocks.js"]
+                src: ["<%= config.outputDir %>js/app.js", "app/components/angular-mocks/angular-mocks.js"]
             },
             production: {
-                src: ["<%= config.outputDir %>/js/app.min.js", "app/components/angular-mocks/angular-mocks.js"]
+                src: ["<%= config.outputDir %>js/app.min.js", "app/components/angular-mocks/angular-mocks.js"]
             }
         },
 
         protractor: {
             options: {
-                configFile: "node_modules/protractor/referenceConf.js", // Default config file
-                keepAlive: false, // If false, the grunt process stops when the test fails.
-                noColor: false, // If true, protractor will not use colors in its output.
+                configFile: "node_modules/protractor/referenceConf.js",
+                keepAlive: false,
+                noColor: false
             },
-            dist: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too.
+            dist: {
                 options: {
-                    configFile: "tests/e2e/protractor.conf.js", // Target-specific config file
+                    configFile: "tests/e2e/protractor.conf.js"
                 }
             }
         },
@@ -154,25 +160,39 @@ module.exports = function (grunt) {
 
         concat: {
             options: {
+                sourceMap: true,
                 separator: ";"
             },
-            dist: {
-                src: ["<%= config.vendorFiles %>", "<%= config.applicationFiles %>"],
-                dest: "<%= config.outputDir %>/js/app.js"
+            stage: {
+                src: [
+                    "<%= config.vendorFiles %>",
+                    "<%= config.applicationFiles %>"
+                ],
+                dest: "<%= config.outputDir %>js/app.js"
+            },
+            production: {
+                src: [
+                    "<%= config.vendorFiles %>",
+                    "<%= config.applicationFiles %>"
+                ],
+                dest: "tmp/js/app.js"
             }
         },
 
         uglify: {
             options: {
                 mangle: true,
+                enclose: {},
                 compress: {
                     drop_console: true
                 },
-                enclose: {}
+                sourceMap: true,
+                sourceMapIn: "tmp/js/app.js.map",
+                sourceMapIncludeSources: true
             },
-            dist: {
+            production: {
                 files: {
-                    "<%= config.outputDir %>/js/app.min.js": ["<%= config.outputDir %>/js/app.js"]
+                    "<%= config.outputDir %>/js/app.min.js": ["tmp/js/app.js"]
                 }
             }
         },
@@ -183,7 +203,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: "app/img",
                     src: ["**/*", "!test/**"],
-                    dest: "<%= config.outputDir %>/img/"
+                    dest: "<%= config.outputDir %>img/"
                 }]
             },
             partials: {
@@ -191,17 +211,17 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: "app/partials",
                     src: ["*.html"],
-                    dest: "<%= config.outputDir %>/partials/"
+                    dest: "<%= config.outputDir %>partials/"
                 }]
             }
         },
 
         clean: {
             beforeBuild: {
-                src: ["<%= config.outputDir %>", "docs"]
+                src: ["<%= config.outputDir %>", "docs", "tmp"]
             },
             afterBuild: {
-                src: ["<%= config.outputDir %>/js/app.js"]
+                src: ["tmp"]
             }
         },
 
@@ -213,12 +233,12 @@ module.exports = function (grunt) {
             },
             stage: {
                 files: {
-                    "<%= config.outputDir %>/index.html": ["app/index.html"]
+                    "<%= config.outputDir %>index.html": ["app/index.html"]
                 }
             },
             production: {
                 files: {
-                    "<%= config.outputDir %>/index.html": ["app/index.html"]
+                    "<%= config.outputDir %>index.html": ["app/index.html"]
                 }
             }
         },
@@ -270,7 +290,7 @@ module.exports = function (grunt) {
     grunt.registerTask("build:stage", [
         "clean:beforeBuild",
         "jshint",
-        "concat",
+        "concat:stage",
         "jasmine:stage",
         "less:stage",
         "copy",
@@ -279,7 +299,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask("minify", [
-        "concat",
+        "concat:production",
         "uglify"
     ]);
 
