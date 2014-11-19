@@ -192,7 +192,7 @@ module.exports = function (grunt) {
             },
             production: {
                 files: {
-                    "<%= config.outputDir %>/js/app.min.js": ["tmp/js/app.js"]
+                    "<%= config.outputDir %>js/app.min.js": ["tmp/js/app.js"]
                 }
             }
         },
