@@ -73,8 +73,8 @@ exports.config = {
     'browserName': 'firefox'
   }, {
     'browserName': 'chrome'
-  }, {
-    'browserName': 'safari'
+  // }, {
+  //   'browserName': 'safari'
   // }, {
   //   'browserName': 'internet explorer'
   }],
