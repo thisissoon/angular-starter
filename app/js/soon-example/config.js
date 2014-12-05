@@ -19,16 +19,12 @@ angular.module("sn.example").config([
 
         $routeProvider
             .when("/", {
-                templateUrl: "partials/home.html",
-                controller: "HomeCtrl"
+                templateUrl: "partials/search.html",
+                controller: "SearchCtrl"
             })
-            .when("/another", {
-                templateUrl: "partials/another-view.html",
-                controller: "AnotherCtrl"
-            })
-            .when("/example-form", {
-                templateUrl: "partials/example-form.html",
-                controller: "ExampleFormCtrl"
+            .when("/results", {
+                templateUrl: "partials/results.html",
+                controller: "ResultsCtrl"
             })
             .otherwise({
                 redirectTo: "/"
