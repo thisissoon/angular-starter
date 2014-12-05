@@ -50,6 +50,10 @@ module.exports = function (grunt) {
         },
 
         watch: {
+            options: {
+                nospawn: false,
+                livereload: true
+            },
             css: {
                 files: [
                     "app/index.html",
@@ -63,11 +67,7 @@ module.exports = function (grunt) {
                     "app/partials/**/*.html",
                     "app/partials/**/**/*.html"
                 ],
-                tasks: ["less:development"],
-                options: {
-                    nospawn: false,
-                    livereload: true
-                }
+                tasks: ["less:development"]
             },
             javascript: {
                 files: [
@@ -78,11 +78,7 @@ module.exports = function (grunt) {
                     "tests/unit/**/*.js",
                     "tests/unit/**/**/*.js"
                 ],
-                tasks: ["jshint", "jasmine:development"],
-                options: {
-                    nospawn: false,
-                    livereload: true
-                }
+                tasks: ["test"]
             }
         },
 
@@ -141,6 +137,13 @@ module.exports = function (grunt) {
                                 }
                             },
                             {
+                                type: "text-summary",
+                                options: {
+                                    dir: "coverage/text-summary",
+                                    file: "text-summary.txt"
+                                }
+                            },
+                            {
                                 type: "text-summary"
                             }
                         ]
@@ -171,7 +174,7 @@ module.exports = function (grunt) {
         protractor_webdriver: {
             dist: {
                 options: {
-                    command: "webdriver-manager start",
+                    command: "webdriver-manager start --standalone",
                 }
             }
         },
