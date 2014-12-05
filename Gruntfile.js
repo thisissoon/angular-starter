@@ -1,6 +1,10 @@
 "use strict";
 
+var modRewrite = require('connect-modrewrite');
+
 module.exports = function (grunt) {
+
+    var base = grunt.option("baseDir") || "";
 
     grunt.initConfig({
 
@@ -13,20 +17,34 @@ module.exports = function (grunt) {
         },
 
         connect: {
+            options: {
+                hostname: "0.0.0.0",
+                port: 8000,
+                base: base
+            },
             server: {
                 options: {
-                    hostname: "0.0.0.0",
-                    port: 8000,
                     livereload: true,
-                    open: "http://localhost:8000/app/"
+                    middleware: function ( connect, options, middlewares ) {
+                        var rules = [
+                            "^/app/[^\.]*$ /app/index.html"
+                        ];
+                        middlewares.unshift( modRewrite( rules ) );
+                        return middlewares;
+                    }
                 }
             },
             servertest: {
                 options: {
                     keepalive: false,
-                    hostname: "0.0.0.0",
-                    port: 8000,
-                    livereload: false
+                    livereload: false,
+                    middleware: function ( connect, options, middlewares ) {
+                        var rules = [
+                            "^/app/[^\.]*$ /app/index.html"
+                        ];
+                        middlewares.unshift( modRewrite( rules ) );
+                        return middlewares;
+                    }
                 }
             }
         },

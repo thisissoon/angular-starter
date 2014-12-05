@@ -4,7 +4,7 @@
 
 describe("snExampleApp", function() {
 
-    browser.get("app/index.html#/");
+    browser.get("app/");
 
     it("should automatically redirect to / when location hash/fragment is empty", function() {
         expect(browser.getLocationAbsUrl()).toMatch("/");
@@ -13,7 +13,7 @@ describe("snExampleApp", function() {
     describe("view1", function() {
 
         beforeEach(function() {
-            browser.get("app/index.html#/");
+            browser.get("app/");
         });
 
 
@@ -27,7 +27,7 @@ describe("snExampleApp", function() {
     describe("view2", function() {
 
         beforeEach(function() {
-            browser.get("app/index.html#/another");
+            browser.get("app/another");
         });
 
 
@@ -40,7 +40,7 @@ describe("snExampleApp", function() {
     describe("view3", function() {
 
         beforeEach(function() {
-            browser.get("app/index.html#/example-form");
+            browser.get("app/example-form");
         });
 
 

@@ -6,11 +6,16 @@
  */
 angular.module("snExampleApp").config([
     "$routeProvider",
+    "$locationProvider",
     /**
      * @constructor
      * @param {Service} $routeProvider
+     * @param {Service} $locationProvider
      */
-    function ($routeProvider) {
+    function ($routeProvider, $locationProvider) {
+
+        $locationProvider.html5Mode(true);
+        $locationProvider.hashPrefix = "!";
 
         $routeProvider
             .when("/", {
