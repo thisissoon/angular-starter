@@ -247,7 +247,7 @@ module.exports = function (grunt) {
                 src: ["<%= config.outputDir %>", "docs", "tmp"]
             },
             afterBuild: {
-                src: ["tmp"]
+                src: ["tmp", "app/index-e2e.html"]
             }
         },
 
@@ -265,6 +265,11 @@ module.exports = function (grunt) {
             production: {
                 files: {
                     "<%= config.outputDir %>index.html": ["app/index.html"]
+                }
+            },
+            e2e: {
+                files: {
+                    "app/index-e2e.html": ["app/index.html"]
                 }
             }
         },
@@ -347,9 +352,11 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask("e2e", [
+        "processhtml:e2e",
         "connect:servertest",
         "protractor_webdriver",
-        "protractor"
+        "protractor",
+        "clean:afterBuild"
     ]);
 
     grunt.registerTask("default", ["build:production"]);

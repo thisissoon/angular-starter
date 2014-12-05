@@ -2,60 +2,56 @@
 
 /* https://github.com/angular/protractor/blob/master/docs/getting-started.md */
 
-describe("snExampleApp", function() {
+describe("sn.example", function() {
 
-    browser.get("app/");
+    describe("search", function() {
 
-    it("should automatically redirect to / when location hash/fragment is empty", function() {
-        expect(browser.getLocationAbsUrl()).toMatch("/");
-    });
-
-    describe("view1", function() {
-
-        beforeEach(function() {
-            browser.get("app/");
+        beforeEach(function(){
+            browser.driver.manage().window().setSize(1366, 768);
+            browser.manage().deleteAllCookies();
+            browser.get("http://127.0.0.1:8000/app/");
+            browser.waitForAngular();
+            browser.driver.sleep(2000);
         });
 
+        it("should automatically redirect to / when location hash/fragment is empty", function() {
+            expect(browser.getLocationAbsUrl()).toMatch("/");
+        });
 
         it("should render home partial when user navigates to /", function() {
-            expect(element.all(by.css("ng-view h1")).first().getText()).toEqual("Home");
+            expect(element.all(by.css("ng-view h1")).first().getText()).toContain("Search");
         });
 
-      });
+        it("should search for location", function() {
+            element(by.model("location")).sendKeys("London");
+            element(by.id("submit")).click();
 
+            browser.driver.sleep(5000);
 
-    describe("view2", function() {
+            browser.driver.wait(function() {
+                return browser.driver.getCurrentUrl().then(function (url) {
+                    return /results/.test(url);
+                });
+            });
 
-        beforeEach(function() {
-            browser.get("app/another");
-        });
-
-
-        it("should render another view when user navigates to /another", function() {
-            expect(element.all(by.css("ng-view h1")).first().getText()).toEqual("Another view");
+            expect(element.all(by.repeater("result in results")).count()).toEqual(4);
         });
 
     });
 
-    describe("view3", function() {
 
-        beforeEach(function() {
-            browser.get("app/example-form");
+    describe("results", function() {
+
+        beforeEach(function(){
+            browser.get("http://127.0.0.1:8000/app/results");
+            browser.waitForAngular();
+            browser.driver.sleep(2000);
         });
 
+        it("should render results page view", function() {
+            expect(element.all(by.css("ng-view h1")).first().getText()).toContain("Results");
+            expect(element(by.css(".bg-info")).getText()).toContain("No search results");
 
-        it("should render exmaple form view when user navigates to /example-form", function() {
-            expect(element.all(by.css("ng-view h1")).first().getText()).toEqual("Example Form");
-        });
-
-        it("should fill in and submit form", function() {
-            element(by.model('user.name')).sendKeys("foo");
-            element(by.model('user.email')).sendKeys("foo@bar.com");
-            element(by.model('user.password')).sendKeys("1234");
-            element(by.model('user.check')).click();
-            element(by.id('submit')).click();
-
-            expect(element(by.binding('added')).getText()).toEqual('User foo was successfully added');
         });
 
     });
