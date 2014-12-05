@@ -5,10 +5,10 @@
         "app/components/angular-route/angular-route.js"
     ],
     "application": [
-        "app/js/soon-example-app/app.js",
-        "app/js/soon-example-app/config.js",
-        "app/js/soon-example-app/controllers/HomeCtrl.js",
-        "app/js/soon-example-app/controllers/AnotherCtrl.js",
-        "app/js/soon-example-app/controllers/ExampleFormCtrl.js"
+        "app/js/soon-example/app.js",
+        "app/js/soon-example/config.js",
+        "app/js/soon-example/controllers/HomeCtrl.js",
+        "app/js/soon-example/controllers/AnotherCtrl.js",
+        "app/js/soon-example/controllers/ExampleFormCtrl.js"
     ]
 }

@@ -1,7 +1,7 @@
 "use strict";
 /**
  * @author   SOON_
- * @module   snExampleApp
+ * @module   sn.example
  * @requires ngRoute {@link https://docs.angularjs.org/api/ngRoute}
  */
-angular.module("snExampleApp", ["ngRoute"]);
+angular.module("sn.example", ["ngRoute"]);
