@@ -26,9 +26,14 @@ module.exports = function (grunt) {
                 options: {
                     livereload: true,
                     middleware: function ( connect, options, middlewares ) {
-                        var rules = [
-                            "^/app/[^\.]*$ /app/index.html"
-                        ];
+                        var rules = (base === "dist") ?
+                            [
+                                "^/[^\.]*$ /index.html",
+                            ]:
+                            [
+                                "^/app/[^\.]*$ /app/index.html",
+                                "^/dist/[^\.]*$ /dist/index.html"
+                            ];
                         middlewares.unshift( modRewrite( rules ) );
                         return middlewares;
                     }
