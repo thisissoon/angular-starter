@@ -20,36 +20,24 @@ module.exports = function (grunt) {
             options: {
                 hostname: "0.0.0.0",
                 port: 8000,
-                base: base
+                base: base,
+                middleware: function ( connect, options, middlewares ) {
+                    var rules = (base === "dist") ?
+                        [ "^/[^\.]*$ /index.html" ] :
+                        ["^/app/[^\.]*$ /app/index.html"];
+                    middlewares.unshift( modRewrite( rules ) );
+                    return middlewares;
+                }
             },
             server: {
                 options: {
-                    livereload: true,
-                    middleware: function ( connect, options, middlewares ) {
-                        var rules = (base === "dist") ?
-                            [
-                                "^/[^\.]*$ /index.html",
-                            ]:
-                            [
-                                "^/app/[^\.]*$ /app/index.html",
-                                "^/dist/[^\.]*$ /dist/index.html"
-                            ];
-                        middlewares.unshift( modRewrite( rules ) );
-                        return middlewares;
-                    }
+                    livereload: true
                 }
             },
             servertest: {
                 options: {
                     keepalive: false,
-                    livereload: false,
-                    middleware: function ( connect, options, middlewares ) {
-                        var rules = [
-                            "^/app/[^\.]*$ /app/index.html"
-                        ];
-                        middlewares.unshift( modRewrite( rules ) );
-                        return middlewares;
-                    }
+                    livereload: false
                 }
             }
         },
@@ -253,9 +241,7 @@ module.exports = function (grunt) {
 
         processhtml: {
             options: {
-                data: {
-                    message: "processing 'index.html' file"
-                }
+                strip: true
             },
             stage: {
                 files: {
@@ -268,6 +254,9 @@ module.exports = function (grunt) {
                 }
             },
             e2e: {
+                options: {
+                    strip: false
+                },
                 files: {
                     "app/index-e2e.html": ["app/index.html"]
                 }
