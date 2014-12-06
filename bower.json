@@ -1,8 +1,8 @@
 {
-  "name": "soon-angularjs-template",
-  "description": "A starter project for AngularJS",
-  "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "name": "angularjs-template",
+  "description": "A base template for a typical angularjs application",
+  "version": "0.0.1",
+  "homepage": "https://github.com/thisissoon/angularjs-template",
   "license": "MIT",
   "private": true,
   "dependencies": {
