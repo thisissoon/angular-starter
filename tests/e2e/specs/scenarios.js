@@ -33,7 +33,7 @@ describe("sn.example", function() {
                     return /results/.test(url);
                 });
             });
-
+            expect(browser.getLocationAbsUrl()).toMatch("/results");
             expect(element.all(by.repeater("result in results")).count()).toEqual(4);
         });
 
@@ -51,6 +51,19 @@ describe("sn.example", function() {
         it("should render results page view", function() {
             expect(element.all(by.css("ng-view h1")).first().getText()).toContain("Results");
             expect(element(by.css(".bg-info")).getText()).toContain("No search results");
+
+        });
+
+        it("should go back to search page view", function() {
+            element(by.css("a.home")).click();
+
+            browser.driver.wait(function() {
+                return browser.driver.getCurrentUrl().then(function (url) {
+                    return /\//.test(url);
+                });
+            });
+
+            expect(browser.getLocationAbsUrl()).toMatch("/");
 
         });
 
