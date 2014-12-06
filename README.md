@@ -11,12 +11,12 @@ To get you started you can simply clone the repository and install the dependenc
 
 ### Clone SOON_ AngularJS Template repository
 
-Clone the soon-angularjs-template repository using [git][git]:
+Clone the angularjs-template repository using [git][git]:
 
 ```
 cd path/to/parent/directory
-git clone git@github.com:thisissoon/soon-angularjs-template.git
-cd soon-angularjs-template
+git clone git@github.com:thisissoon/angularjs-template.git
+cd angularjs-template
 ```
 
 
