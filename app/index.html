@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+<!-- build:[ng-app]:e2e sn.example.e2e -->
 <html lang="en" ng-app="sn.example">
+<!-- /build -->
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>SOON_ AngularJS Template</title>
-         <!-- build:template:production,stage
+        <!-- build:template:production,stage
         <base href="/">
         /build -->
         <!-- build:remove:production,stage -->
@@ -20,7 +22,7 @@
 
         <!-- build:js:stage js/app.js --><!-- /build -->
         <!-- build:js:production js/app.min.js --><!-- /build -->
-        <!-- build:remove -->
+        <!-- build:remove:production,stage -->
         <script src="components/angular/angular.js"></script>
         <script src="components/angular-route/angular-route.js"></script>
 

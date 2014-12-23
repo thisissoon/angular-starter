@@ -14,8 +14,7 @@ angular.module("sn.example").config([
      */
     function ($routeProvider, $locationProvider) {
 
-        $locationProvider.html5Mode(true);
-        $locationProvider.hashPrefix = "!";
+        $locationProvider.html5Mode(true).hashPrefix = "!";
 
         $routeProvider
             .when("/", {

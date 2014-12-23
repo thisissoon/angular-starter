@@ -3,7 +3,7 @@
  * This module runs e2e test by setting up a module to make our
  * backend assertions e.g. mock the responses from our api before
  * lauching our actual application.
- * @main sn.example.e2e
+ * @main   sn.example.e2e
  * @module sn.example.e2e
  * @author SOON_
  */

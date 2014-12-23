@@ -20,24 +20,31 @@ module.exports = function (grunt) {
             options: {
                 hostname: "0.0.0.0",
                 port: 8000,
-                base: base,
-                middleware: function ( connect, options, middlewares ) {
-                    var rules = (base === "dist") ?
-                        [ "^/[^\.]*$ /index.html" ] :
-                        ["^/app/[^\.]*$ /app/index.html"];
-                    middlewares.unshift( modRewrite( rules ) );
-                    return middlewares;
-                }
+                base: base
             },
             server: {
                 options: {
-                    livereload: true
+                    livereload: true,
+                    middleware: function ( connect, options, middlewares ) {
+                        var rules = (base === "dist") ?
+                            [ "^/[^\.]*$ /index.html" ] :
+                            [ "^/app/[^\.]*$ /app/index.html" ];
+                        middlewares.unshift( modRewrite( rules ) );
+                        return middlewares;
+                    }
                 }
             },
             servertest: {
                 options: {
                     keepalive: false,
-                    livereload: false
+                    livereload: false,
+                    middleware: function ( connect, options, middlewares ) {
+                        var rules = [
+                            "^/app/[^\.]*$ /app/index-e2e.html"
+                        ];
+                        middlewares.unshift( modRewrite( rules ) );
+                        return middlewares;
+                    }
                 }
             }
         },
@@ -70,6 +77,7 @@ module.exports = function (grunt) {
                     "app/js/*.js",
                     "app/js/**/*.js",
                     "app/js/**/**/*.js",
+
                     "tests/unit/*.js",
                     "tests/unit/**/*.js",
                     "tests/unit/**/**/*.js"
