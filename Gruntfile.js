@@ -100,9 +100,6 @@ module.exports = function (grunt) {
                     outputSourceFiles: true
                 }
             },
-            stage: {
-                files: { "<%= config.outputDir %>css/all.css": "app/less/main.less" }
-            },
             production: {
                 files: { "<%= config.outputDir %>css/all.min.css": "app/less/main.less" },
                 options: {
@@ -154,9 +151,6 @@ module.exports = function (grunt) {
                     }
                 }
             },
-            stage: {
-                src: ["<%= config.outputDir %>js/app.js", "app/components/angular-mocks/angular-mocks.js"]
-            },
             production: {
                 src: ["<%= config.outputDir %>js/app.min.js", "app/components/angular-mocks/angular-mocks.js"]
             }
@@ -188,36 +182,30 @@ module.exports = function (grunt) {
                 sourceMap: true,
                 separator: ";"
             },
-            stage: {
+            production: {
                 src: [
                     "<%= config.vendorFiles %>",
                     "<%= config.applicationFiles %>"
                 ],
                 dest: "<%= config.outputDir %>js/app.js"
-            },
-            production: {
-                src: [
-                    "<%= config.vendorFiles %>",
-                    "<%= config.applicationFiles %>"
-                ],
-                dest: "tmp/js/app.js"
             }
         },
 
         uglify: {
             options: {
-                mangle: true,
-                enclose: {},
-                compress: {
-                    drop_console: true
-                },
                 sourceMap: true,
-                sourceMapIn: "tmp/js/app.js.map",
-                sourceMapIncludeSources: true
+                sourceMapIncludeSources: true,
+                enclose: {
+                    window: "window"
+                }
             },
             production: {
                 files: {
-                    "<%= config.outputDir %>js/app.min.js": ["tmp/js/app.js"]
+                    "<%= config.outputDir %>js/app.min.js":
+                    [
+                        "<%= config.vendorFiles %>",
+                        "<%= config.applicationFiles %>"
+                    ]
                 }
             }
         },
@@ -243,21 +231,16 @@ module.exports = function (grunt) {
 
         clean: {
             beforeBuild: {
-                src: ["<%= config.outputDir %>", "docs", "tmp"]
+                src: ["<%= config.outputDir %>", "docs"]
             },
             afterBuild: {
-                src: ["tmp", "app/index-e2e.html"]
+                src: ["app/index-e2e.html"]
             }
         },
 
         processhtml: {
             options: {
                 strip: true
-            },
-            stage: {
-                files: {
-                    "<%= config.outputDir %>index.html": ["app/index.html"]
-                }
             },
             production: {
                 files: {
@@ -306,7 +289,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-protractor-webdriver');
     grunt.loadNpmTasks("grunt-processhtml");
 
-    grunt.registerTask("build:production", [
+    grunt.registerTask("build", [
         "clean:beforeBuild",
         "jshint",
         "minify",
@@ -316,17 +299,6 @@ module.exports = function (grunt) {
         "processhtml:production",
         "yuidoc",
         "clean:afterBuild"
-    ]);
-
-    grunt.registerTask("build:stage", [
-        "clean:beforeBuild",
-        "jshint",
-        "concat:stage",
-        "jasmine:stage",
-        "less:stage",
-        "copy",
-        "processhtml:stage",
-        "yuidoc"
     ]);
 
     grunt.registerTask("minify", [
@@ -365,7 +337,7 @@ module.exports = function (grunt) {
         "clean:afterBuild"
     ]);
 
-    grunt.registerTask("default", ["build:production"]);
-    grunt.registerTask("release", ["build:production"]);
+    grunt.registerTask("default", ["build"]);
+    grunt.registerTask("release", ["build"]);
 
 };
