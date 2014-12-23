@@ -292,18 +292,13 @@ module.exports = function (grunt) {
     grunt.registerTask("build", [
         "clean:beforeBuild",
         "jshint",
-        "minify",
+        "uglify",
         "jasmine:production",
         "less:production",
         "copy",
         "processhtml:production",
         "yuidoc",
         "clean:afterBuild"
-    ]);
-
-    grunt.registerTask("minify", [
-        "concat:production",
-        "uglify"
     ]);
 
     grunt.registerTask("server", [
