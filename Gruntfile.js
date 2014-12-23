@@ -343,6 +343,12 @@ module.exports = function (grunt) {
     grunt.registerTask("serverjs", [
         "less:development",
         "connect:server",
+        "watch:javascript"
+    ]);
+
+    grunt.registerTask("serverall", [
+        "less:development",
+        "connect:server",
         "watch"
     ]);
 

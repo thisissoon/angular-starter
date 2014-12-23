@@ -89,6 +89,14 @@ grunt serverjs
 
 To run tests as well everytime a javascript file is updated
 
+To watch all files run:
+
+```
+grunt serverall
+```
+
+To run tests or compile less to css when the relevent files are updated. 
+
 ### Running the build script
 
 To create a build to deploy for a staging environment simply run: 
