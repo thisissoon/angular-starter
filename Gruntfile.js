@@ -50,15 +50,18 @@ module.exports = function (grunt) {
             css: {
                 files: [
                     "app/index.html",
+
                     "app/less/*.less",
                     "app/less/**/*.less",
                     "app/less/**/**/*.less",
-                    "app/modules/*.html",
-                    "app/modules/**/*.html",
-                    "app/modules/**/**/*.html",
+
                     "app/partials/*.html",
                     "app/partials/**/*.html",
-                    "app/partials/**/**/*.html"
+                    "app/partials/**/**/*.html",
+
+                    "modules/*.html",
+                    "modules/**/*.html",
+                    "modules/**/**/*.html"
                 ],
                 tasks: ["less:development"]
             },

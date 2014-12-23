@@ -137,12 +137,12 @@ app/                    --> all of the files to be used in production
         {view}Ctrl.js   
       directives/       --> directives
         {module}.js     
-    modules/            --> static html files for building and testing styling and mark up
-      {module}/
-        index.html
     partials/           --> angular view partials (partial html templates)
       partial1.html
       partial2.html
+modules/                --> static html files for building and testing styling and mark up
+  {module}/
+    index.html
 tests/                  --> test config and source files
   e2e/                  --> end-to-end specs
     specs/              
