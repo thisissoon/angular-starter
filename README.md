@@ -22,7 +22,7 @@ cd angularjs-template
 
 ### Install Dependencies
 
-We have two kinds of dependencies in this project: tools and angular framework code.  The tools help us manage and test the application.
+We have two kinds of dependencies in this project: tools and angular framework code. The tools help us manage and test the application.
 
 * We get the tools we depend upon via `npm`, the [node package manager][npm].
 * We get the angular code via `bower`, a [client-side code package manager][bower].
@@ -52,16 +52,22 @@ folders in your project.
 
 We install our frontend libraries via `bower`, a [client-side code package manager][bower].
 
-To install a library such as angular we can simply do:
+All frontend depenancies such as angular will be installed when running `npm install`. To manully install all depenancies run:
 
 ```
-bower install angular --save
+bower install
 ```
 
-And this will download the angular package from bower and also update the `bower.json` file to include that package. You will still need to add the script tag to the `app/index.html` like so:
+To install a new library such as bootstrap we can simply do:
+
+```
+bower install bootstrap --save
+```
+
+And this will download the bootstrap package from bower and also update the `bower.json` file to include that package. You will then need to add the script tag to `app/index.html` like so:
 
 ```html
-<script src="components/angular/angular.js"></script>
+<script src="path/to/bootstrap.js"></script>
 ```
 
 ### Run the Application
