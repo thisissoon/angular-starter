@@ -70,9 +70,15 @@ exports.config = {
   // https://code.google.com/p/selenium/issues/detail?id=7933#c33
 
   multiCapabilities: [{
-    'browserName': 'firefox'
+    'browserName': 'firefox',
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    'build': process.env.TRAVIS_BUILD_NUMBER,
+    'name': 'Protractor Tests'
   }, {
-    'browserName': 'chrome'
+    'browserName': 'chrome',
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    'build': process.env.TRAVIS_BUILD_NUMBER,
+    'name': 'Protractor Tests'
   // }, {
   //   'browserName': 'safari'
   // }, {
