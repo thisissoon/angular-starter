@@ -202,20 +202,11 @@ special features for Angular applications.
 
 Protractor simulates interaction with our web app and verifies that the application responds
 correctly. Therefore, our web server needs to be serving up the application, so that Protractor
-can interact with it. You may need to run this command with superuser privileges:
+can interact with it. To run end to end tests we first need to install protractor with global permissions. You may need to run this command with superuser privileges:
 
 ```
 npm install -g protractor
 ```
-
-To run end to end tests we first need to install protractor with global permissions. In addition, since Protractor is built upon WebDriver we need to install this:
-
-
-```
-webdriver-manager update --standalone --chrome
-```
-
-This will download and install the latest version of the stand-alone WebDriver tool.
 
 Once you have ensured that the development web server hosting our application is up and running
 and WebDriver is updated, you can run the end-to-end tests using the supplied grunt task:
@@ -224,8 +215,8 @@ and WebDriver is updated, you can run the end-to-end tests using the supplied gr
 grunt e2e
 ```
 
-This script will execute the end-to-end tests against the application being hosted on the
-development server.
+Behind the scenes this will also run `webdriver-manager update && webdriver-manager start`. This will download and install the latest version of the stand-alone WebDriver tool and start the Selenium web server. This script will execute the end-to-end tests against the application being hosted on the
+development server. 
 
 
 ## Contact

@@ -1,9 +1,6 @@
 // A reference configuration file.
 exports.config = {
 
-  // The address of a running selenium server.
-  seleniumAddress: (process.env.SELENIUM_URL || 'http://localhost:4444/wd/hub'),
-
   // If sauceUser and sauceKey are specified, seleniumServerJar will be ignored.
   // The tests will be run remotely using SauceLabs.
   sauceUser: process.env.SAUCE_USERNAME,
@@ -23,12 +20,45 @@ exports.config = {
   multiCapabilities: [{
     'browserName': 'chrome',
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': process.env.TRAVIS_BUILD_NUMBER
-  // }, {
-  //   'browserName': 'firefox',
-  //   'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-  //   'build': process.env.TRAVIS_BUILD_NUMBER
+    'build': process.env.TRAVIS_BUILD_NUMBER,
+    'name': 'SOON Example (Chrome: OS X 10.10) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
+    'version': '39',
+    'selenium-version': '2.43.1',
+    'platform': 'OS X 10.10'
+  }, {
+    'browserName': 'firefox',
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    'build': process.env.TRAVIS_BUILD_NUMBER,
+    'name': 'SOON Example (FF: OS X 10.9) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
+    'version': '34',
+    'selenium-version': '2.43.1',
+    'platform': 'OS X 10.9'
+  }, {
+    'browserName': 'safari',
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    'build': process.env.TRAVIS_BUILD_NUMBER,
+    'name': 'SOON Example (Safari: OS X 10.10) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
+    'version': '8',
+    'selenium-version': '2.43.1',
+    'platform': 'OS X 10.10'
+  }, {
+    'browserName': 'internet explorer',
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    'build': process.env.TRAVIS_BUILD_NUMBER,
+    'name': 'SOON Example (IE11: Win 7) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
+    'version': '11',
+    'selenium-version': '2.43.1',
+    'platform': 'Windows 7'
+  }, {
+    'browserName': 'internet explorer',
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    'build': process.env.TRAVIS_BUILD_NUMBER,
+    'name': 'SOON Example (IE10: Win 7) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
+    'version': '10',
+    'selenium-version': '2.43.1',
+    'platform': 'Windows 7'
   }],
+
   // ----- More information for your tests ----
   //
   // A base URL for your application under test. Calls to protractor.get()

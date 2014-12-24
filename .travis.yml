@@ -10,12 +10,11 @@ before_install:
   - npm install -g bower
   - npm install -g grunt-cli
   - npm install -g protractor
-  - webdriver-manager update --standalone --chrome
 install:
   - npm install
 script:
   - grunt test
-  - grunt e2e --protractorConf=tests/e2e/protractor.saucelabs.conf.js
+  - grunt e2e --ci
 after_success:
   - ./node_modules/coveralls/bin/coveralls.js < coverage/lcov.info
 addons:

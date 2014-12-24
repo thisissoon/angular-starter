@@ -5,7 +5,9 @@ var modRewrite = require("connect-modrewrite");
 module.exports = function (grunt) {
 
     var base = grunt.option("baseDir") || "",
-        protractorConf = grunt.option("protractorConf") || "tests/e2e/protractor.conf.js"
+        protractorConf = grunt.option("ci") ?
+                        "tests/e2e/protractor.saucelabs.conf.js" :
+                        "tests/e2e/protractor.conf.js" ;
 
     grunt.initConfig({
 
@@ -165,7 +167,7 @@ module.exports = function (grunt) {
         protractor_webdriver: {
             dist: {
                 options: {
-                    command: "webdriver-manager start",
+                    command: "webdriver-manager update && webdriver-manager start",
                 }
             }
         },
