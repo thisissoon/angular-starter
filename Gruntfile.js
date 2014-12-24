@@ -132,16 +132,9 @@ module.exports = function (grunt) {
                         coverage: "coverage/coverage.json",
                         report: [
                             {
-                                type: "html",
+                                type: "lcov",
                                 options: {
-                                    dir: "coverage/html"
-                                }
-                            },
-                            {
-                                type: "text-summary",
-                                options: {
-                                    dir: "coverage/text-summary",
-                                    file: "text-summary.txt"
+                                    dir: "coverage"
                                 }
                             },
                             {
