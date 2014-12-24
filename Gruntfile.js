@@ -1,6 +1,6 @@
 "use strict";
 
-var modRewrite = require('connect-modrewrite');
+var modRewrite = require("connect-modrewrite");
 
 module.exports = function (grunt) {
 
@@ -276,10 +276,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-contrib-connect");
     grunt.loadNpmTasks("grunt-contrib-jshint");
-    grunt.loadNpmTasks('grunt-contrib-yuidoc');
+    grunt.loadNpmTasks("grunt-contrib-yuidoc");
     grunt.loadNpmTasks("grunt-contrib-jasmine");
-    grunt.loadNpmTasks('grunt-protractor-runner');
-    grunt.loadNpmTasks('grunt-protractor-webdriver');
+    grunt.loadNpmTasks("grunt-protractor-runner");
+    grunt.loadNpmTasks("grunt-protractor-webdriver");
     grunt.loadNpmTasks("grunt-processhtml");
 
     grunt.registerTask("build", [
