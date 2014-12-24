@@ -4,7 +4,8 @@ var modRewrite = require("connect-modrewrite");
 
 module.exports = function (grunt) {
 
-    var base = grunt.option("baseDir") || "";
+    var base = grunt.option("baseDir") || "",
+        protractorConf = grunt.option("protractorConf") || "tests/e2e/protractor.conf.js"
 
     grunt.initConfig({
 
@@ -151,13 +152,12 @@ module.exports = function (grunt) {
 
         protractor: {
             options: {
-                configFile: "node_modules/protractor/referenceConf.js",
                 keepAlive: false,
                 noColor: false
             },
             dist: {
                 options: {
-                    configFile: "tests/e2e/protractor.conf.js"
+                    configFile: protractorConf
                 }
             }
         },
@@ -165,7 +165,7 @@ module.exports = function (grunt) {
         protractor_webdriver: {
             dist: {
                 options: {
-                    command: "webdriver-manager start --standalone",
+                    command: "webdriver-manager start",
                 }
             }
         },
@@ -321,7 +321,7 @@ module.exports = function (grunt) {
         "processhtml:e2e",
         "connect:servertest",
         "protractor_webdriver",
-        "protractor",
+        "protractor:dist",
         "clean:afterBuild"
     ]);
 
