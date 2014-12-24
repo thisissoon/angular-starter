@@ -37,13 +37,13 @@ exports.config = {
 
   // If sauceUser and sauceKey are specified, seleniumServerJar will be ignored.
   // The tests will be run remotely using SauceLabs.
-  sauceUser: process.env.SAUCE_USER ? process.env.SAUCE_USER : null,
-  sauceKey: process.env.SAUCE_KEY ? process.env.SAUCE_KEY : null,
+  sauceUser: process.env.SAUCE_USER,
+  sauceKey: process.env.SAUCE_KEY,
 
   // The address of a running selenium server. If specified, Protractor will
   // connect to an already running instance of selenium. This usually looks like
   // seleniumAddress: 'http://localhost:4444/wd/hub'
-  seleniumAddress: "http://localhost:4444/wd/hub",
+  // seleniumAddress: "http://localhost:4444/wd/hub",
 
   // The timeout for each script run on the browser. This should be longer
   // than the maximum time your application needs to stabilize between tasks.
