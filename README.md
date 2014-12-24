@@ -1,4 +1,4 @@
-# SOON_ AngularJS Template [![Build Status](https://travis-ci.org/thisissoon/angularjs-template.svg?branch=master)](https://travis-ci.org/thisissoon/angularjs-template)
+# SOON_ AngularJS Template [![Build Status](https://travis-ci.org/thisissoon/angularjs-template.svg?branch=master)](https://travis-ci.org/thisissoon/angularjs-template) [![Coverage Status](https://coveralls.io/repos/thisissoon/angularjs-template/badge.png?branch=master)](https://coveralls.io/r/thisissoon/angularjs-template?branch=master)
 
 This project structure is based on the [angular-seed](https://github.com/angular/angular-seed) application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 
