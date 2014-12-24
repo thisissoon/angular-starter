@@ -1,4 +1,7 @@
-# SOON_ AngularJS Template [![Build Status](https://travis-ci.org/thisissoon/angularjs-template.svg?branch=master)](https://travis-ci.org/thisissoon/angularjs-template) [![Coverage Status](https://coveralls.io/repos/thisissoon/angularjs-template/badge.png?branch=master)](https://coveralls.io/r/thisissoon/angularjs-template?branch=master)
+# SOON_ AngularJS Template 
+
+[![Build Status](https://travis-ci.org/thisissoon/angularjs-template.svg?branch=master)](https://travis-ci.org/thisissoon/angularjs-template) 
+[![Coverage Status](https://img.shields.io/coveralls/thisissoon/angularjs-template.svg)](https://coveralls.io/r/thisissoon/angularjs-template?branch=master)
 
 This project structure is based on the [angular-seed](https://github.com/angular/angular-seed) application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 
@@ -99,16 +102,10 @@ To run tests or compile less to css when the relevent files are updated.
 
 ### Running the build script
 
-To create a build to deploy for a staging environment simply run: 
-
-```
-grunt build:stage
-```
-
 To create a build to deploy for a production environment simply run: 
 
 ```
-grunt build:production
+grunt build
 ```
 
 The build files will then be in the `dist/` directory.
