@@ -320,6 +320,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask("e2e", [
+        "less:development",
         "processhtml:e2e",
         "connect:servertest",
         "protractor_webdriver",
