@@ -231,7 +231,7 @@ module.exports = function (grunt) {
                     ],
                     dest: "<%= config.outputDir %>e2e/"
                 }]
-            },
+            }
         },
 
         clean: {
@@ -297,7 +297,8 @@ module.exports = function (grunt) {
         "uglify",
         "jasmine:production",
         "less:production",
-        "copy",
+        "copy:images",
+        "copy:partials",
         "processhtml:production",
         "yuidoc"
     ]);
