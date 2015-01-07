@@ -29,7 +29,7 @@ exports.config = {
     'browserName': 'firefox',
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     'build': process.env.TRAVIS_BUILD_NUMBER,
-    'name': 'SOON Example (FF: OS X 10.9) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
+    'name': 'SOON Example (FF: Linux) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
     'version': '34',
     'selenium-version': '2.43.1',
     'platform': 'Linux'
