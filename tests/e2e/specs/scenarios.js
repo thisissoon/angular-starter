@@ -7,7 +7,9 @@ describe("sn.example", function() {
     describe("search", function() {
 
         beforeEach(function(){
-            browser.driver.manage().window().setSize(1366, 768);
+            try {
+                browser.driver.manage().window().setSize(1366, 768);
+            } catch(e){}
             browser.manage().deleteAllCookies();
             browser.get("http://127.0.0.1:8000/");
             browser.waitForAngular();
