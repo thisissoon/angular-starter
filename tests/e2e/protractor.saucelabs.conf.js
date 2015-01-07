@@ -32,7 +32,7 @@ exports.config = {
     'name': 'SOON Example (FF: OS X 10.9) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
     'version': '34',
     'selenium-version': '2.43.1',
-    'platform': 'OS X 10.9'
+    'platform': 'Linux'
   }, {
     'browserName': 'safari',
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
@@ -57,6 +57,29 @@ exports.config = {
     'version': '10',
     'selenium-version': '2.43.1',
     'platform': 'Windows 7'
+  }, {
+    'browserName': 'browser',
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    'build': process.env.TRAVIS_BUILD_NUMBER,
+    'name': 'SOON Example (Browser: Android 5.0) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
+    'version': '5.0',
+    'platformVersion': '5.0',
+    'platformName': 'Android',
+    'appiumVersion': '1.3.4',
+    'deviceName': 'Android Emulator',
+    'device-orientation': 'portrait'
+  }, {
+    'browserName': 'safari',
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    'build': process.env.TRAVIS_BUILD_NUMBER,
+    'name': 'SOON Example (Safari: iOS 8.1) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
+    'version': '8.1',
+    'platformVersion': '8.1',
+    'platformName': 'iOS',
+    'appiumVersion': '1.3.4',
+    'platform': 'iOS',
+    'deviceName': 'iPhone Simulator',
+    'device-orientation': 'portrait'
   }],
 
   // ----- More information for your tests ----
