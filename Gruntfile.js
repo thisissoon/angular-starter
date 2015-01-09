@@ -41,10 +41,9 @@ module.exports = function (grunt) {
                 options: {
                     keepalive: false,
                     livereload: false,
+                    base: "dist",
                     middleware: function ( connect, options, middlewares ) {
-                        var rules = [
-                            "^/app/[^\.]*$ /app/index-e2e.html"
-                        ];
+                        var rules = [ "^/[^\.]*$ /index.html" ];
                         middlewares.unshift( modRewrite( rules ) );
                         return middlewares;
                     }
@@ -221,6 +220,17 @@ module.exports = function (grunt) {
                     src: ["*.html"],
                     dest: "<%= config.outputDir %>partials/"
                 }]
+            },
+            e2e: {
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    src: [
+                        "app/components/angular-mocks/angular-mocks.js",
+                        "tests/e2e/app.js"
+                    ],
+                    dest: "<%= config.outputDir %>e2e/"
+                }]
             }
         },
 
@@ -228,8 +238,8 @@ module.exports = function (grunt) {
             beforeBuild: {
                 src: ["<%= config.outputDir %>", "docs"]
             },
-            afterBuild: {
-                src: ["app/index-e2e.html"]
+            e2e: {
+                src: ["<%= config.outputDir %>"]
             }
         },
 
@@ -243,11 +253,8 @@ module.exports = function (grunt) {
                 }
             },
             e2e: {
-                options: {
-                    strip: false
-                },
                 files: {
-                    "app/index-e2e.html": ["app/index.html"]
+                    "<%= config.outputDir %>index.html": ["app/index.html"]
                 }
             }
         },
@@ -290,10 +297,10 @@ module.exports = function (grunt) {
         "uglify",
         "jasmine:production",
         "less:production",
-        "copy",
+        "copy:images",
+        "copy:partials",
         "processhtml:production",
-        "yuidoc",
-        "clean:afterBuild"
+        "yuidoc"
     ]);
 
     grunt.registerTask("server", [
@@ -320,11 +327,14 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask("e2e", [
+        "uglify",
+        "less:production",
+        "copy",
         "processhtml:e2e",
         "connect:servertest",
         "protractor_webdriver",
         "protractor:dist",
-        "clean:afterBuild"
+        "clean:e2e"
     ]);
 
     grunt.registerTask("default", ["build"]);

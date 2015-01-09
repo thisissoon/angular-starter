@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/thisissoon/angularjs-template.svg?branch=master)](https://travis-ci.org/thisissoon/angularjs-template) 
 [![Coverage Status](https://img.shields.io/coveralls/thisissoon/angularjs-template.svg)](https://coveralls.io/r/thisissoon/angularjs-template?branch=master)
+[![Sauce Test Status](https://saucelabs.com/buildstatus/angularjs-template)](https://saucelabs.com/u/angularjs-template)
 
 This project structure is based on the [angular-seed](https://github.com/angular/angular-seed) application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 

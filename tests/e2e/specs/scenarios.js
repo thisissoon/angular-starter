@@ -7,9 +7,8 @@ describe("sn.example", function() {
     describe("search", function() {
 
         beforeEach(function(){
-            browser.driver.manage().window().setSize(1366, 768);
             browser.manage().deleteAllCookies();
-            browser.get("http://127.0.0.1:8000/app/");
+            browser.get("http://127.0.0.1:8000/");
             browser.waitForAngular();
             browser.driver.sleep(2000);
         });
@@ -43,7 +42,7 @@ describe("sn.example", function() {
     describe("results", function() {
 
         beforeEach(function(){
-            browser.get("http://127.0.0.1:8000/app/results");
+            browser.get("http://127.0.0.1:8000/results");
             browser.waitForAngular();
             browser.driver.sleep(2000);
         });
