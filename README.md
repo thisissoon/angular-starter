@@ -1,7 +1,7 @@
 # SOON_ AngularJS Template 
 
 [![Build Status](https://travis-ci.org/thisissoon/angularjs-template.svg?branch=master)](https://travis-ci.org/thisissoon/angularjs-template) 
-[![Coverage Status](https://img.shields.io/coveralls/thisissoon/angularjs-template.svg)](https://coveralls.io/r/thisissoon/angularjs-template?branch=master)
+[![Coverage Status](https://coveralls.io/repos/thisissoon/angularjs-template/badge.svg?branch=master)](https://coveralls.io/r/thisissoon/angularjs-template?branch=master)
 [![Sauce Test Status](https://saucelabs.com/buildstatus/angularjs-template)](https://saucelabs.com/u/angularjs-template)
 
 This project structure is based on the [angular-seed](https://github.com/angular/angular-seed) application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
@@ -56,7 +56,7 @@ folders in your project.
 
 We install our frontend libraries via `bower`, a [client-side code package manager][bower].
 
-All frontend depenancies such as angular will be installed when running `npm install`. To manully install all depenancies run:
+All frontend depenancies such as angular will be installed when running `npm install`. To manually install all dependencies run:
 
 ```
 bower install
@@ -91,7 +91,7 @@ If you are doing any javascript development you can instead run:
 grunt serverjs
 ```
 
-To run tests as well everytime a javascript file is updated
+To run tests as well every time a javascript file is updated
 
 To watch all files run:
 
@@ -122,16 +122,16 @@ app/                    --> all of the files to be used in production
     app.css             --> default stylesheet (generated using less)
   img/                  --> image files
   less/                 --> less folder
-    default/            --> styling appied to all screen sizes (e.g. fonts, colors etc..)
+    default/            --> styling applied to all screen sizes (e.g. fonts, colors etc..)
       core/             --> core styling applied to all screen sizes 
       modules/          --> module styling applied to all screen sizes
-    large/              --> styling appied to large screen screen sizes (overrides styling in default folder)
+    large/              --> styling applied to large screen screen sizes (overrides styling in default folder)
       core/             --> core styling applied to large screen screen sizes
       modules/          --> module styling applied to large screen screen sizes 
-    tablet/             --> styling appied to tablet screen sizes (overrides styling in default folder)
+    tablet/             --> styling applied to tablet screen sizes (overrides styling in default folder)
       core/             --> core styling applied to tablet screens 
       modules/          --> module styling applied to tablet screens
-    mobile/             --> styling appied to mobile screen sizes (overrides styling in default folder)
+    mobile/             --> styling applied to mobile screen sizes (overrides styling in default folder)
       core/             --> core styling applied to mobile screens 
       modules/          --> module styling applied to mobile screens  
   index.html            --> app layout file (the main html template file of the app)
