@@ -1,7 +1,7 @@
 # Angular Start
 
-[![Build Status](https://travis-ci.org/thisissoon/angular-start.svg?branch=master)](https://travis-ci.org/thisissoon/angular-start) 
-[![Coverage Status](https://coveralls.io/repos/thisissoon/angular-start/badge.svg?branch=master)](https://coveralls.io/r/thisissoon/angular-start?branch=master)
+[![Build Status](https://travis-ci.org/thisissoon/angular-start.svg?branch=master)](https://travis-ci.org/thisissoon/angular-start)
+[![Coverage Status](https://coveralls.io/repos/thisissoon/angular-start/badge.svg)](https://coveralls.io/r/thisissoon/angular-start)
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/angular-start.svg)](https://saucelabs.com/u/angular-start)
 
