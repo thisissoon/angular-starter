@@ -91,7 +91,9 @@ module.exports = function (grunt) {
         less: {
             options: {
                 paths: ["app/less/"],
-                cleancss: false
+                cleancss: false,
+                banner: "/*! <%= pkg.name %> - v<%= pkg.version %> - " +
+                    "<%= grunt.template.today(\"yyyy-mm-dd\") %> */\n"
             },
             development: {
                 files: { "app/css/all.css": "app/less/main.less" },
@@ -174,7 +176,9 @@ module.exports = function (grunt) {
         concat: {
             options: {
                 sourceMap: true,
-                separator: ";"
+                separator: ";",
+                banner: "/*! <%= pkg.name %> - v<%= pkg.version %> - " +
+                    "<%= grunt.template.today(\"yyyy-mm-dd\") %> */\n"
             },
             production: {
                 src: [
@@ -189,9 +193,9 @@ module.exports = function (grunt) {
             options: {
                 sourceMap: true,
                 sourceMapIncludeSources: true,
-                enclose: {
-                    window: "window"
-                }
+                enclose: { window: "window" },
+                banner: "/*! <%= pkg.name %> - v<%= pkg.version %> - " +
+                    "<%= grunt.template.today(\"yyyy-mm-dd\") %> */\n"
             },
             production: {
                 files: {
