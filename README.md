@@ -1,8 +1,11 @@
-# SOON_ AngularJS Template 
+# Angular Start
 
-[![Build Status](https://travis-ci.org/thisissoon/angularjs-template.svg?branch=master)](https://travis-ci.org/thisissoon/angularjs-template) 
-[![Coverage Status](https://coveralls.io/repos/thisissoon/angularjs-template/badge.svg?branch=master)](https://coveralls.io/r/thisissoon/angularjs-template?branch=master)
-[![Sauce Test Status](https://saucelabs.com/buildstatus/angularjs-template)](https://saucelabs.com/u/angularjs-template)
+[![Build Status](https://travis-ci.org/thisissoon/angular-start.svg?branch=master)](https://travis-ci.org/thisissoon/angular-start) 
+[![Coverage Status](https://coveralls.io/repos/thisissoon/angular-start/badge.svg?branch=master)](https://coveralls.io/r/thisissoon/angular-start?branch=master)
+
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/angular-start.svg)](https://saucelabs.com/u/angular-start)
+
+The start of all angularjs projects. A base template for a typical angularjs application.
 
 This project structure is based on the [angular-seed](https://github.com/angular/angular-seed) application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
 
@@ -13,14 +16,14 @@ The project is preconfigured to install the Angular framework and a bunch of dev
 
 To get you started you can simply clone the repository and install the dependencies:
 
-### Clone SOON_ AngularJS Template repository
+### Clone the Angular Start repository
 
-Clone the angularjs-template repository using [git][git]:
+Clone the angular-start repository using [git][git]:
 
 ```
 cd path/to/parent/directory
-git clone git@github.com:thisissoon/angularjs-template.git
-cd angularjs-template
+git clone git@github.com:thisissoon/angular-start.git
+cd angular-start
 ```
 
 

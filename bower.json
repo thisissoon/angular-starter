@@ -1,8 +1,8 @@
 {
-  "name": "angularjs-template",
-  "description": "A base template for a typical angularjs application",
+  "name": "angular-start",
+  "description": "The start of all angularjs projects. A base template for a typical angularjs application.",
   "version": "0.0.4",
-  "homepage": "https://github.com/thisissoon/angularjs-template",
+  "homepage": "https://github.com/thisissoon/angular-start",
   "license": "MIT",
   "private": true,
   "dependencies": {
