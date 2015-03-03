@@ -84,14 +84,16 @@ module.exports = function (grunt) {
                     "tests/unit/**/*.js",
                     "tests/unit/**/**/*.js"
                 ],
-                tasks: ["test"]
+                tasks: ["test:development"]
             }
         },
 
         less: {
             options: {
                 paths: ["app/less/"],
-                cleancss: false
+                cleancss: false,
+                banner: "/*! <%= pkg.name %> - v<%= pkg.version %> - " +
+                    "<%= grunt.template.today(\"yyyy-mm-dd\") %> */\n"
             },
             development: {
                 files: { "app/css/all.css": "app/less/main.less" },
@@ -174,7 +176,9 @@ module.exports = function (grunt) {
         concat: {
             options: {
                 sourceMap: true,
-                separator: ";"
+                separator: ";",
+                banner: "/*! <%= pkg.name %> - v<%= pkg.version %> - " +
+                    "<%= grunt.template.today(\"yyyy-mm-dd\") %> */\n"
             },
             production: {
                 src: [
@@ -189,9 +193,9 @@ module.exports = function (grunt) {
             options: {
                 sourceMap: true,
                 sourceMapIncludeSources: true,
-                enclose: {
-                    window: "window"
-                }
+                enclose: { window: "window" },
+                banner: "/*! <%= pkg.name %> - v<%= pkg.version %> - " +
+                    "<%= grunt.template.today(\"yyyy-mm-dd\") %> */\n"
             },
             production: {
                 files: {
@@ -290,17 +294,25 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-protractor-runner");
     grunt.loadNpmTasks("grunt-protractor-webdriver");
     grunt.loadNpmTasks("grunt-processhtml");
+    grunt.loadNpmTasks('grunt-bump');
 
     grunt.registerTask("build", [
         "clean:beforeBuild",
-        "jshint",
-        "uglify",
-        "jasmine:production",
         "less:production",
+        "uglify",
+        "copyBuild",
+        "processhtml:production"
+    ]);
+
+    grunt.registerTask("release", [
+        "bump-only",
+        "build",
+        "bump-commit"
+    ]);
+
+    grunt.registerTask("copyBuild", [
         "copy:images",
-        "copy:partials",
-        "processhtml:production",
-        "yuidoc"
+        "copy:partials"
     ]);
 
     grunt.registerTask("server", [
@@ -322,6 +334,13 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask("test", [
+        "clean:beforeBuild",
+        "jshint",
+        "uglify",
+        "jasmine:production"
+    ]);
+
+    grunt.registerTask("test:development", [
         "jshint",
         "jasmine:development"
     ]);
@@ -338,6 +357,5 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask("default", ["build"]);
-    grunt.registerTask("release", ["build"]);
 
 };

@@ -111,6 +111,20 @@ grunt build
 
 The build files will then be in the `dist/` directory.
 
+### Creating a new release
+
+To create a new release simply run: 
+
+```
+grunt release --setversion X.Y.Z
+```
+
+Where `X.Y.Z` is the new version number. This will update `package.json` 
+and `bower.json` with the new version number and then run `grunt build` before
+committing the changes to git.
+
+The build files will then be in the `dist/` directory.
+
 
 ## Directory Layout
 
