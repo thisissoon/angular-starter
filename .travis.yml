@@ -12,6 +12,7 @@ before_install:
 install:
   - npm install
 script:
+  - grunt test:development
   - grunt test
   - grunt e2e --ci
 after_success:
