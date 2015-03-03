@@ -294,20 +294,21 @@ module.exports = function (grunt) {
 
     grunt.registerTask("build", [
         "clean:beforeBuild",
-        "jshint",
-        "uglify",
-        "jasmine:production",
         "less:production",
-        "copy:images",
-        "copy:partials",
-        "processhtml:production",
-        "yuidoc"
+        "uglify",
+        "copyBuild",
+        "processhtml:production"
     ]);
 
     grunt.registerTask("release", [
         "bump-only",
         "build",
         "bump-commit"
+    ]);
+
+    grunt.registerTask("copyBuild", [
+        "copy:images",
+        "copy:partials"
     ]);
 
     grunt.registerTask("server", [
