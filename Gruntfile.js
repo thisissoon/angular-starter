@@ -242,7 +242,7 @@ module.exports = function (grunt) {
             beforeBuild: {
                 src: ["<%= config.outputDir %>", "docs"]
             },
-            e2e: {
+            afterTest: {
                 src: ["<%= config.outputDir %>"]
             }
         },
@@ -349,7 +349,8 @@ module.exports = function (grunt) {
         "clean:beforeBuild",
         "jshint",
         "uglify",
-        "jasmine:production"
+        "jasmine:production",
+        "clean:afterTest"
     ]);
 
     grunt.registerTask("test:development", [
@@ -365,7 +366,7 @@ module.exports = function (grunt) {
         "connect:servertest",
         "protractor_webdriver",
         "protractor:dist",
-        "clean:e2e"
+        "clean:afterTest"
     ]);
 
     grunt.registerTask("default", ["build"]);
