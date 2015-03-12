@@ -1,7 +1,6 @@
 logs/*
 !.gitkeep
 node_modules/
-app/index-e2e.html
 app/components/
 dist/
 docs/
