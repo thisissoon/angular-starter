@@ -224,17 +224,6 @@ module.exports = function (grunt) {
                     src: ["*.html"],
                     dest: "<%= config.outputDir %>partials/"
                 }]
-            },
-            e2e: {
-                files: [{
-                    expand: true,
-                    flatten: true,
-                    src: [
-                        "app/components/angular-mocks/angular-mocks.js",
-                        "tests/e2e/app.js"
-                    ],
-                    dest: "<%= config.outputDir %>e2e/"
-                }]
             }
         },
 
@@ -312,7 +301,7 @@ module.exports = function (grunt) {
         "clean:beforeBuild",
         "less:production",
         "uglify",
-        "copyBuild",
+        "copy",
         "processhtml:production"
     ]);
 
@@ -320,11 +309,6 @@ module.exports = function (grunt) {
         "bump-only",
         "build",
         "bump-commit"
-    ]);
-
-    grunt.registerTask("copyBuild", [
-        "copy:images",
-        "copy:partials"
     ]);
 
     grunt.registerTask("server", [
