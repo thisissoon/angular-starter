@@ -4,7 +4,7 @@ var modRewrite = require("connect-modrewrite");
 
 module.exports = function (grunt) {
 
-    var base = grunt.option("baseDir") || "",
+    var base = grunt.option("base-dir") || "",
         protractorConf = grunt.option("ci") ?
                         "tests/e2e/protractor.saucelabs.conf.js" :
                         "tests/e2e/protractor.conf.js" ;
