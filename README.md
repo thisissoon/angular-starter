@@ -109,7 +109,7 @@ To run tests or compile less to css when the relevent files are updated.
 To create a build to deploy for a production environment simply run: 
 
 ```
-grunt build
+grunt build -env production
 ```
 
 The build files will then be in the `dist/` directory.

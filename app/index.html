@@ -9,7 +9,7 @@
         <title>Angular Start</title>
 
         <!-- build:template
-        <base href="/">
+        <base href="<%= url %>">
         /build -->
         <!-- build:remove -->
         <base href="/app/">
@@ -21,16 +21,20 @@
     </head>
     <body>
 
+        <app-version></app-version>
         <ng-view></ng-view>
 
         <!-- build:js js/app.min.js -->
         <script src="components/angular/angular.js"></script>
         <script src="components/angular-route/angular-route.js"></script>
 
+        <script src="js/constants/constants.js"></script>
+
         <script src="js/soon-example/app.js"></script>
         <script src="js/soon-example/config.js"></script>
         <script src="js/soon-example/controllers/SearchCtrl.js"></script>
         <script src="js/soon-example/controllers/ResultsCtrl.js"></script>
+        <script src="js/soon-example/directives/appVersion.js"></script>
         <!-- /build -->
         <!-- build:include:e2e ../tests/e2e/scripts.html --><!-- /build -->
 

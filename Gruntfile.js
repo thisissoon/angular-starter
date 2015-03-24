@@ -5,6 +5,7 @@ var modRewrite = require("connect-modrewrite");
 module.exports = function (grunt) {
 
     var base = grunt.option("baseDir") || "",
+        env = grunt.option("env") || "development",
         protractorConf = grunt.option("ci") ?
                         "tests/e2e/protractor.saucelabs.conf.js" :
                         "tests/e2e/protractor.conf.js" ;
@@ -15,6 +16,7 @@ module.exports = function (grunt) {
 
         config: {
             outputDir: "dist/",
+            env: grunt.file.readJSON("env.json")[env],
             applicationFiles: grunt.file.readJSON("scripts.json").application,
             vendorFiles: grunt.file.readJSON("scripts.json").vendor
         },
@@ -127,7 +129,10 @@ module.exports = function (grunt) {
                 keepRunner: true,
             },
             development: {
-                src: ["<%= config.applicationFiles %>"],
+                src: [
+                    "<%= ngconstant.options.dest %>",
+                    "<%= config.applicationFiles %>"
+                ],
                 options: {
                     vendor: ["<%= config.vendorFiles %>"],
                     helpers:["app/components/angular-mocks/angular-mocks.js"],
@@ -183,6 +188,7 @@ module.exports = function (grunt) {
             production: {
                 src: [
                     "<%= config.vendorFiles %>",
+                    "<%= ngconstant.options.dest %>",
                     "<%= config.applicationFiles %>"
                 ],
                 dest: "<%= config.outputDir %>js/app.js"
@@ -202,6 +208,7 @@ module.exports = function (grunt) {
                     "<%= config.outputDir %>js/app.min.js":
                     [
                         "<%= config.vendorFiles %>",
+                        "<%= ngconstant.options.dest %>",
                         "<%= config.applicationFiles %>"
                     ]
                 }
@@ -249,16 +256,16 @@ module.exports = function (grunt) {
 
         processhtml: {
             options: {
-                strip: true
+                strip: true,
+                data: { url: "<%= config.env.BASE_URL %>" }
             },
             production: {
-                files: {
-                    "<%= config.outputDir %>index.html": ["app/index.html"]
-                }
+                files: { "<%= config.outputDir %>index.html": ["app/index.html"] }
             },
             e2e: {
-                files: {
-                    "<%= config.outputDir %>index.html": ["app/index.html"]
+                files: { "<%= config.outputDir %>index.html": ["app/index.html"] },
+                options: {
+                    data: { url: "http://127.0.0.1:8000/" }
                 }
             }
         },
@@ -288,8 +295,19 @@ module.exports = function (grunt) {
                 push: true,
                 pushTo: "origin master"
             }
-        }
+        },
 
+        ngconstant: {
+            options: {
+                name: "constants",
+                dest: "./app/js/constants/constants.js",
+                constants: {
+                    pkg: "<%= pkg %>",
+                    env: "<%= config.env %>"
+                }
+            },
+            dist: {}
+        }
 
     });
 
@@ -306,11 +324,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-protractor-runner");
     grunt.loadNpmTasks("grunt-protractor-webdriver");
     grunt.loadNpmTasks("grunt-processhtml");
-    grunt.loadNpmTasks('grunt-bump');
+    grunt.loadNpmTasks("grunt-ng-constant");
+    grunt.loadNpmTasks("grunt-bump");
 
     grunt.registerTask("build", [
         "clean:beforeBuild",
         "less:production",
+        "ngconstant",
         "uglify",
         "copyBuild",
         "processhtml:production"
@@ -329,18 +349,21 @@ module.exports = function (grunt) {
 
     grunt.registerTask("server", [
         "less:development",
+        "ngconstant",
         "connect:server",
         "watch:css"
     ]);
 
     grunt.registerTask("serverjs", [
         "less:development",
+        "ngconstant",
         "connect:server",
         "watch:javascript"
     ]);
 
     grunt.registerTask("serverall", [
         "less:development",
+        "ngconstant",
         "connect:server",
         "watch"
     ]);
@@ -361,6 +384,7 @@ module.exports = function (grunt) {
     grunt.registerTask("e2e", [
         "uglify",
         "less:production",
+        "ngconstant",
         "copy",
         "processhtml:e2e",
         "connect:servertest",
