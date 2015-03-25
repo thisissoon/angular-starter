@@ -28,7 +28,7 @@
         <script src="components/angular/angular.js"></script>
         <script src="components/angular-route/angular-route.js"></script>
 
-        <script src="js/constants/constants.js"></script>
+        <script src="js/config/config.js"></script>
 
         <script src="js/soon-example/app.js"></script>
         <script src="js/soon-example/config.js"></script>
@@ -36,7 +36,9 @@
         <script src="js/soon-example/controllers/ResultsCtrl.js"></script>
         <script src="js/soon-example/directives/appVersion.js"></script>
         <!-- /build -->
-        <!-- build:include:e2e ../tests/e2e/scripts.html --><!-- /build -->
+
+        <!-- build:js:e2e inline components/angular-mocks/angular-mocks.js --><!-- /build -->
+        <!-- build:js:e2e inline ../tests/e2e/app.e2e.js --><!-- /build -->
 
     </body>
 </html>

@@ -8,12 +8,12 @@
  * @author SOON_
  */
 angular.module("sn.example").directive("appVersion", [
-    "pkg",
+    "bower",
     /**
      * @constructor
-     * @param {Object} pkg
+     * @param {Object} bower
      */
-    function (pkg){
+    function (bower){
         return {
             restrict: "EAC",
             scope: {},
@@ -24,7 +24,7 @@ angular.module("sn.example").directive("appVersion", [
                  * @property version
                  * @type     {String}
                  */
-                $scope.version = pkg.version;
+                $scope.version = bower.version;
             }
         };
     }
