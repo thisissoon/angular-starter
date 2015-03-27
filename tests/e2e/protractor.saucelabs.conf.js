@@ -1,4 +1,6 @@
-// A reference configuration file.
+var pkg = require("../../package.json");
+
+// A saucelabs reference configuration file.
 exports.config = {
 
   // If sauceUser and sauceKey are specified, seleniumServerJar will be ignored.
@@ -14,98 +16,92 @@ exports.config = {
   //
   // Spec patterns are relative to the location of this config.
   specs: [
-    'specs/*.js',
+    "specs/*.js",
   ],
 
+  // Saucelabs capabilities reference
+  // https://docs.saucelabs.com/reference/platforms-configurator/#/
   multiCapabilities: [{
-    'browserName': 'chrome',
-    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': process.env.TRAVIS_BUILD_NUMBER,
-    'name': 'Angular Start (Chrome: Linux) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
-    'version': '39',
-    'selenium-version': '2.43.1',
-    'platform': 'Linux'
+    "browserName": "chrome",
+    "tunnel-identifier": process.env.TRAVIS_JOB_NUMBER,
+    "build": process.env.TRAVIS_BUILD_NUMBER,
+    "name":  pkg.name + " (Chrome: Linux) Build: " + process.env.TRAVIS_BUILD_NUMBER,
+    "version": "39",
+    "selenium-version": "2.43.1",
+    "platform": "Linux"
   }, {
-    'browserName': 'firefox',
-    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': process.env.TRAVIS_BUILD_NUMBER,
-    'name': 'Angular Start (FF: Linux) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
-    'version': '34',
-    'selenium-version': '2.43.1',
-    'platform': 'Linux'
+    "browserName": "firefox",
+    "tunnel-identifier": process.env.TRAVIS_JOB_NUMBER,
+    "build": process.env.TRAVIS_BUILD_NUMBER,
+    "name":  pkg.name + " (FF: Linux) Build: " + process.env.TRAVIS_BUILD_NUMBER,
+    "version": "34",
+    "selenium-version": "2.43.1",
+    "platform": "Linux"
   }, {
-    'browserName': 'safari',
-    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': process.env.TRAVIS_BUILD_NUMBER,
-    'name': 'Angular Start (Safari: OS X 10.10) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
-    'version': '8',
-    'selenium-version': '2.43.1',
-    'platform': 'OS X 10.10'
+    "browserName": "safari",
+    "tunnel-identifier": process.env.TRAVIS_JOB_NUMBER,
+    "build": process.env.TRAVIS_BUILD_NUMBER,
+    "name":  pkg.name + " (Safari: OS X 10.10) Build: " + process.env.TRAVIS_BUILD_NUMBER,
+    "version": "8",
+    "selenium-version": "2.43.1",
+    "platform": "OS X 10.10"
   }, {
-    'browserName': 'internet explorer',
-    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': process.env.TRAVIS_BUILD_NUMBER,
-    'name': 'Angular Start (IE11: Win 8.1) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
-    'version': '11',
-    'selenium-version': '2.43.1',
-    'platform': 'Windows 8.1'
+    "browserName": "internet explorer",
+    "tunnel-identifier": process.env.TRAVIS_JOB_NUMBER,
+    "build": process.env.TRAVIS_BUILD_NUMBER,
+    "name":  pkg.name + " (IE11: Win 8.1) Build: " + process.env.TRAVIS_BUILD_NUMBER,
+    "version": "11",
+    "selenium-version": "2.43.1",
+    "platform": "Windows 8.1"
   }, {
-    'browserName': 'internet explorer',
-    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': process.env.TRAVIS_BUILD_NUMBER,
-    'name': 'Angular Start (IE10: Win 8) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
-    'version': '10',
-    'selenium-version': '2.43.1',
-    'platform': 'Windows 8'
+    "browserName": "internet explorer",
+    "tunnel-identifier": process.env.TRAVIS_JOB_NUMBER,
+    "build": process.env.TRAVIS_BUILD_NUMBER,
+    "name":  pkg.name + " (IE10: Win 8) Build: " + process.env.TRAVIS_BUILD_NUMBER,
+    "version": "10",
+    "selenium-version": "2.43.1",
+    "platform": "Windows 8"
   }, {
-    'browserName': 'chrome',
-    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': process.env.TRAVIS_BUILD_NUMBER,
-    'name': 'Angular Start (Chrome: Android 5.0) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
-    'version': '5.0',
-    'platformVersion': '5.0',
-    'platformName': 'Android',
-    'appiumVersion': '1.3.4',
-    'deviceName': 'Android Emulator',
-    'device-orientation': 'portrait'
+    "browserName": "chrome",
+    "tunnel-identifier": process.env.TRAVIS_JOB_NUMBER,
+    "build": process.env.TRAVIS_BUILD_NUMBER,
+    "name":  pkg.name + " (Chrome: Android 5.0) Build: " + process.env.TRAVIS_BUILD_NUMBER,
+    "version": "5.0",
+    "platformVersion": "5.0",
+    "platformName": "Android",
+    "appiumVersion": "1.3.4",
+    "deviceName": "Android Emulator",
+    "device-orientation": "portrait"
   }, {
-    'browserName': 'safari',
-    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': process.env.TRAVIS_BUILD_NUMBER,
-    'name': 'Angular Start (Safari: iOS 8.1) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
-    'version': '8.1',
-    'platformVersion': '8.1',
-    'platformName': 'iOS',
-    'appiumVersion': '1.3.4',
-    'platform': 'iOS',
-    'deviceName': 'iPhone Simulator',
-    'device-orientation': 'portrait'
+    "browserName": "safari",
+    "tunnel-identifier": process.env.TRAVIS_JOB_NUMBER,
+    "build": process.env.TRAVIS_BUILD_NUMBER,
+    "name":  pkg.name + " (Safari: iOS 8.1) Build: " + process.env.TRAVIS_BUILD_NUMBER,
+    "version": "8.1",
+    "platformVersion": "8.1",
+    "platformName": "iOS",
+    "appiumVersion": "1.3.4",
+    "platform": "iOS",
+    "deviceName": "iPhone Simulator",
+    "device-orientation": "portrait"
   }],
 
   // ----- More information for your tests ----
   //
   // A base URL for your application under test. Calls to protractor.get()
   // with relative paths will be prepended with this.
-  baseUrl: 'http://127.0.0.1:8000',
+  baseUrl: "http://127.0.0.1:8000",
 
   // Selector for the element housing the angular app - this defaults to
   // body, but is necessary if ng-app is on a descendant of <body>
-  rootElement: 'body',
-
-  onPrepare: function() {
-    browser.getCapabilities().then(function (cap) {
-      if ((cap.caps_.platform !== "iOS") && (cap.caps_.platform !== "ANDROID")){
-        browser.driver.manage().window().setSize(1366, 768)
-      }
-    });
-  },
+  rootElement: "html",
 
   // ----- The test framework -----
   //
   // Jasmine is fully supported as a test and assertion framework.
   // Mocha has limited beta support. You will need to include your own
   // assertion framework if working with mocha.
-  framework: 'jasmine',
+  framework: "jasmine",
 
   // ----- Options to be passed to minijasminenode -----
   //

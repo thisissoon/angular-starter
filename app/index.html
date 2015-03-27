@@ -1,38 +1,61 @@
 <!DOCTYPE html>
 <!-- build:[ng-app]:e2e sn.example.e2e -->
-<html lang="en" ng-app="sn.example" ng-strict-di>
+<!--[if lt IE 8]>      <html lang="en" ng-app="sn.example" ng-strict-di class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="sn.example" ng-strict-di class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="sn.example" ng-strict-di class="no-js"> <!--<![endif]-->
 <!-- /build -->
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <meta name="fragment" content="!">
-        <title>Angular Start</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="fragment" content="!">
+    <title>Angular Start</title>
 
-        <!-- build:template
-        <base href="/">
-        /build -->
-        <!-- build:remove -->
-        <base href="/app/">
-        <!-- /build -->
+    <!-- build:template
+    <base href="<%= url %>">
+    /build -->
+    <!-- build:remove -->
+    <base href="/app/">
+    <!-- /build -->
 
-        <!-- build:css css/all.min.css -->
-        <link rel="stylesheet" href="css/all.css">
-        <!-- /build -->
-    </head>
-    <body>
+    <!-- build:css css/all.min.css -->
+    <link rel="stylesheet" href="css/all.css">
+    <!-- /build -->
+</head>
+<body>
 
-        <ng-view></ng-view>
+    <p class="text-right">App version: <strong app-version></strong></p>
+    <ng-view></ng-view>
 
-        <!-- build:js js/app.min.js -->
-        <script src="components/angular/angular.js"></script>
-        <script src="components/angular-route/angular-route.js"></script>
+    <!--[if lt IE 8]>
+        <p>Your browser is <strong>ancient</strong> and will not work with this site. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
-        <script src="js/soon-example/app.js"></script>
-        <script src="js/soon-example/config.js"></script>
-        <script src="js/soon-example/controllers/SearchCtrl.js"></script>
-        <script src="js/soon-example/controllers/ResultsCtrl.js"></script>
-        <!-- /build -->
-        <!-- build:include:e2e ../tests/e2e/scripts.html --><!-- /build -->
+    <noscript>
+        <p>JavaScript is either disabled or not supported by your browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or enable JavaScript to improve your experience.</p>
+    </noscript>
 
-    </body>
+    <script>
+        document.documentElement.className = document.documentElement.className.replace(/(^|\s)no-js(\s|$)/, "$1$2");
+    </script>
+
+    <!--[if gte IE 8]><!-->
+    <!-- build:js js/app.min.js -->
+    <script src="components/angular/angular.js"></script>
+    <script src="components/angular-route/angular-route.js"></script>
+
+    <script src="js/config/config.js"></script>
+
+    <script src="js/soon-example/app.js"></script>
+    <script src="js/soon-example/config.js"></script>
+    <script src="js/soon-example/controllers/SearchCtrl.js"></script>
+    <script src="js/soon-example/controllers/ResultsCtrl.js"></script>
+    <script src="js/soon-example/directives/appVersion.js"></script>
+    <!-- /build -->
+    <!--<![endif]-->
+
+    <!-- build:js:e2e inline components/angular-mocks/angular-mocks.js --><!-- /build -->
+    <!-- build:js:e2e inline ../tests/e2e/app.e2e.js --><!-- /build -->
+
+</body>
 </html>
