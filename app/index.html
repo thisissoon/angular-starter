@@ -12,7 +12,7 @@
     <title>Angular Start</title>
 
     <!-- build:template
-    <base href="/">
+    <base href="<%= url %>">
     /build -->
     <!-- build:remove -->
     <base href="/app/">
@@ -24,6 +24,7 @@
 </head>
 <body>
 
+    <app-version></app-version>
     <ng-view></ng-view>
 
     <!--[if lt IE 8]>
@@ -43,10 +44,13 @@
     <script src="components/angular/angular.js"></script>
     <script src="components/angular-route/angular-route.js"></script>
 
+    <script src="js/config/config.js"></script>
+
     <script src="js/soon-example/app.js"></script>
     <script src="js/soon-example/config.js"></script>
     <script src="js/soon-example/controllers/SearchCtrl.js"></script>
     <script src="js/soon-example/controllers/ResultsCtrl.js"></script>
+    <script src="js/soon-example/directives/appVersion.js"></script>
     <!-- /build -->
     <!--<![endif]-->
 

@@ -10,14 +10,16 @@ angular.module("sn.example").controller("SearchCtrl", [
     "$rootScope",
     "$http",
     "$location",
+    "env",
     /**
      * @constructor
      * @param {Object}  $scope
      * @param {Service} $rootScope
      * @param {Service} $http
      * @param {Service} $location
+     * @param {Object}  env
      */
-    function ($scope, $rootScope, $http, $location) {
+    function ($scope, $rootScope, $http, $location, env) {
 
         /**
          * Search locations based on val
@@ -25,7 +27,7 @@ angular.module("sn.example").controller("SearchCtrl", [
          * @param  {String} val location to query
          */
         $scope.getLocation = function getLocation(val){
-            $http.get("http://maps.googleapis.com/maps/api/geocode/json", {
+            $http.get(env.GOOGLE_MAPS_API_ADDRESS + "maps/api/geocode/json", {
                 params: {
                     address: val,
                     sensor: false
