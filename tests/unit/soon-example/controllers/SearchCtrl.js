@@ -26,8 +26,8 @@ describe("SearchCtrl", function (){
             $scope: _scope,
             $rootScope: _rootScope,
             $http: _http,
-            $location: _location
-
+            $location: _location,
+            env: $injector.get("env")
         });
 
     }));
