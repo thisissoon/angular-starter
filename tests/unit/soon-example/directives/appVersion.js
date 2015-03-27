@@ -10,7 +10,7 @@ describe("appVersion", function() {
 
         $scope = $rootScope.$new();
 
-        version = $injector.get("pkg").version;
+        version = $injector.get("bower").version;
 
         $element = "<app-version></app-version>";
 

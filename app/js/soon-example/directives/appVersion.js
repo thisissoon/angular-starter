@@ -16,15 +16,10 @@ angular.module("sn.example").directive("appVersion", [
     function (bower){
         return {
             restrict: "EAC",
-            scope: {},
-            template: "<p class=\"text-right\">App version: <b>{{ version }}</b></p>",
-            link: function($scope){
+            link: function($scope, $element){
 
-                /**
-                 * @property version
-                 * @type     {String}
-                 */
-                $scope.version = bower.version;
+                $element.text(bower.version);
+
             }
         };
     }

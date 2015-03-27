@@ -21,10 +21,6 @@ describe("sn.example", function() {
             expect(element.all(by.css("ng-view h1")).first().getText()).toContain("Search");
         });
 
-        it("should display version number", function() {
-            expect(element.all(by.css("app-version")).first().getText()).toContain("App version:");
-        });
-
         it("should search for location", function() {
             element(by.model("location")).sendKeys("London");
             element(by.id("submit")).click();
