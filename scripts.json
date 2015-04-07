@@ -4,10 +4,12 @@
         "./app/components/angular-route/angular-route.js"
     ],
     "application": [
-        "./app/js/soon-example/app.js",
-        "./app/js/soon-example/config.js",
-        "./app/js/soon-example/controllers/SearchCtrl.js",
-        "./app/js/soon-example/controllers/ResultsCtrl.js",
-        "./app/js/soon-example/directives/appVersion.js"
+        "./app/js/search/search.js",
+        "./app/js/search/controllers/SearchCtrl.js",
+        "./app/js/results/results.js",
+        "./app/js/results/controllers/ResultsCtrl.js",
+        "./app/js/version/version.js",
+        "./app/js/version/directives/appVersion.js",
+        "./app/js/app.js"
     ]
 }

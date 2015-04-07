@@ -1,9 +1,9 @@
 "use strict";
 
-describe("appVersion", function() {
+describe("myApp.version.versionDirective", function() {
     var $element, $scope, $rootScope, version;
 
-    beforeEach(module("sn.example"));
+    beforeEach(module("myApp.version.appVersionDirective"));
 
     beforeEach(inject(function (_$rootScope_, $compile, $injector) {
         $rootScope = _$rootScope_;
