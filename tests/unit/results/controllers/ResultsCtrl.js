@@ -1,11 +1,11 @@
 "use strict";
 
-describe("ResultsCtrl", function (){
+describe("myApp.results.ResultsCtrl", function (){
 
     var _scope, _rootScope;
 
     beforeEach(function(){
-        module("sn.example");
+        module("myApp.results.ResultsCtrl");
     });
 
     beforeEach(inject(function ($rootScope, $controller) {

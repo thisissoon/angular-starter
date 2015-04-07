@@ -1,11 +1,11 @@
 "use strict";
 
-describe("SearchCtrl", function (){
+describe("myApp.search.SearchCtrl", function (){
 
     var _scope, _rootScope, _http, _location, $httpBackend;
 
     beforeEach(function(){
-        module("sn.example");
+        module("myApp.search.SearchCtrl");
     });
 
     beforeEach(inject(function ($injector, $rootScope, $controller) {

@@ -1,24 +1,31 @@
 "use strict";
 /**
- * Controller to perform search in sn.example.
- * @class  SearchCtrl
- * @module sn.example
- * @author SOON_
+ * Handles searching the google maps API
+ * within the view controller for the search
+ * page in example app
+ * @module   myApp.search.SearchCtrl
+ * @author   SOON_
+ * @requires config
+ *
  */
-angular.module("sn.example").controller("SearchCtrl", [
+angular.module("myApp.search.SearchCtrl", [
+    "config"
+])
+/**
+ * @constructor
+ * @class SearchCtrl
+ * @param {Object}  $scope
+ * @param {Service} $rootScope
+ * @param {Service} $http
+ * @param {Service} $location
+ * @param {Object}  env
+ */
+.controller("SearchCtrl", [
     "$scope",
     "$rootScope",
     "$http",
     "$location",
     "env",
-    /**
-     * @constructor
-     * @param {Object}  $scope
-     * @param {Service} $rootScope
-     * @param {Service} $http
-     * @param {Service} $location
-     * @param {Object}  env
-     */
     function ($scope, $rootScope, $http, $location, env) {
 
         /**
