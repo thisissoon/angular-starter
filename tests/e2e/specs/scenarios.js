@@ -23,7 +23,7 @@ describe("sn.example", function() {
 
         it("should search for location", function() {
             element(by.model("location")).sendKeys("London");
-            element(by.id("submit")).click();
+            element(by.buttonText("Submit")).click();
 
             browser.driver.sleep(5000);
 
@@ -49,7 +49,7 @@ describe("sn.example", function() {
 
         it("should render results page view", function() {
             expect(element.all(by.css("ng-view h1")).first().getText()).toContain("Results");
-            expect(element(by.css(".bg-info")).getText()).toContain("No search results");
+            expect(element(by.css(".alert-info")).getText()).toContain("No results");
 
         });
 
