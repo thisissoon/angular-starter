@@ -1,3 +1,10 @@
+## Changes in 0.3.0
+
+ * @eopa: Feature: Add favicons
+ * @eopa: Improvement: Replace "/**" --> "//" for css comments
+ * @eopa: Improvement: Refactor less to use bootstrap more cleverly
+
+
 ## Changes in 0.2.0
 
  * @eopa: Feature: Incompatible browser warnings (#9)
