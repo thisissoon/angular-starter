@@ -1,3 +1,7 @@
+## Changes in 0.4.0
+
+ * @eopa: Improvement: Refactor angular app architecture
+
 ## Changes in 0.3.0
 
  * @eopa: Feature: Add favicons
