@@ -1,3 +1,8 @@
+## Changes in 0.5.1
+
+ * @eopa: Fix: Broken build in travis
+ * @eopa: Improvement: Update node version to v0.12.2
+
 ## Changes in 0.5.0
 
  * @eopa: Improvement: update npm and bower packages
