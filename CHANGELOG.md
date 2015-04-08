@@ -1,3 +1,7 @@
+## Changes in 0.5.0
+
+ * @eopa: Improvement: update npm and bower packages
+
 ## Changes in 0.4.0
 
  * @eopa: Improvement: Refactor angular app architecture
