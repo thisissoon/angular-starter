@@ -208,12 +208,7 @@ module.exports = function (grunt) {
             },
             production: {
                 files: {
-                    "<%= config.outputDir %>js/app.min.js":
-                    [
-                        "<%= config.vendorFiles %>",
-                        "<%= ngconstant.options.dest %>",
-                        "<%= config.applicationFiles %>"
-                    ]
+                    "<%= config.outputDir %>js/app.min.js": [ "<%= config.outputDir %>js/app.js" ]
                 }
             }
         },
@@ -231,7 +226,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: "./app/partials",
-                    src: ["*.html"],
+                    src: ["**/*.html", "*.html"],
                     dest: "<%= config.outputDir %>partials/"
                 }]
             }
@@ -324,7 +319,7 @@ module.exports = function (grunt) {
         "clean:beforeBuild",
         "less:production",
         "ngconstant",
-        "uglify",
+        "minify",
         "copy",
         "processhtml:production"
     ]);
@@ -333,6 +328,11 @@ module.exports = function (grunt) {
         "bump-only",
         "build",
         "bump-commit"
+    ]);
+
+    grunt.registerTask("minify", [
+        "concat",
+        "uglify"
     ]);
 
     grunt.registerTask("server", [
@@ -359,8 +359,8 @@ module.exports = function (grunt) {
     grunt.registerTask("test", [
         "clean:beforeBuild",
         "ngconstant",
+        "minify",
         "jshint",
-        "uglify",
         "jasmine:production",
         "clean:afterTest"
     ]);
@@ -372,9 +372,10 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask("e2e", [
-        "uglify",
+        "clean:beforeBuild",
         "less:production",
         "ngconstant",
+        "minify",
         "copy",
         "processhtml:e2e",
         "connect:servertest",
