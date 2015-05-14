@@ -1,3 +1,8 @@
+## Changes in 0.5.2
+
+ * @eopa: Fix(grunt): use both concat + uglify tasks to fix minify issue with some libraries (#11)
+ * @eopa: Fix(grunt): copy partials that are in sub directories in `/partials` (#11)
+
 ## Changes in 0.5.1
 
  * @eopa: Fix: Broken build in travis
