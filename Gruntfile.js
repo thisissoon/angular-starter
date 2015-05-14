@@ -231,7 +231,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     cwd: "./app/partials",
-                    src: ["*.html"],
+                    src: ["**/*.html", "*.html"],
                     dest: "<%= config.outputDir %>partials/"
                 }]
             }
