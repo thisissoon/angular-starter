@@ -22,5 +22,6 @@ test:
   override:
     - grunt test:development
     - grunt test
+    - bash ./tests/e2e/test-on-sauce.sh
   post:
     - ./node_modules/coveralls/bin/coveralls.js < coverage/lcov.info
