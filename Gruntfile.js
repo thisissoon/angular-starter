@@ -229,6 +229,22 @@ module.exports = function (grunt) {
                     src: ["**/*.html", "*.html"],
                     dest: "<%= config.outputDir %>partials/"
                 }]
+            },
+            fonts: {
+                files: [{
+                    expand: true,
+                    cwd: "./app/fonts",
+                    src: ["**/*", "*"],
+                    dest: "<%= config.outputDir %>fonts/"
+                }]
+            },
+            data: {
+                files: [{
+                    expand: true,
+                    cwd: "./app/data",
+                    src: ["**/*", "*"],
+                    dest: "<%= config.outputDir %>data/"
+                }]
             }
         },
 
