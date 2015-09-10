@@ -81,6 +81,8 @@ module.exports = function (grunt) {
             },
             javascript: {
                 files: [
+                    "./scripts.json",
+
                     "./app/js/*.js",
                     "./app/js/**/*.js",
                     "./app/js/**/**/*.js",
@@ -89,7 +91,7 @@ module.exports = function (grunt) {
                     "./tests/unit/**/*.js",
                     "./tests/unit/**/**/*.js"
                 ],
-                tasks: ["test:development"]
+                tasks: ["sails-linker", "test:development"]
             }
         },
 
@@ -311,7 +313,32 @@ module.exports = function (grunt) {
                 }
             },
             dist: {}
-        }
+        },
+
+        "sails-linker": {
+            vendorJs: {
+                options: {
+                    startTag: '<!--VENDOR SCRIPTS-->',
+                    endTag: '<!--VENDOR SCRIPTS END-->',
+                    fileTmpl: '<script src="%s"></script>',
+                    appRoot: './app/'
+                },
+                files: {
+                    'app/index.html': "<%= config.vendorFiles %>"
+                }
+            },
+            appJs: {
+                options: {
+                    startTag: '<!--SCRIPTS-->',
+                    endTag: '<!--SCRIPTS END-->',
+                    fileTmpl: '<script src="%s"></script>',
+                    appRoot: './app/'
+                },
+                files: {
+                    'app/index.html': "<%= config.applicationFiles %>"
+                }
+            }
+         }
 
     });
 
@@ -330,6 +357,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-processhtml");
     grunt.loadNpmTasks("grunt-ng-constant");
     grunt.loadNpmTasks("grunt-bump");
+    grunt.loadNpmTasks("grunt-sails-linker");
 
     grunt.registerTask("build", [
         "clean:beforeBuild",
@@ -354,6 +382,7 @@ module.exports = function (grunt) {
     grunt.registerTask("server", [
         "less:development",
         "ngconstant",
+        "sails-linker",
         "connect:server",
         "watch:css"
     ]);
@@ -361,6 +390,7 @@ module.exports = function (grunt) {
     grunt.registerTask("serverjs", [
         "less:development",
         "ngconstant",
+        "sails-linker",
         "connect:server",
         "watch:javascript"
     ]);
@@ -368,6 +398,7 @@ module.exports = function (grunt) {
     grunt.registerTask("serverall", [
         "less:development",
         "ngconstant",
+        "sails-linker",
         "connect:server",
         "watch"
     ]);
