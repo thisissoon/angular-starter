@@ -81,13 +81,13 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     ```javascript
     // bad
     var superman = {
-      default: { clark: "kent" },
+      default: { clark: 'kent' },
       private: true
     };
 
     // good
     var superman = {
-      defaults: { clark: "kent" },
+      defaults: { clark: 'kent' },
       hidden: true
     };
     ```
@@ -97,17 +97,17 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     ```javascript
     // bad
     var superman = {
-      class: "alien"
+      class: 'alien'
     };
 
     // bad
     var superman = {
-      klass: "alien"
+      klass: 'alien'
     };
 
     // good
     var superman = {
-      type: "alien"
+      type: 'alien'
     };
     ```
 
@@ -132,10 +132,10 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
 
     // bad
-    someStack[someStack.length] = "abracadabra";
+    someStack[someStack.length] = 'abracadabra';
 
     // good
-    someStack.push("abracadabra");
+    someStack.push('abracadabra');
     ```
 
   - When you need to copy an array use `Array.slice()`. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
@@ -168,19 +168,19 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
 ## Strings
 
-  - Use double quotes `""` for strings
+  - Use single quotes `''` for strings
 
     ```javascript
-    // bad
+    // good
     var name = 'Bob Parr';
 
-    // good
+    // bad
     var name = "Bob Parr";
 
-    // bad
+    // good
     var fullName = 'Bob ' + this.lastName;
 
-    // good
+    // bad
     var fullName = "Bob " + this.lastName;
     ```
 
@@ -189,18 +189,18 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
     ```javascript
     // bad
-    var errorMessage = "This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.";
+    var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 
     // bad
-    var errorMessage = "This is a super long error that was thrown because \
+    var errorMessage = 'This is a super long error that was thrown because \
     of Batman. When you stop to think about how Batman had anything to do \
     with this, you would get nowhere \
-    fast.";
+    fast.';
 
     // good
-    var errorMessage = "This is a super long error that was thrown because " +
-      "of Batman. When you stop to think about how Batman had anything to do " +
-      "with this, you would get nowhere fast.";
+    var errorMessage = 'This is a super long error that was thrown because ' +
+      'of Batman. When you stop to think about how Batman had anything to do ' +
+      'with this, you would get nowhere fast.';
     ```
 
   - When programmatically building up a string, use `Array.join()` instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
@@ -212,27 +212,27 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
         i;
 
     messages = [{
-      state: "success",
-      message: "This one worked."
+      state: 'success',
+      message: 'This one worked.'
     }, {
-      state: "success",
-      message: "This one worked as well."
+      state: 'success',
+      message: 'This one worked as well.'
     }, {
-      state: "error",
-      message: "This one did not work."
+      state: 'error',
+      message: 'This one did not work.'
     }];
 
     length = messages.length;
 
     // bad
     function inbox(messages) {
-      items = "<ul>";
+      items = '<ul>';
 
       for (i = 0; i < length; i++) {
-        items += "<li>" + messages[i].message + "</li>";
+        items += '<li>' + messages[i].message + '</li>';
       }
 
-      return items + "</ul>";
+      return items + '</ul>';
     }
 
     // good
@@ -243,7 +243,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
         items[i] = messages[i].message;
       }
 
-      return "<ul><li>" + items.join("</li><li>") + "</li></ul>";
+      return '<ul><li>' + items.join('</li><li>') + '</li></ul>';
     }
     ```
 
@@ -274,18 +274,18 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
     // immediately-invoked function expression (IIFE)
     (function() {
-      console.log("Welcome to the Internet. Please follow me.");
+      console.log('Welcome to the Internet. Please follow me.');
     })();
     ```
 
   - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
-  - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262"s note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
     // bad
     if (currentUser) {
       function test() {
-        console.log("Nope.");
+        console.log('Nope.');
       }
     }
 
@@ -293,7 +293,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     var test;
     if (currentUser) {
       test = function test() {
-        console.log("Yup.");
+        console.log('Yup.');
       };
     }
     ```
@@ -327,7 +327,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     };
 
     // bad
-    var isJedi = luke["jedi"];
+    var isJedi = luke['jedi'];
 
     // good
     var isJedi = luke.jedi;
@@ -345,7 +345,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
       return luke[prop];
     }
 
-    var isJedi = getProp("jedi");
+    var isJedi = getProp('jedi');
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -369,12 +369,12 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     // bad
     var items = getItems();
     var goSportsTeam = true;
-    var dragonball = "z";
+    var dragonball = 'z';
 
     // good
     var items = getItems(),
         goSportsTeam = true,
-        dragonball = "z";
+        dragonball = 'z';
     ```
 
   - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
@@ -405,13 +405,13 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     // bad
     function() {
       test();
-      console.log("doing stuff..");
+      console.log('doing stuff..');
 
       //..other stuff..
 
       var name = getName();
 
-      if (name === "test") {
+      if (name === 'test') {
         return false;
       }
 
@@ -423,11 +423,11 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
       var name = getName();
 
       test();
-      console.log("doing stuff..");
+      console.log('doing stuff..');
 
       //..other stuff..
 
-      if (name === "test") {
+      if (name === 'test') {
         return false;
       }
 
@@ -499,7 +499,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
       anonymous(); // => TypeError anonymous is not a function
 
       var anonymous = function() {
-        console.log("anonymous function expression");
+        console.log('anonymous function expression');
       };
     }
     ```
@@ -515,7 +515,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
       superPower(); // => ReferenceError superPower is not defined
 
       var named = function superPower() {
-        console.log("Flying");
+        console.log('Flying');
       };
     }
 
@@ -527,7 +527,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
       named(); // => TypeError named is not a function
 
       var named = function named() {
-        console.log("named");
+        console.log('named');
       }
     }
     ```
@@ -539,7 +539,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
       superPower(); // => Flying
 
       function superPower() {
-        console.log("Flying");
+        console.log('Flying');
       }
     }
     ```
@@ -560,7 +560,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     + **Null** evaluates to **false**
     + **Booleans** evaluate to **the value of the boolean**
     + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    + **Strings** evaluate to **false** if an empty string `""`, otherwise **true**
+    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
     ```javascript
     if ([0]) {
@@ -573,7 +573,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
     ```javascript
     // bad
-    if (name !== "") {
+    if (name !== '') {
       // ...stuff...
     }
 
@@ -673,19 +673,19 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
     // bad
     function getType() {
-      console.log("fetching type...");
-      // set the default type to "no type"
-      var type = this._type || "no type";
+      console.log('fetching type...');
+      // set the default type to 'no type'
+      var type = this._type || 'no type';
 
       return type;
     }
 
     // good
     function getType() {
-      console.log("fetching type...");
+      console.log('fetching type...');
 
-      // set the default type to "no type"
-      var type = this._type || "no type";
+      // set the default type to 'no type'
+      var type = this._type || 'no type';
 
       return type;
     }
@@ -722,10 +722,10 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
 ## Whitespace
 
-  - Use soft tabs set to 4 spaces
+  - Use soft tabs set to 2 spaces
 
     ```javascript
-    // bad
+    // good
     function() {
     ∙∙var name;
     }
@@ -735,7 +735,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     ∙var name;
     }
 
-    // good
+    // bad
     function() {
     ∙∙∙∙var name;
     }
@@ -746,24 +746,24 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     ```javascript
     // bad
     function test(){
-      console.log("test");
+      console.log('test');
     }
 
     // good
     function test() {
-      console.log("test");
+      console.log('test');
     }
 
     // bad
-    dog.set("attr",{
-      age: "1 year",
-      breed: "Bernese Mountain Dog"
+    dog.set('attr',{
+      age: '1 year',
+      breed: 'Bernese Mountain Dog'
     });
 
     // good
-    dog.set("attr", {
-      age: "1 year",
-      breed: "Bernese Mountain Dog"
+    dog.set('attr', {
+      age: '1 year',
+      breed: 'Bernese Mountain Dog'
     });
     ```
 
@@ -805,30 +805,30 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
     ```javascript
     // bad
-    $("#items").find(".selected").highlight().end().find(".open").updateCount();
+    $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
     // good
-    $("#items")
-      .find(".selected")
+    $('#items')
+      .find('.selected')
         .highlight()
         .end()
-      .find(".open")
+      .find('.open')
         .updateCount();
 
     // bad
-    var leds = stage.selectAll(".led").data(data).enter().append("svg:svg").class("led", true)
-        .attr("width",  (radius + margin) * 2).append("svg:g")
-        .attr("transform", "translate(" + (radius + margin) + "," + (radius + margin) + ")")
+    var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
+        .attr('width',  (radius + margin) * 2).append('svg:g')
+        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
 
     // good
-    var leds = stage.selectAll(".led")
+    var leds = stage.selectAll('.led')
         .data(data)
-      .enter().append("svg:svg")
-        .class("led", true)
-        .attr("width",  (radius + margin) * 2)
-      .append("svg:g")
-        .attr("transform", "translate(" + (radius + margin) + "," + (radius + margin) + ")")
+      .enter().append('svg:svg')
+        .class('led', true)
+        .attr('width',  (radius + margin) * 2)
+      .append('svg:g')
+        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
     ```
 
@@ -851,46 +851,46 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
     // bad
     var hero = {
-        firstName: "Bob"
-      , lastName: "Parr"
-      , heroName: "Mr. Incredible"
-      , superPower: "strength"
+        firstName: 'Bob'
+      , lastName: 'Parr'
+      , heroName: 'Mr. Incredible'
+      , superPower: 'strength'
     };
 
     // good
     var hero = {
-      firstName: "Bob",
-      lastName: "Parr",
-      heroName: "Mr. Incredible",
-      superPower: "strength"
+      firstName: 'Bob',
+      lastName: 'Parr',
+      heroName: 'Mr. Incredible',
+      superPower: 'strength'
     };
     ```
 
-  - Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it"s in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
+  - Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
 
   > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
     ```javascript
     // bad
     var hero = {
-      firstName: "Kevin",
-      lastName: "Flynn",
+      firstName: 'Kevin',
+      lastName: 'Flynn',
     };
 
     var heroes = [
-      "Batman",
-      "Superman",
+      'Batman',
+      'Superman',
     ];
 
     // good
     var hero = {
-      firstName: "Kevin",
-      lastName: "Flynn"
+      firstName: 'Kevin',
+      lastName: 'Flynn'
     };
 
     var heroes = [
-      "Batman",
-      "Superman"
+      'Batman',
+      'Superman'
     ];
     ```
 
@@ -904,19 +904,19 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     ```javascript
     // bad
     (function() {
-      var name = "Skywalker"
+      var name = 'Skywalker'
       return name
     })()
 
     // good
     (function() {
-      var name = "Skywalker";
+      var name = 'Skywalker';
       return name;
     })();
 
     // good (guards against the function becoming an argument when two files with IIFEs are concatenated)
     ;(function() {
-      var name = "Skywalker";
+      var name = 'Skywalker';
       return name;
     })();
     ```
@@ -935,22 +935,22 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     //  => this.reviewScore = 9;
 
     // bad
-    var totalScore = this.reviewScore + "";
+    var totalScore = this.reviewScore + '';
 
     // good
-    var totalScore = "" + this.reviewScore;
+    var totalScore = '' + this.reviewScore;
 
     // bad
-    var totalScore = "" + this.reviewScore + " total score";
+    var totalScore = '' + this.reviewScore + ' total score';
 
     // good
-    var totalScore = this.reviewScore + " total score";
+    var totalScore = this.reviewScore + ' total score';
     ```
 
   - Use `parseInt` for Numbers and always with a radix for type casting.
 
     ```javascript
-    var inputValue = "4";
+    var inputValue = '4';
 
     // bad
     var val = new Number(inputValue);
@@ -1033,14 +1033,14 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     var this_is_my_object = {};
     function c() {}
     var u = new user({
-      name: "Bob Parr"
+      name: 'Bob Parr'
     });
 
     // good
     var thisIsMyObject = {};
     function thisIsMyFunction() {}
     var user = new User({
-      name: "Bob Parr"
+      name: 'Bob Parr'
     });
     ```
 
@@ -1053,7 +1053,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     }
 
     var bad = new user({
-      name: "nope"
+      name: 'nope'
     });
 
     // good
@@ -1062,7 +1062,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     }
 
     var good = new User({
-      name: "yup"
+      name: 'yup'
     });
     ```
 
@@ -1070,11 +1070,11 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
     ```javascript
     // bad
-    this.__firstName__ = "Panda";
-    this.firstName_ = "Panda";
+    this.__firstName__ = 'Panda';
+    this.firstName_ = 'Panda';
 
     // good
-    this._firstName = "Panda";
+    this._firstName = 'Panda';
     ```
 
   - When saving a reference to `this` use `_this`.
@@ -1128,7 +1128,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 ## Accessors
 
   - Accessor functions for properties are not required
-  - If you do make accessor functions use getVal() and setVal("hello")
+  - If you do make accessor functions use getVal() and setVal('hello')
 
     ```javascript
     // bad
@@ -1158,13 +1158,13 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     }
     ```
 
-  - It"s okay to create get() and set() functions, but be consistent.
+  - It's okay to create get() and set() functions, but be consistent.
 
     ```javascript
     function Jedi(options) {
       options || (options = {});
-      var lightsaber = options.lightsaber || "blue";
-      this.set("lightsaber", lightsaber);
+      var lightsaber = options.lightsaber || 'blue';
+      this.set('lightsaber', lightsaber);
     }
 
     Jedi.prototype.set = function(key, val) {
@@ -1209,11 +1209,11 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
     ```js
     // bad
-    $(this).trigger("listingUpdated", listing.id);
+    $(this).trigger('listingUpdated', listing.id);
 
     ...
 
-    $(this).on("listingUpdated", function(e, listingId) {
+    $(this).on('listingUpdated', function(e, listingId) {
       // do something with listingId
     });
     ```
@@ -1222,7 +1222,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
     ```js
     // good
-    $(this).trigger("listingUpdated", { listingId : listing.id });
+    $(this).trigger('listingUpdated', { listingId : listing.id });
 
     ...
 
@@ -1230,7 +1230,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
       // do something with data.listingId
     });
 
-    $(this).on("listingUpdated", eventHandler);
+    $(this).on('listingUpdated', eventHandler);
     ```
 
     - Always clear events during garbage collection. For example:
@@ -1241,14 +1241,14 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
       // do something with data.listingId
     });
 
-    $(this).on("listingUpdated", eventHandler);
+    $(this).on('listingUpdated', eventHandler);
 
     ...
 
     var onDestroy = function onDestroy(){
-      $(this).off("listingUpdated")
+      $(this).off('listingUpdated')
     }
-    
+
     ```
 
   **[⬆ back to top](#table-of-contents)**
@@ -1261,10 +1261,10 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
     ```javascript
     // bad
-    var sidebar = $(".sidebar");
+    var sidebar = $('.sidebar');
 
     // good
-    var $sidebar = $(".sidebar");
+    var $sidebar = $('.sidebar');
     ```
 
   - Cache jQuery lookups.
@@ -1272,46 +1272,46 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
     ```javascript
     // bad
     function setSidebar() {
-      $(".sidebar").hide();
+      $('.sidebar').hide();
 
       // ...stuff...
 
-      $(".sidebar").css({
-        "background-color": "pink"
+      $('.sidebar').css({
+        'background-color': 'pink'
       });
     }
 
     // good
     function setSidebar() {
-      var $sidebar = $(".sidebar");
+      var $sidebar = $('.sidebar');
       $sidebar.hide();
 
       // ...stuff...
 
       $sidebar.css({
-        "background-color": "pink"
+        'background-color': 'pink'
       });
     }
     ```
 
-  - For DOM queries use Cascading `$(".sidebar ul")` or parent > child `$(".sidebar > ul")`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
   - Use `find` with scoped jQuery object queries.
 
     ```javascript
     // bad
-    $("ul", ".sidebar").hide();
+    $('ul', '.sidebar').hide();
 
     // bad
-    $(".sidebar").find("ul").hide();
+    $('.sidebar').find('ul').hide();
 
     // good
-    $(".sidebar ul").hide();
+    $('.sidebar ul').hide();
 
     // good
-    $(".sidebar > ul").hide();
+    $('.sidebar > ul').hide();
 
     // good
-    $sidebar.find("ul").hide();
+    $sidebar.find('ul').hide();
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1319,7 +1319,7 @@ Welcome to the SOON_ JavaScript style guide. This style guide is mostly based on
 
 ## ECMAScript 5 Compatibility
 
-  - Refer to [Kangax](https://twitter.com/kangax/)"s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
+  - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -1364,7 +1364,7 @@ Copyright (c) 2014 Airbnb
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
+'Software'), to deal in the Software without restriction, including
 without limitation the rights to use, copy, modify, merge, publish,
 distribute, sublicense, and/or sell copies of the Software, and to
 permit persons to whom the Software is furnished to do so, subject to
@@ -1373,7 +1373,7 @@ the following conditions:
 The above copyright notice and this permission notice shall be
 included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY

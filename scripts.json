@@ -1,15 +1,15 @@
 {
-    "vendor": [
-        "./app/components/angular/angular.js",
-        "./app/components/angular-route/angular-route.js"
-    ],
-    "application": [
-        "./app/js/search/search.js",
-        "./app/js/search/controllers/SearchCtrl.js",
-        "./app/js/results/results.js",
-        "./app/js/results/controllers/ResultsCtrl.js",
-        "./app/js/version/version.js",
-        "./app/js/version/directives/appVersion.js",
-        "./app/js/app.js"
-    ]
+  "vendor": [
+    "./app/components/angular/angular.js",
+    "./app/components/angular-route/angular-route.js"
+  ],
+  "application": [
+    "./app/js/search/search.js",
+    "./app/js/search/controllers/SearchCtrl.js",
+    "./app/js/results/results.js",
+    "./app/js/results/controllers/ResultsCtrl.js",
+    "./app/js/version/version.js",
+    "./app/js/version/directives/appVersion.js",
+    "./app/js/app.js"
+  ]
 }

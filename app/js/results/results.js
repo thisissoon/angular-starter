@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /**
  * Retrieves results to display in results view
  * @module   myApp.results
@@ -6,9 +6,9 @@
  * @requires ngRoute {@link https://docs.angularjs.org/api/ngRoute}
  * @requires myApp.results.ResultsCtrl
  */
-angular.module("myApp.results", [
-    "ngRoute",
-    "myApp.results.ResultsCtrl"
+angular.module('myApp.results', [
+  'ngRoute',
+  'myApp.results.ResultsCtrl'
 ])
 /**
  * @class  config
@@ -16,14 +16,14 @@ angular.module("myApp.results", [
  * @param  {Provider} $routeProvider
  */
 .config([
-    "$routeProvider",
-    function ($routeProvider) {
+  '$routeProvider',
+  function ($routeProvider) {
 
-        $routeProvider
-            .when("/results", {
-                templateUrl: "partials/results.html",
-                controller: "ResultsCtrl"
-            });
+    $routeProvider
+      .when('/results', {
+        templateUrl: 'partials/results.html',
+        controller: 'ResultsCtrl'
+      });
 
-    }
+  }
 ]);
