@@ -333,10 +333,11 @@ module.exports = function (grunt) {
     },
 
     lesslint: {
-      src: ['./app/less/**/*.less', '!./app/less/main.less'],
+      src: ['app/less/main.less'],
       options: {
+        imports: ['app/less/**/*.less'],
         csslint: {
-          csslintrc: './app/less/.csslintrc'
+          csslintrc: 'app/less/.csslintrc',
         }
       }
     }
