@@ -1,0 +1,22 @@
+{
+  "indentSize": 2,
+  "indentChar": " ",
+  "indentScripts": "normal",
+  "indentInnerHtml": false,
+  "braceStyle": "collapse",
+  "condense": false,
+  "preserveNewlines": true,
+  "maxPreserveNewlines": 2,
+  "endWithNewline": true,
+  "wrapLineLength": 0,
+  "unformatted": [
+    "a",
+    "b",
+    "code",
+    "i",
+    "pre",
+    "sub",
+    "sup",
+    "u"
+  ]
+}

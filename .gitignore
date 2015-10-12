@@ -13,3 +13,4 @@ tmp
 .grunt
 *.log
 _SpecRunner.html
+nohup.out

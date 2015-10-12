@@ -12,7 +12,7 @@
     "freeze"        : true,     // true: prohibits overwriting prototypes of native objects such as Array, Date etc.
     "forin"         : true,     // true: Require filtering for..in loops with obj.hasOwnProperty()
     "immed"         : true,     // true: Require immediate invocations to be wrapped in parens e.g. `(function () { } ());`
-    "indent"        : 4,        // {int} Number of spaces to use for indentation
+    "indent"        : 2,        // {int} Number of spaces to use for indentation
     "latedef"       : true,     // true: Require variables/functions to be defined before being used
     "newcap"        : true,     // true: Require capitalization of all constructor functions e.g. `new F()`
     "noarg"         : true,     // true: Prohibit use of `arguments.caller` and `arguments.callee`
@@ -20,7 +20,7 @@
     "nonbsp"        : true,     // true: Prohibit "non-breaking whitespace" characters.
     "nonew"         : false,    // true: Prohibit use of constructors for side-effects (without assignment)
     "plusplus"      : false,    // true: Prohibit use of `++` & `--`
-    "quotmark"      : "double", // Quotation mark consistency:
+    "quotmark"      : "single", // Quotation mark consistency:
                                 //   false    : do nothing (default)
                                 //   true     : ensure whatever is used is consistent
                                 //   "single" : require single quotes
@@ -77,7 +77,7 @@
     "prototypejs"   : false,    // Prototype and Scriptaculous
     "qunit"         : false,    // QUnit
     "rhino"         : false,    // Rhino
-    "shelljs"       : false,     // ShellJS
+    "shelljs"       : false,    // ShellJS
     "worker"        : false,    // Web Workers
     "wsh"           : false,    // Windows Scripting Host
     "yui"           : false,    // Yahoo User Interface

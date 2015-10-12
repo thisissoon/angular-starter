@@ -12,7 +12,7 @@ Every repo should have an `.editorconfig` file included which will define spacin
 * Put spaces before `{` in rule declarations: `.rule {`
 * Put only a single line breaks between rulesets:
 
-  
+
   ``` css
 
   .rule-1 {
@@ -22,9 +22,9 @@ Every repo should have an `.editorconfig` file included which will define spacin
   .rule-2 {
     ...
   }
-    
-  ``` 
-  
+
+  ```
+
 * When grouping selectors, keep individual selectors to a single line.
 
   ``` css
@@ -32,8 +32,8 @@ Every repo should have an `.editorconfig` file included which will define spacin
   .rule-2 {
     ...
   }
-  
-  ``` 
+
+  ```
 
 * Place closing braces of declaration blocks on a new line.
 * Each declaration should appear on its own line for more accurate error reporting:
@@ -41,10 +41,10 @@ Every repo should have an `.editorconfig` file included which will define spacin
   ``` css
   .rule-1 {
     background-color: black;
-    color: red; 
+    color: red;
   }
-  
-  ``` 
+
+  ```
 * Avoid unnecessary whitespace when nesting LESS code and only include blank lines directly above rule declarations
 
 
@@ -59,27 +59,27 @@ Every repo should have an `.editorconfig` file included which will define spacin
 
 ### Misc
 
-As a rule of thumb, avoid unnecessary nesting in LESS. At most, aim for three levels. If you cannot help it, step back and rethink your overall strategy (either the specificity needed, or the layout of the nesting). 
+As a rule of thumb, avoid unnecessary nesting in LESS. At most, aim for three levels. If you cannot help it, step back and rethink your overall strategy (either the specificity needed, or the layout of the nesting).
 
-Document styles with JSDocs style notation. Example: 
+Document styles with JSDocs style notation. Example:
 
 ``` css
 /**
- * this block of code styles a regular version 
- * of a list within this module 
+ * this block of code styles a regular version
+ * of a list within this module
  * @property .my-rule
  * @example <span class="my-rule"></span>
  */
 .my-rule {
   ...
-  
+
   &.active {
     ...
   }
 }
 
 /**
- * this block of code styles a variant version 
+ * this block of code styles a variant version
  * of a list within this module which makes
  * changes the opacity and makes it grey etc...
  * @property .my-rule
@@ -87,12 +87,12 @@ Document styles with JSDocs style notation. Example:
  */
 .my-rule.variant {
   ...
-  
+
   &.active {
     ...
   }
 }
-``` 
+```
 
 
 ### Examples
@@ -132,7 +132,7 @@ Here are some good examples that apply the above guidelines:
   color: red
   // other styles here
 }
-``` 
+```
 
 ## File organisation
 
@@ -142,35 +142,35 @@ In general, the CSS file organisation should follow something like this:
 
 css
 ├── desktop
-│   ├── core 
+│   ├── core
 │   │   ├── typography.less
 │   │   └── colors.less
-│   ├── modules 
+│   ├── modules
 │   │   ├── header.less
 │   │   └── nav.less
 ├── large
-│   ├── core 
+│   ├── core
 │   │   ├── typography.less
 │   │   └── colors.less
-│   ├── modules 
+│   ├── modules
 │   │   ├── header.less
 │   │   └── nav.less
 ├── tablet
-│   ├── core 
+│   ├── core
 │   │   ├── typography.less
 │   │   └── colors.less
-│   ├── modules 
+│   ├── modules
 │   │   ├── header.less
 │   │   └── nav.less
 └── mobile
-    ├── core 
+    ├── core
     │   ├── typography.less
     │   └── colors.less
-    └── modules 
+    └── modules
         ├── header.less
         └── nav.less
 
-    
+
 ```
 
 ## LESS
@@ -189,7 +189,7 @@ css
   background-color: @white;
   color: @black;
 }
-``` 
+```
 
 
 ### Including LESS files
@@ -217,7 +217,7 @@ Example:
   @import "tablet/modules/footer.less";
 }
 
-``` 
+```
 
 This is also how Bootstrap's styles are to be included, should you need them.
 
@@ -244,11 +244,11 @@ If you are unsure that a browser supports a certain css property, search for tha
 
 ### Media Queries
 
-Media queries in our own code should __ONLY__ be declared in our `app/less/main.less` file. With the relevant less files for that media query imported within this block. __DO NOT__ write media queries in any other file other than `app/main/less`. 
+Media queries in our own code should __ONLY__ be declared in our `app/less/main.less` file. With the relevant less files for that media query imported within this block. __DO NOT__ write media queries in any other file other than `app/main/less`.
 
 ## Pixels vs. ems
 
-Use `em`'s for `font-size` and never `px` because it allows us to change the font size for everything globally by changing the `font-size` of the `body`. 
+Use `em`'s for `font-size` and never `px` because it allows us to change the font size for everything globally by changing the `font-size` of the `body`.
 
 It is recommended to create a single less variable with the base font value and apply this variable to the `body` tag initially. This way we can use this variable to override `px` values for `font-size` in modules from libraries.
 
@@ -264,7 +264,7 @@ body {
   line-height: 1.2; // line-height will be 19px
 }
 
-``` 
+```
 
 ## Class naming conventions
 
@@ -288,17 +288,17 @@ When styling a component, start with an class namespace and nest styling within 
 
   // Direct descendant selector > for list items
   > .list-item {
-      list-style-type: disc;
+    list-style-type: disc;
   }
 
   // Don't do this as category list may contain
   // other links which you don't want to style this color
   a {
-     color: #f00000;
+    color: #f00000;
   }
 }
 
-``` 
+```
 
 ## CSS Specificity guidelines
 
@@ -306,10 +306,10 @@ If you must use an `id` selector (`#selector`) and this should only be because y
 
 
 ``` css
-#header .search #quicksearch { 
-  ... 
+#header .search #quicksearch {
+  ...
 }
-``` 
+```
 
 When modifying an existing element for a specific use, try to use specific class names. Instead of `.listings-layout.bigger` use rules like `.listings-layout.listings-bigger`. Think about searching your code in the future.
 
@@ -318,8 +318,8 @@ The class names `disabled`, `mousedown`, `danger`, `hover`, `selected`, and `act
 ## A small word on HTML
 
 * It should go without saying that all HTML should be valid HTML with a `!DOCTYPE` declaration specified at the top of the page.
-* Correct tags should be used for semantics. 
+* Correct tags should be used for semantics.
 * Some elements have required attributes such as the `<a href="#">` tag requires the `href` attribute or the `<img src="image.jpg" alt="image">` requires the `src` and `alt` attributes. If these attributes are not included then this could cause issues with some browsers.
 * Follow W3C guidelines on valid HTML.
 
-If in doubt copy and paste your mark up into [W3C Validator](http://validator.w3.org/). 
+If in doubt copy and paste your mark up into [W3C Validator](http://validator.w3.org/).
