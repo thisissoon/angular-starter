@@ -77,7 +77,7 @@ module.exports = function (grunt) {
           './modules/**/*.html',
           './modules/**/**/*.html'
         ],
-        tasks: ['less:development']
+        tasks: ['csscomb','less:development']
       },
       javascript: {
         files: [
@@ -330,6 +330,29 @@ module.exports = function (grunt) {
           'app/index.html': '<%= config.applicationFiles %>'
         }
       }
+    },
+
+    lesslint: {
+      src: ['app/less/main.less'],
+      options: {
+        imports: ['app/less/**/*.less'],
+        csslint: {
+          csslintrc: 'app/less/.csslintrc',
+        }
+      }
+    },
+
+    csscomb: {
+      less: {
+        options: {
+          config: './app/less/.csscomb.json'
+        },
+        expand: true,
+        cwd: './app/less/',
+        src: ['*.less', '**/*.less'],
+        dest: './app/less/',
+        ext: '.less'
+      }
     }
 
   });
@@ -349,9 +372,12 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-ng-constant');
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-sails-linker');
+  grunt.loadNpmTasks('grunt-lesslint');
+  grunt.loadNpmTasks('grunt-csscomb');
 
   grunt.registerTask('build', [
     'clean:beforeBuild',
+    'csscomb',
     'less:production',
     'ngconstant',
     'minify',
@@ -371,6 +397,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('server', [
+    'csscomb',
     'less:development',
     'ngconstant',
     'sails-linker',
@@ -379,6 +406,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('serverjs', [
+    'csscomb',
     'less:development',
     'ngconstant',
     'sails-linker',
@@ -387,6 +415,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('serverall', [
+    'csscomb',
     'less:development',
     'ngconstant',
     'sails-linker',
@@ -396,6 +425,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:beforeBuild',
+    'lesslint',
     'ngconstant',
     'minify',
     'jshint',
@@ -404,6 +434,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('test:development', [
+    'lesslint',
     'ngconstant',
     'jshint',
     'jasmine:development'
