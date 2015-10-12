@@ -1,4 +1,4 @@
-var pkg = require("../../package.json");
+var pkg = require('../../package.json');
 
 // A saucelabs reference configuration file.
 exports.config = {
@@ -16,7 +16,7 @@ exports.config = {
   //
   // Spec patterns are relative to the location of this config.
   specs: [
-    "specs/*.js"
+    'specs/*.js'
   ],
 
   // Saucelabs capabilities reference
@@ -82,18 +82,18 @@ exports.config = {
   //
   // A base URL for your application under test. Calls to protractor.get()
   // with relative paths will be prepended with this.
-  baseUrl: "http://127.0.0.1:8000",
+  baseUrl: 'http://127.0.0.1:8000',
 
   // Selector for the element housing the angular app - this defaults to
   // body, but is necessary if ng-app is on a descendant of <body>
-  rootElement: "html",
+  rootElement: 'html',
 
   // ----- The test framework -----
   //
   // Jasmine is fully supported as a test and assertion framework.
   // Mocha has limited beta support. You will need to include your own
   // assertion framework if working with mocha.
-  framework: "jasmine",
+  framework: 'jasmine',
 
   // ----- Options to be passed to minijasminenode -----
   //
