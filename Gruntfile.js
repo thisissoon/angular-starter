@@ -330,6 +330,15 @@ module.exports = function (grunt) {
           'app/index.html': '<%= config.applicationFiles %>'
         }
       }
+    },
+
+    lesslint: {
+      src: ['./app/less/**/*.less', '!./app/less/main.less'],
+      options: {
+        csslint: {
+          csslintrc: './app/less/.csslintrc'
+        }
+      }
     }
 
   });
@@ -349,6 +358,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-ng-constant');
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-sails-linker');
+  grunt.loadNpmTasks('grunt-lesslint')
 
   grunt.registerTask('build', [
     'clean:beforeBuild',
@@ -396,6 +406,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:beforeBuild',
+    'lesslint',
     'ngconstant',
     'minify',
     'jshint',
@@ -404,6 +415,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('test:development', [
+    'lesslint',
     'ngconstant',
     'jshint',
     'jasmine:development'
