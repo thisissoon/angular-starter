@@ -25,6 +25,7 @@
     "grunt-contrib-watch": "~0.6.1",
     "grunt-contrib-yuidoc": "~0.10.0",
     "grunt-csscomb": "~3.1.0",
+    "grunt-jsbeautifier": "~0.2.10",
     "grunt-lesslint": "~1.4.0",
     "grunt-ng-constant": "~1.1.0",
     "grunt-processhtml": "~0.3.7",
