@@ -235,7 +235,26 @@ grunt e2e
 ```
 
 Behind the scenes this will also run `webdriver-manager update && webdriver-manager start`. This will download and install the latest version of the stand-alone WebDriver tool and start the Selenium web server. This script will execute the end-to-end tests against the application being hosted on the
-development server. 
+development server.
+
+
+### Docker
+
+Angular Start can be run under docker to ease portability. This section will describe how to get the application up and running under docker.
+
+Once you have docker running the first thing to do is pull the docker image.
+
+    $ docker pull soon/angular-start
+
+#### Building the Docker Image
+
+To build the image locally run:
+
+    $ docker build -t soon/angular-start .
+
+#### Running the Application
+
+    $ docker run --rm -it soon/angular-start
 
 
 ## Contact
