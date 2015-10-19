@@ -77,7 +77,7 @@ module.exports = function (grunt) {
           './modules/**/*.html',
           './modules/**/**/*.html'
         ],
-        tasks: ['csscomb','less:development']
+        tasks: ['less:development']
       },
       javascript: {
         files: [
@@ -342,19 +342,6 @@ module.exports = function (grunt) {
       }
     },
 
-    csscomb: {
-      less: {
-        options: {
-          config: './app/less/.csscomb.json'
-        },
-        expand: true,
-        cwd: './app/less/',
-        src: ['*.less', '**/*.less'],
-        dest: './app/less/',
-        ext: '.less'
-      }
-    },
-
     jsbeautifier: {
       html: {
         expand: true,
@@ -386,13 +373,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-sails-linker');
   grunt.loadNpmTasks('grunt-lesslint');
-  grunt.loadNpmTasks('grunt-csscomb');
   grunt.loadNpmTasks('grunt-jsbeautifier');
 
   grunt.registerTask('build', [
     'clean:beforeBuild',
     'jsbeautifier:html',
-    'csscomb',
     'less:production',
     'ngconstant',
     'minify',
@@ -413,7 +398,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('server', [
     'jsbeautifier:html',
-    'csscomb',
     'less:development',
     'ngconstant',
     'sails-linker',
@@ -423,7 +407,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serverjs', [
     'jsbeautifier:html',
-    'csscomb',
     'less:development',
     'ngconstant',
     'sails-linker',
@@ -433,7 +416,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serverall', [
     'jsbeautifier:html',
-    'csscomb',
     'less:development',
     'ngconstant',
     'sails-linker',
