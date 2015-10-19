@@ -77,7 +77,7 @@ module.exports = function (grunt) {
           './modules/**/*.html',
           './modules/**/**/*.html'
         ],
-        tasks: ['less:development']
+        tasks: ['lesslint','less:development']
       },
       javascript: {
         files: [
