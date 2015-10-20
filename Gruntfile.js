@@ -316,7 +316,7 @@ module.exports = function (grunt) {
           appRoot: './app/'
         },
         files: {
-          'app/index.html': '<%= config.vendorFiles %>'
+          './app/index.html': '<%= config.vendorFiles %>'
         }
       },
       appJs: {
@@ -327,17 +327,17 @@ module.exports = function (grunt) {
           appRoot: './app/'
         },
         files: {
-          'app/index.html': '<%= config.applicationFiles %>'
+          './app/index.html': '<%= config.applicationFiles %>'
         }
       }
     },
 
     lesslint: {
-      src: ['app/less/main.less'],
+      src: ['./app/less/main.less'],
       options: {
         imports: ['app/less/**/*.less'],
         csslint: {
-          csslintrc: 'app/less/.csslintrc',
+          csslintrc: './app/less/.csslintrc',
         }
       }
     },
@@ -349,9 +349,9 @@ module.exports = function (grunt) {
     htmllint: {
       options: {
         force: true,
-        htmllintrc: 'app/partials/.htmllintrc'
+        htmllintrc: './app/partials/.htmllintrc'
       },
-      src: ['app/*.html','app/partials/**/*.html']
+      src: ['./app/*.html','./app/partials/**/*.html']
     }
 
   });
