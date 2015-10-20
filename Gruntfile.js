@@ -77,7 +77,7 @@ module.exports = function (grunt) {
           './modules/**/*.html',
           './modules/**/**/*.html'
         ],
-        tasks: ['lesslint','less:development']
+        tasks: ['htmllint','lesslint','less:development']
       },
       javascript: {
         files: [
@@ -342,17 +342,16 @@ module.exports = function (grunt) {
       }
     },
 
-    jsbeautifier: {
-      html: {
-        expand: true,
-        cwd: './app/',
-        ext: '.html',
-        src: ['*.html','**/*.html'],
-        dest: './app/',
-        options: {
-          config: './app/partials/.beautifyrc'
-        }
-      }
+    /**
+     * HTML linter
+     * {@link https://github.com/htmllint/htmllint/wiki/Options .htmllintrc options}
+     */
+    htmllint: {
+      options: {
+        force: true,
+        htmllintrc: 'app/partials/.htmllintrc'
+      },
+      src: ['app/*.html','app/partials/**/*.html']
     }
 
   });
@@ -373,11 +372,11 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-sails-linker');
   grunt.loadNpmTasks('grunt-lesslint');
-  grunt.loadNpmTasks('grunt-jsbeautifier');
+  grunt.loadNpmTasks('grunt-htmllint');
 
   grunt.registerTask('build', [
     'clean:beforeBuild',
-    'jsbeautifier:html',
+    'htmllint',
     'less:production',
     'ngconstant',
     'minify',
@@ -397,7 +396,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('server', [
-    'jsbeautifier:html',
+    'htmllint',
     'less:development',
     'ngconstant',
     'sails-linker',
@@ -406,7 +405,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('serverjs', [
-    'jsbeautifier:html',
+    'htmllint',
     'less:development',
     'ngconstant',
     'sails-linker',
@@ -415,7 +414,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('serverall', [
-    'jsbeautifier:html',
+    'htmllint',
     'less:development',
     'ngconstant',
     'sails-linker',
@@ -425,7 +424,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:beforeBuild',
-    'jsbeautifier:html',
+    'htmllint',
     'lesslint',
     'ngconstant',
     'minify',
@@ -435,7 +434,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('test:development', [
-    'jsbeautifier:html',
+    'htmllint',
     'lesslint',
     'ngconstant',
     'jshint',
