@@ -77,7 +77,7 @@ module.exports = function (grunt) {
           './modules/**/*.html',
           './modules/**/**/*.html'
         ],
-        tasks: ['htmllint','lesslint','less:development']
+        tasks: ['lint','less:development']
       },
       javascript: {
         files: [
@@ -376,7 +376,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:beforeBuild',
-    'htmllint',
     'less:production',
     'ngconstant',
     'minify',
@@ -396,7 +395,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('server', [
-    'htmllint',
     'less:development',
     'ngconstant',
     'sails-linker',
@@ -405,7 +403,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('serverjs', [
-    'htmllint',
     'less:development',
     'ngconstant',
     'sails-linker',
@@ -414,7 +411,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('serverall', [
-    'htmllint',
     'less:development',
     'ngconstant',
     'sails-linker',
@@ -422,10 +418,13 @@ module.exports = function (grunt) {
     'watch'
   ]);
 
+  grunt.registerTask('lint', [
+    'htmllint',
+    'lesslint'
+  ]);
+
   grunt.registerTask('test', [
     'clean:beforeBuild',
-    'htmllint',
-    'lesslint',
     'ngconstant',
     'minify',
     'jshint',
@@ -434,8 +433,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('test:development', [
-    'htmllint',
-    'lesslint',
     'ngconstant',
     'jshint',
     'jasmine:development'
