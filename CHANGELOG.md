@@ -1,3 +1,9 @@
+## Changes in 0.7.1
+
+ * @jamesjwarren: Feature: update linting (#31)
+ * @jamesjwarren: Fix: script quote mark (#30)
+ * @jamesjwarren: Feature: base docker config (#29)
+
 ## Changes in 0.7.0
 
  * @jamesjwarren: Feature: html (#26)
