@@ -1,6 +1,0 @@
-{
-  "<DOCKER_REGISTRY>": {
-    "auth": "<DOCKER_AUTH>",
-    "email": ""
-  }
-}
