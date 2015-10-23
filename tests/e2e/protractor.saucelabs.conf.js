@@ -40,7 +40,7 @@ exports.config = {
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     'build': process.env.TRAVIS_BUILD_NUMBER,
     'name':  pkg.name + ' (Safari: OS X 10.11) Build: ' + process.env.TRAVIS_BUILD_NUMBER,
-    'version': '8.1',
+    'version': '9',
     'platform': 'OS X 10.11'
   },{
     'browserName': 'internet explorer',

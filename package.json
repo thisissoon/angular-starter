@@ -1,7 +1,7 @@
 {
   "name": "angular-start",
   "private": false,
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "The start of all angularjs projects. A base template for a typical angularjs application.",
   "repository": "https://github.com/thisissoon/angular-start",
   "license": "MIT",
@@ -24,8 +24,7 @@
     "grunt-contrib-uglify": "~0.9.1",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-contrib-yuidoc": "~0.10.0",
-    "grunt-csscomb": "~3.1.0",
-    "grunt-jsbeautifier": "~0.2.10",
+    "grunt-htmllint": "~0.2.7",
     "grunt-lesslint": "~1.4.0",
     "grunt-ng-constant": "~1.1.0",
     "grunt-processhtml": "~0.3.7",

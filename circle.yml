@@ -5,14 +5,20 @@
 # Machine Settings
 
 machine:
+  services:
+    - docker
   node:
     version: 0.12.5
+  environment:
+    REPO: registry.soon.build/angular-start
+    TAG: $(sed 's/master/latest/;s/\//\-/' <<<$CIRCLE_BRANCH)
 
 # Dependencies
 
 dependencies:
   pre:
     - npm install -g grunt-cli bower
+    - docker login -u $DOCKER_USER -p $DOCKER_PASS -e $DOCKER_EMAIL $DOCKER_REGISTRY
   override:
     - npm -d install
 
@@ -24,3 +30,28 @@ test:
     - grunt test
   post:
     - ./node_modules/coveralls/bin/coveralls.js < coverage/lcov.info
+
+# Deployment
+
+deployment:
+  prod:
+    branch: master
+    commands:
+      - grunt build --env production
+      - docker build -t $REPO:$TAG .
+      - docker tag $REPO:$TAG $REPO:prod
+      - docker push $REPO:prod
+  qa:
+    branch: /release\/.*/
+    commands:
+      - grunt build --env production
+      - docker build -t $REPO:$TAG .
+      - docker tag $REPO:$TAG $REPO:qa
+      - docker push $REPO:qa
+  latest:
+    branch: develop
+    commands:
+      - grunt build --env production
+      - docker build -t $REPO:$TAG .
+      - docker tag $REPO:$TAG $REPO:latest
+      - docker push $REPO:latest

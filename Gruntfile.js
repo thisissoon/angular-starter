@@ -77,7 +77,7 @@ module.exports = function (grunt) {
           './modules/**/*.html',
           './modules/**/**/*.html'
         ],
-        tasks: ['csscomb','less:development']
+        tasks: ['lint','less:development']
       },
       javascript: {
         files: [
@@ -312,60 +312,46 @@ module.exports = function (grunt) {
         options: {
           startTag: '<!--VENDOR SCRIPTS-->',
           endTag: '<!--VENDOR SCRIPTS END-->',
-          fileTmpl: '<script src=\'%s\'></script>',
+          fileTmpl: '<script src=\"%s\"></script>',
           appRoot: './app/'
         },
         files: {
-          'app/index.html': '<%= config.vendorFiles %>'
+          './app/index.html': '<%= config.vendorFiles %>'
         }
       },
       appJs: {
         options: {
           startTag: '<!--SCRIPTS-->',
           endTag: '<!--SCRIPTS END-->',
-          fileTmpl: '<script src=\'%s\'></script>',
+          fileTmpl: '<script src=\"%s\"></script>',
           appRoot: './app/'
         },
         files: {
-          'app/index.html': '<%= config.applicationFiles %>'
+          './app/index.html': '<%= config.applicationFiles %>'
         }
       }
     },
 
     lesslint: {
-      src: ['app/less/main.less'],
+      src: ['./app/less/main.less'],
       options: {
         imports: ['app/less/**/*.less'],
         csslint: {
-          csslintrc: 'app/less/.csslintrc',
+          csslintrc: './app/less/.csslintrc',
         }
       }
     },
 
-    csscomb: {
-      less: {
-        options: {
-          config: './app/less/.csscomb.json'
-        },
-        expand: true,
-        cwd: './app/less/',
-        src: ['*.less', '**/*.less'],
-        dest: './app/less/',
-        ext: '.less'
-      }
-    },
-
-    jsbeautifier: {
-      html: {
-        expand: true,
-        cwd: './app/',
-        ext: '.html',
-        src: ['*.html','**/*.html'],
-        dest: './app/',
-        options: {
-          config: './app/partials/.beautifyrc'
-        }
-      }
+    /**
+     * HTML linter
+     * {@link https://github.com/htmllint/htmllint/wiki/Options .htmllintrc options}
+     */
+    htmllint: {
+      options: {
+        force: true,
+        htmllintrc: './app/partials/.htmllintrc'
+      },
+      src: ['./app/*.html','./app/partials/**/*.html']
     }
 
   });
@@ -386,13 +372,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-sails-linker');
   grunt.loadNpmTasks('grunt-lesslint');
-  grunt.loadNpmTasks('grunt-csscomb');
-  grunt.loadNpmTasks('grunt-jsbeautifier');
+  grunt.loadNpmTasks('grunt-htmllint');
 
   grunt.registerTask('build', [
     'clean:beforeBuild',
-    'jsbeautifier:html',
-    'csscomb',
     'less:production',
     'ngconstant',
     'minify',
@@ -412,8 +395,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('server', [
-    'jsbeautifier:html',
-    'csscomb',
     'less:development',
     'ngconstant',
     'sails-linker',
@@ -422,8 +403,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('serverjs', [
-    'jsbeautifier:html',
-    'csscomb',
     'less:development',
     'ngconstant',
     'sails-linker',
@@ -432,8 +411,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('serverall', [
-    'jsbeautifier:html',
-    'csscomb',
     'less:development',
     'ngconstant',
     'sails-linker',
@@ -441,10 +418,13 @@ module.exports = function (grunt) {
     'watch'
   ]);
 
+  grunt.registerTask('lint', [
+    'htmllint',
+    'lesslint'
+  ]);
+
   grunt.registerTask('test', [
     'clean:beforeBuild',
-    'jsbeautifier:html',
-    'lesslint',
     'ngconstant',
     'minify',
     'jshint',
@@ -453,8 +433,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('test:development', [
-    'jsbeautifier:html',
-    'lesslint',
     'ngconstant',
     'jshint',
     'jasmine:development'
