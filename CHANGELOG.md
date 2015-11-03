@@ -1,3 +1,7 @@
+## Changes in 0.7.2
+
+ * @edwardoparearyee: Feature: Re-add grunt-protractor-webdriver (#33)
+
 ## Changes in 0.7.1
 
  * @jamesjwarren: Feature: update linting (#31)
