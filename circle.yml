@@ -26,6 +26,7 @@ dependencies:
 
 test:
   override:
+    - grunt lint
     - grunt test:development
     - grunt test
   post:

@@ -61,13 +61,9 @@ module.exports = function (grunt) {
         nospawn: false,
         livereload: true
       },
-      css: {
+      html: {
         files: [
           './app/index.html',
-
-          './app/less/*.less',
-          './app/less/**/*.less',
-          './app/less/**/**/*.less',
 
           './app/partials/*.html',
           './app/partials/**/*.html',
@@ -77,12 +73,18 @@ module.exports = function (grunt) {
           './modules/**/*.html',
           './modules/**/**/*.html'
         ],
-        tasks: ['lint','less:development']
+        tasks: ['htmllint']
+      },
+      css: {
+        files: [
+          './app/less/*.less',
+          './app/less/**/*.less',
+          './app/less/**/**/*.less'
+        ],
+        tasks: ['lesslint','less:development']
       },
       javascript: {
         files: [
-          './scripts.json',
-
           './app/js/*.js',
           './app/js/**/*.js',
           './app/js/**/**/*.js',
@@ -91,7 +93,13 @@ module.exports = function (grunt) {
           './tests/unit/**/*.js',
           './tests/unit/**/**/*.js'
         ],
-        tasks: ['sails-linker', 'test:development']
+        tasks: ['test:development'],
+      },
+      scriptsJson: {
+        files: [
+          './scripts.json'
+        ],
+        tasks: ['sails-linker'],
       }
     },
 
