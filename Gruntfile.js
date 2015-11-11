@@ -104,34 +104,6 @@ module.exports = function (grunt) {
           './scripts.json'
         ],
         tasks: ['sails-linker']
-      },
-      refresh: {
-        files: [
-          './app/index.html',
-
-          './app/data/*.json',
-          './app/data/**/*.json',
-          './app/data/**/**/*.json',
-
-          './app/less/*.less',
-          './app/less/**/*.less',
-          './app/less/**/**/*.less',
-
-          './app/partials/*.html',
-          './app/partials/**/*.html',
-          './app/partials/**/**/*.html',
-
-          './app/js/*.js',
-          './app/js/**/*.js',
-          './app/js/**/**/*.js',
-
-          './modules/*.html',
-          './modules/**/*.html',
-          './modules/**/**/*.html',
-
-          './scripts.json'
-        ],
-        tasks: ['precompile']
       }
     },
 
@@ -447,13 +419,11 @@ module.exports = function (grunt) {
   grunt.registerTask('server', [
     'precompile',
     'connect:server',
-    'watch:refresh'
+    'watch'
   ]);
 
   grunt.registerTask('serverall', [
-    'precompile',
-    'connect:server',
-    'watch'
+    'server'
   ]);
 
   grunt.registerTask('precompile', [
