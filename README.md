@@ -79,7 +79,7 @@ And this will download the bootstrap package from bower and also update the `bow
 
 ### Run the Application
 
-We have preconfigured the project with a simple development web server.  The simplest way to start
+We have preconfigured the project with a simple development web server. The simplest way to start
 this server is:
 
 ```
@@ -88,21 +88,7 @@ grunt server
 
 Now browse to the app at `http://localhost:8000/app/`.
 
-If you are doing any javascript development you can instead run:
-
-```
-grunt serverjs
-```
-
-To run tests as well every time a javascript file is updated
-
-To watch all files run:
-
-```
-grunt serverall
-```
-
-To run tests or compile less to css when the relevent files are updated. 
+This command will watch all source files and run tests every time a javascript file is updated, compile less when a less file is updated and lint js/html/less files when they are updated.
 
 ### Running the build script
 
