@@ -187,11 +187,11 @@ grunt test
 This script will start the Jasmine test runner to execute the unit tests. You can also run:
 
 ```
-grunt serverjs
+grunt server
 ```
 
 Where the grunt watch command will sit and watch the source and test files for changes and then re-run the tests whenever any of them change.
-This is the recommended strategy; if you unit tests are being run every time you save a file then
+This is the recommended strategy; if your unit tests are being run every time you save a file then
 you receive instant feedback on any changes that break the expected code functionality.
 
 

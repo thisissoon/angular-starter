@@ -422,10 +422,6 @@ module.exports = function (grunt) {
     'watch'
   ]);
 
-  grunt.registerTask('serverall', [
-    'server'
-  ]);
-
   grunt.registerTask('precompile', [
     'less:development',
     'ngconstant',
