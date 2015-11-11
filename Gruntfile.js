@@ -393,7 +393,6 @@ module.exports = function (grunt) {
      */
     htmllint: {
       options: {
-        force: true,
         htmllintrc: '.htmllintrc'
       },
       src: [

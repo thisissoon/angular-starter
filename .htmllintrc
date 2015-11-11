@@ -8,5 +8,6 @@
   "attr-req-value": false,
   "html-req-lang": true,
   "title-max-length": 120,
-  "img-req-src": false
+  "img-req-src": false,
+  "tag-bans": ["!style"]
 }
