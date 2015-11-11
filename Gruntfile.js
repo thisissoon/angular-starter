@@ -353,7 +353,7 @@ module.exports = function (grunt) {
       options: {
         imports: ['app/less/**/*.less'],
         csslint: {
-          csslintrc: './app/less/.csslintrc',
+          csslintrc: '.csslintrc',
         }
       }
     },
@@ -365,9 +365,19 @@ module.exports = function (grunt) {
     htmllint: {
       options: {
         force: true,
-        htmllintrc: './app/partials/.htmllintrc'
+        htmllintrc: '.htmllintrc'
       },
-      src: ['./app/*.html','./app/partials/**/*.html']
+      src: [
+        './app/index.html',
+
+        './app/partials/*.html',
+        './app/partials/**/*.html',
+        './app/partials/**/**/*.html',
+
+        './modules/*.html',
+        './modules/**/*.html',
+        './modules/**/**/*.html'
+      ]
     }
 
   });
