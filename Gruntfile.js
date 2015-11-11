@@ -97,7 +97,7 @@ module.exports = function (grunt) {
           './tests/unit/**/*.js',
           './tests/unit/**/**/*.js'
         ],
-        tasks: ['test:development']
+        tasks: ['test:unit:development']
       },
       scriptsJson: {
         files: [
@@ -428,18 +428,23 @@ module.exports = function (grunt) {
     'sails-linker'
   ]);
 
+  grunt.registerTask('minify', [
+    'concat',
+    'uglify'
+  ]);
+
   grunt.registerTask('lint', [
     'htmllint',
     'lesslint',
     'jshint'
   ]);
 
-  grunt.registerTask('minify', [
-    'concat',
-    'uglify'
+  grunt.registerTask('test:unit:development', [
+    'ngconstant',
+    'jasmine:development'
   ]);
 
-  grunt.registerTask('test', [
+  grunt.registerTask('test:unit:production', [
     'clean:dist',
     'ngconstant',
     'minify',
@@ -447,12 +452,7 @@ module.exports = function (grunt) {
     'clean:dist'
   ]);
 
-  grunt.registerTask('test:development', [
-    'ngconstant',
-    'jasmine:development'
-  ]);
-
-  grunt.registerTask('e2e', [
+  grunt.registerTask('test:e2e', [
     'clean:dist',
     'less:production',
     'ngconstant',

@@ -181,7 +181,7 @@ The angular-seed app comes preconfigured with unit tests. These are written in
 The easiest way to run the unit tests is to do:
 
 ```
-grunt test
+grunt test:unit:development
 ```
 
 This script will start the Jasmine test runner to execute the unit tests. You can also run:
@@ -216,7 +216,7 @@ Once you have ensured that the development web server hosting our application is
 and WebDriver is updated, you can run the end-to-end tests using the supplied grunt task:
 
 ```
-grunt e2e
+grunt test:e2e
 ```
 
 Behind the scenes this will also run `webdriver-manager update && webdriver-manager start`. This will download and install the latest version of the stand-alone WebDriver tool and start the Selenium web server. This script will execute the end-to-end tests against the application being hosted on the

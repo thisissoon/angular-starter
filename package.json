@@ -36,6 +36,7 @@
     "yuidoc-bootstrap-theme": "~1.0.4"
   },
   "scripts": {
-    "postinstall": "bower install"
+    "postinstall": "bower install",
+    "test": "grunt test:unit:development"
   }
 }
