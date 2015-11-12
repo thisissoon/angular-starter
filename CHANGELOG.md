@@ -1,3 +1,7 @@
+## Changes in 0.8.0
+
+ * @edwardoparearyee: Feature: Update gruntfile (#36)
+
 ## Changes in 0.7.2
 
  * @edwardoparearyee: Feature: Re-add grunt-protractor-webdriver (#33)
