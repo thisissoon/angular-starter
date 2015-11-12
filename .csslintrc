@@ -8,5 +8,6 @@
   "outline-none": false,
   "regex-selectors": false,
   "shorthand": false,
-  "unique-headings": false
+  "unique-headings": false,
+  "qualified-headings": false
 }

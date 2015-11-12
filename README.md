@@ -79,7 +79,7 @@ And this will download the bootstrap package from bower and also update the `bow
 
 ### Run the Application
 
-We have preconfigured the project with a simple development web server.  The simplest way to start
+We have preconfigured the project with a simple development web server. The simplest way to start
 this server is:
 
 ```
@@ -88,21 +88,7 @@ grunt server
 
 Now browse to the app at `http://localhost:8000/app/`.
 
-If you are doing any javascript development you can instead run:
-
-```
-grunt serverjs
-```
-
-To run tests as well every time a javascript file is updated
-
-To watch all files run:
-
-```
-grunt serverall
-```
-
-To run tests or compile less to css when the relevent files are updated. 
+This command will watch all source files and run tests every time a javascript file is updated, compile less when a less file is updated and lint js/html/less files when they are updated.
 
 ### Running the build script
 
@@ -195,17 +181,17 @@ The angular-seed app comes preconfigured with unit tests. These are written in
 The easiest way to run the unit tests is to do:
 
 ```
-grunt test
+grunt test:unit:development
 ```
 
 This script will start the Jasmine test runner to execute the unit tests. You can also run:
 
 ```
-grunt serverjs
+grunt server
 ```
 
 Where the grunt watch command will sit and watch the source and test files for changes and then re-run the tests whenever any of them change.
-This is the recommended strategy; if you unit tests are being run every time you save a file then
+This is the recommended strategy; if your unit tests are being run every time you save a file then
 you receive instant feedback on any changes that break the expected code functionality.
 
 
@@ -230,7 +216,7 @@ Once you have ensured that the development web server hosting our application is
 and WebDriver is updated, you can run the end-to-end tests using the supplied grunt task:
 
 ```
-grunt e2e
+grunt test:e2e
 ```
 
 Behind the scenes this will also run `webdriver-manager update && webdriver-manager start`. This will download and install the latest version of the stand-alone WebDriver tool and start the Selenium web server. This script will execute the end-to-end tests against the application being hosted on the

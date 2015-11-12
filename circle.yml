@@ -26,8 +26,9 @@ dependencies:
 
 test:
   override:
-    - grunt test:development
-    - grunt test
+    - grunt lint
+    - grunt test:unit:development
+    - grunt test:unit:production
   post:
     - ./node_modules/coveralls/bin/coveralls.js < coverage/lcov.info
 
