@@ -1,7 +1,7 @@
 {
   "name": "angular-start",
   "description": "The start of all angularjs projects. A base template for a typical angularjs application.",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "homepage": "https://github.com/thisissoon/angular-start",
   "license": "MIT",
   "private": false,
