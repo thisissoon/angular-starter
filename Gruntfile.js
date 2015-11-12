@@ -7,8 +7,8 @@ module.exports = function (grunt) {
   var base = grunt.option('base-dir') || '',
       env = grunt.option('env') || 'development',
       protractorConf = grunt.option('ci') ?
-        './tests/e2e/protractor.saucelabs.conf.js' :
-        './tests/e2e/protractor.conf.js' ;
+                      './tests/e2e/protractor.saucelabs.conf.js':
+                      './tests/e2e/protractor.conf.js';
 
   grunt.initConfig({
 
@@ -35,8 +35,8 @@ module.exports = function (grunt) {
           livereload: true,
           middleware: function ( connect, options, middlewares ) {
             var rules = (base === 'dist') ?
-                [ '^/[^\.]*$ /index.html' ] :
-            [ '^/app/[^\.]*$ /app/index.html' ];
+                        [ '^/[^\.]*$ ./index.html' ] :
+                        [ '^/app/[^\.]*$ ./app/index.html' ];
             middlewares.unshift( modRewrite( rules ) );
             return middlewares;
           }
@@ -48,7 +48,7 @@ module.exports = function (grunt) {
           livereload: false,
           base: '<%= config.outputDir %>',
           middleware: function ( connect, options, middlewares ) {
-            var rules = [ '^/[^\.]*$ /index.html' ];
+            var rules = [ '^/[^\.]*$ ./index.html' ];
             middlewares.unshift( modRewrite( rules ) );
             return middlewares;
           }
@@ -58,16 +58,12 @@ module.exports = function (grunt) {
 
     watch: {
       options: {
-        nospawn: false,
+        spawn: true,
         livereload: true
       },
-      css: {
+      html: {
         files: [
           './app/index.html',
-
-          './app/less/*.less',
-          './app/less/**/*.less',
-          './app/less/**/**/*.less',
 
           './app/partials/*.html',
           './app/partials/**/*.html',
@@ -77,11 +73,21 @@ module.exports = function (grunt) {
           './modules/**/*.html',
           './modules/**/**/*.html'
         ],
-        tasks: ['lint','less:development']
+        tasks: ['htmllint']
+      },
+      css: {
+        files: [
+          './app/less/*.less',
+          './app/less/**/*.less',
+          './app/less/**/**/*.less'
+        ],
+        tasks: ['lesslint','less:development']
       },
       javascript: {
         files: [
-          './scripts.json',
+          './app/data/*.json',
+          './app/data/**/*.json',
+          './app/data/**/**/*.json',
 
           './app/js/*.js',
           './app/js/**/*.js',
@@ -91,7 +97,13 @@ module.exports = function (grunt) {
           './tests/unit/**/*.js',
           './tests/unit/**/**/*.js'
         ],
-        tasks: ['sails-linker', 'test:development']
+        tasks: ['test:unit:development']
+      },
+      scriptsJson: {
+        files: [
+          './scripts.json'
+        ],
+        tasks: ['sails-linker']
       }
     },
 
@@ -251,10 +263,7 @@ module.exports = function (grunt) {
     },
 
     clean: {
-      beforeBuild: {
-        src: ['<%= config.outputDir %>', './docs']
-      },
-      afterTest: {
+      dist: {
         src: ['<%= config.outputDir %>']
       }
     },
@@ -345,7 +354,7 @@ module.exports = function (grunt) {
       options: {
         imports: ['app/less/**/*.less'],
         csslint: {
-          csslintrc: './app/less/.csslintrc',
+          csslintrc: '.csslintrc',
         }
       }
     },
@@ -356,10 +365,19 @@ module.exports = function (grunt) {
      */
     htmllint: {
       options: {
-        force: true,
-        htmllintrc: './app/partials/.htmllintrc'
+        htmllintrc: '.htmllintrc'
       },
-      src: ['./app/*.html','./app/partials/**/*.html']
+      src: [
+        './app/index.html',
+
+        './app/partials/*.html',
+        './app/partials/**/*.html',
+        './app/partials/**/**/*.html',
+
+        './modules/*.html',
+        './modules/**/*.html',
+        './modules/**/**/*.html'
+      ]
     }
 
   });
@@ -384,7 +402,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-htmllint');
 
   grunt.registerTask('build', [
-    'clean:beforeBuild',
+    'clean:dist',
     'less:production',
     'ngconstant',
     'minify',
@@ -398,57 +416,44 @@ module.exports = function (grunt) {
     'bump-commit'
   ]);
 
+  grunt.registerTask('server', [
+    'precompile',
+    'connect:server',
+    'watch'
+  ]);
+
+  grunt.registerTask('precompile', [
+    'less:development',
+    'ngconstant',
+    'sails-linker'
+  ]);
+
   grunt.registerTask('minify', [
     'concat',
     'uglify'
   ]);
 
-  grunt.registerTask('server', [
-    'less:development',
-    'ngconstant',
-    'sails-linker',
-    'connect:server',
-    'watch:css'
-  ]);
-
-  grunt.registerTask('serverjs', [
-    'less:development',
-    'ngconstant',
-    'sails-linker',
-    'connect:server',
-    'watch:javascript'
-  ]);
-
-  grunt.registerTask('serverall', [
-    'less:development',
-    'ngconstant',
-    'sails-linker',
-    'connect:server',
-    'watch'
-  ]);
-
   grunt.registerTask('lint', [
     'htmllint',
-    'lesslint'
+    'lesslint',
+    'jshint'
   ]);
 
-  grunt.registerTask('test', [
-    'clean:beforeBuild',
+  grunt.registerTask('test:unit:development', [
     'ngconstant',
-    'minify',
-    'jshint',
-    'jasmine:production',
-    'clean:afterTest'
-  ]);
-
-  grunt.registerTask('test:development', [
-    'ngconstant',
-    'jshint',
     'jasmine:development'
   ]);
 
-  grunt.registerTask('e2e', [
-    'clean:beforeBuild',
+  grunt.registerTask('test:unit:production', [
+    'clean:dist',
+    'ngconstant',
+    'minify',
+    'jasmine:production',
+    'clean:dist'
+  ]);
+
+  grunt.registerTask('test:e2e', [
+    'clean:dist',
     'less:production',
     'ngconstant',
     'minify',
@@ -457,7 +462,7 @@ module.exports = function (grunt) {
     'connect:servertest',
     'protractor_webdriver',
     'protractor:dist',
-    'clean:afterTest'
+    'clean:dist'
   ]);
 
   grunt.registerTask('default', ['build']);
