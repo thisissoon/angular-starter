@@ -97,7 +97,7 @@ module.exports = function (grunt) {
           './tests/unit/**/*.js',
           './tests/unit/**/**/*.js'
         ],
-        tasks: ['test:unit:development']
+        tasks: ['jshint', 'test:unit:development']
       },
       scriptsJson: {
         files: [
@@ -372,11 +372,7 @@ module.exports = function (grunt) {
 
         './app/partials/*.html',
         './app/partials/**/*.html',
-        './app/partials/**/**/*.html',
-
-        './modules/*.html',
-        './modules/**/*.html',
-        './modules/**/**/*.html'
+        './app/partials/**/**/*.html'
       ]
     }
 
