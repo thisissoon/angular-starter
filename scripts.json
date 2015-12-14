@@ -4,6 +4,7 @@
     "./app/components/angular-route/angular-route.js"
   ],
   "application": [
+    "./app/js/html5-locations/html5Locations.js",
     "./app/js/search/search.js",
     "./app/js/search/controllers/SearchCtrl.js",
     "./app/js/results/results.js",
