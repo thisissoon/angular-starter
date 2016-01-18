@@ -38,17 +38,20 @@
 @import "default/core/type.less";
 
 
-// Import less files for large screen devices here
-// eg. device width > 1200px
+// Import less files for large desktop devices
+// eg. device width >= 1200px
 @media (min-width: @screen-lg-min) {
+
 }
 
-// Import less files for tablet sized devices here
-// eg. device width >= 768px and <= 1024px
-@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+// Import less files for desktop sized devices and larger
+// eg. device width >= 992px
+@media (min-width: @screen-md-min) {
+
 }
 
-// Import less files for mobile sized devices here
-// eg. device width < 768px
-@media (max-width: @screen-xs-max) {
+// Import less from tablet size devices and larger
+// eg. device width >= 768px
+@media (min-width: @screen-sm-min) {
+
 }
