@@ -1,3 +1,14 @@
+## Changes in 1.0.0
+
+ * @edwardoparearyee: Feature: mobile first less (#51)
+ * @edwardoparearyee: Feature: Improved font rendering (#50)
+ * @edwardoparearyee: Feature: Watch new files (#47)
+ * @edwardoparearyee: Feature: Update editorconfig (#46)
+ * @edwardoparearyee: Feature: add circleci badge (#45)
+ * @edwardoparearyee: Feature: Move html5 location config into it's own module (#44)
+ * @edwardoparearyee: Feature: update csslint options to match twitter bootstrap (#41)
+ * @edwardoparearyee: Fix: gruntfile issues (#38)
+
 ## Changes in 0.8.0
 
  * @edwardoparearyee: Feature: Update gruntfile (#36)
