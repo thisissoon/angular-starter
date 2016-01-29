@@ -1,24 +1,18 @@
 'use strict';
 /**
+ * Starting point for myApp, we inject all
+ * external modules into the app here.
  * @module   myApp
  * @main     myApp
  * @author   SOON_
- * @requires myApp.search
+ * @requires myApp.html5Locations
  * @requires myApp.results
+ * @requires myApp.search
  * @requires myApp.version
  */
 angular.module('myApp', [
-  'myApp.search',
+  'myApp.html5Locations',
   'myApp.results',
+  'myApp.search',
   'myApp.version'
-])
-/**
- * @method config
- * @param  {Service} $locationProvider
- */
-.config([
-  '$locationProvider',
-  function ($locationProvider) {
-    $locationProvider.html5Mode(true).hashPrefix = '!';
-  }
 ]);
