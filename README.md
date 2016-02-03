@@ -1,9 +1,12 @@
 # Angular Start
 
-[![Build Status](https://travis-ci.org/thisissoon/angular-start.svg?branch=master)](https://travis-ci.org/thisissoon/angular-start)
-[![Coverage Status](https://coveralls.io/repos/thisissoon/angular-start/badge.svg)](https://coveralls.io/r/thisissoon/angular-start)
+| CircleCI |   Travis    |  Coveralls  |
+|----------|-------------|-------------|
+| [![Circle CI](https://circleci.com/gh/thisissoon/angular-start.svg?style=shield)](https://circleci.com/gh/thisissoon/angular-start) | [![Build Status](https://travis-ci.org/thisissoon/angular-start.svg?branch=master)](https://travis-ci.org/thisissoon/angular-start) | [![Coverage Status](https://coveralls.io/repos/thisissoon/angular-start/badge.svg)](https://coveralls.io/r/thisissoon/angular-start) |
 
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/angular-start.svg)](https://saucelabs.com/u/angular-start)
+| Saucelabs | 
+|-----------|
+| [![Sauce Test Status](https://saucelabs.com/browser-matrix/angular-start.svg)](https://saucelabs.com/u/angular-start) |
 
 The start of all angularjs projects. A base template for a typical angularjs application.
 
@@ -253,6 +256,4 @@ For more information on AngularJS please check out http://angularjs.org/
 [node]: http://nodejs.org
 [protractor]: https://github.com/angular/protractor
 [jasmine]: http://pivotal.github.com/jasmine/
-[karma]: http://karma-runner.github.io
 [travis]: https://travis-ci.org/
-[http-server]: https://github.com/nodeapps/http-server

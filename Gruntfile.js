@@ -59,49 +59,50 @@ module.exports = function (grunt) {
     watch: {
       options: {
         spawn: true,
-        livereload: true
+        livereload: true,
+        event: ['changed', 'added', 'deleted']
       },
       html: {
         files: [
-          './app/index.html',
+          'app/index.html',
 
-          './app/partials/*.html',
-          './app/partials/**/*.html',
-          './app/partials/**/**/*.html',
+          'app/partials/*.html',
+          'app/partials/**/*.html',
+          'app/partials/**/**/*.html',
 
-          './modules/*.html',
-          './modules/**/*.html',
-          './modules/**/**/*.html'
+          'modules/*.html',
+          'modules/**/*.html',
+          'modules/**/**/*.html'
         ],
         tasks: ['htmllint']
       },
       css: {
         files: [
-          './app/less/*.less',
-          './app/less/**/*.less',
-          './app/less/**/**/*.less'
+          'app/less/*.less',
+          'app/less/**/*.less',
+          'app/less/**/**/*.less'
         ],
         tasks: ['lesslint','less:development']
       },
       javascript: {
         files: [
-          './app/data/*.json',
-          './app/data/**/*.json',
-          './app/data/**/**/*.json',
+          'app/data/*.json',
+          'app/data/**/*.json',
+          'app/data/**/**/*.json',
 
-          './app/js/*.js',
-          './app/js/**/*.js',
-          './app/js/**/**/*.js',
+          'app/js/*.js',
+          'app/js/**/*.js',
+          'app/js/**/**/*.js',
 
-          './tests/unit/*.js',
-          './tests/unit/**/*.js',
-          './tests/unit/**/**/*.js'
+          'tests/unit/*.js',
+          'tests/unit/**/*.js',
+          'tests/unit/**/**/*.js'
         ],
-        tasks: ['test:unit:development']
+        tasks: ['jshint', 'test:unit:development']
       },
       scriptsJson: {
         files: [
-          './scripts.json'
+          'scripts.json'
         ],
         tasks: ['sails-linker']
       }
@@ -372,11 +373,7 @@ module.exports = function (grunt) {
 
         './app/partials/*.html',
         './app/partials/**/*.html',
-        './app/partials/**/**/*.html',
-
-        './modules/*.html',
-        './modules/**/*.html',
-        './modules/**/**/*.html'
+        './app/partials/**/**/*.html'
       ]
     }
 
