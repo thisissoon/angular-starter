@@ -14,8 +14,6 @@ module.exports = function (grunt) {
 
     pkg: grunt.file.readJSON('./package.json'),
 
-    bower: grunt.file.readJSON('./bower.json'),
-
     env: grunt.file.readJSON('./env.json')[env],
 
     config: {
@@ -153,7 +151,7 @@ module.exports = function (grunt) {
         ],
         options: {
           vendor: ['<%= config.vendorFiles %>'],
-          helpers:['./app/components/angular-mocks/angular-mocks.js'],
+          helpers:['./node_modules/angular-mocks/angular-mocks.js'],
           template: require('grunt-template-jasmine-istanbul'),
           templateOptions: {
             coverage: './coverage/coverage.json',
@@ -172,7 +170,7 @@ module.exports = function (grunt) {
         }
       },
       production: {
-        src: ['<%= config.outputDir %>js/app.min.js', './app/components/angular-mocks/angular-mocks.js']
+        src: ['<%= config.outputDir %>js/app.min.js', './node_modules/angular-mocks/angular-mocks.js']
       }
     },
 
@@ -302,7 +300,7 @@ module.exports = function (grunt) {
 
     bump: {
       options: {
-        files: ['./package.json', './bower.json'],
+        files: ['./package.json'],
         updateConfigs: ['pkg'],
         commit: true,
         commitFiles: ['-a'],
@@ -317,7 +315,6 @@ module.exports = function (grunt) {
         name: 'config',
         dest: './app/js/config/config.js',
         constants: {
-          bower: '<%= bower %>',
           pkg: '<%= pkg %>',
           env: '<%= env %>'
         }
@@ -330,8 +327,10 @@ module.exports = function (grunt) {
         options: {
           startTag: '<!--VENDOR SCRIPTS-->',
           endTag: '<!--VENDOR SCRIPTS END-->',
-          fileTmpl: '<script src=\"%s\"></script>',
-          appRoot: './app/'
+          appRoot: './app/',
+          fileRef: function (filepath) {
+            return '<script src=\"' + filepath.replace('./','/') + '\"></script>'
+          }
         },
         files: {
           './app/index.html': '<%= config.vendorFiles %>'

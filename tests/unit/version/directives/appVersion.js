@@ -10,7 +10,7 @@ describe('myApp.version.versionDirective', function() {
 
     $scope = $rootScope.$new();
 
-    version = $injector.get('bower').version;
+    version = $injector.get('pkg').version;
 
     $element = '<app-version></app-version>';
 
