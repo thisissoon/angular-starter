@@ -1,7 +1,7 @@
 {
   "vendor": [
-    "./app/components/angular/angular.js",
-    "./app/components/angular-route/angular-route.js"
+    "./node_modules/angular/angular.js",
+    "./node_modules/angular-route/angular-route.js"
   ],
   "application": [
     "./app/js/html5-locations/html5Locations.js",

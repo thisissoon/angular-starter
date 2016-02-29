@@ -14,16 +14,16 @@ angular.module('myApp.version.appVersionDirective', [
  * @example
     <app-version></app-version>
  * @class appVersion
- * @param {Object} bower
+ * @param {Object} pkg
  */
 .directive('appVersion', [
-  'bower',
-  function (bower){
+  'pkg',
+  function (pkg){
     return {
       restrict: 'EAC',
       link: function($scope, $element){
 
-        $element.text(bower.version);
+        $element.text(pkg.version);
 
       }
     };
