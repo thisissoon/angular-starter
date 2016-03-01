@@ -1,5 +1,7 @@
 // Karma configuration
 // Generated on Tue Mar 01 2016 11:30:27 GMT+0000 (GMT)
+// 
+var scripts = require('./scripts');
 
 module.exports = function(config) {
   config.set({
@@ -14,22 +16,14 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    files: [
-      './node_modules/angular/angular.js',
-      './node_modules/angular-route/angular-route.js',
-      './node_modules/angular-mocks/angular-mocks.js',
-      './app/js/html5-locations/html5Locations.js',
-      './app/js/search/search.js',
-      './app/js/search/controllers/SearchCtrl.js',
-      './app/js/results/results.js',
-      './app/js/results/controllers/ResultsCtrl.js',
-      './app/js/version/version.js',
-      './app/js/version/directives/appVersion.js',
-      './app/js/app.js',
-      './tests/unit/*.js',
-      './tests/unit/**/*.js',
-      './tests/unit/**/**/*.js'
-    ],
+    files: scripts.vendor
+            .concat(scripts.helpers)
+            .concat(scripts.application)
+            .concat([
+              './tests/unit/*.js',
+              './tests/unit/**/*.js',
+              './tests/unit/**/**/*.js'
+            ]),
 
 
     // list of files to exclude
