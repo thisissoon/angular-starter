@@ -8,7 +8,7 @@ machine:
   services:
     - docker
   node:
-    version: 0.12.5
+    version: 5.6.0
   environment:
     REPO: registry.soon.build/angular-start
     TAG: $(sed 's/master/latest/;s/\//\-/' <<<$CIRCLE_BRANCH)
@@ -17,7 +17,7 @@ machine:
 
 dependencies:
   pre:
-    - npm install -g grunt-cli bower
+    - npm install -g coveralls
     - docker login -u $DOCKER_USER -p $DOCKER_PASS -e $DOCKER_EMAIL $DOCKER_REGISTRY
   override:
     - npm -d install
@@ -26,11 +26,9 @@ dependencies:
 
 test:
   override:
-    - grunt lint
-    - grunt test:unit:development
-    - grunt test:unit:production
+    - npm test
   post:
-    - ./node_modules/coveralls/bin/coveralls.js < coverage/lcov.info
+    - coveralls < coverage/lcov.info
 
 # Deployment
 
