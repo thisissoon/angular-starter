@@ -10,8 +10,6 @@ describe('myApp.version.versionDirective', function() {
 
     $scope = $rootScope.$new();
 
-    version = $injector.get('pkg').version;
-
     $element = '<app-version></app-version>';
 
     $element = $compile($element)($scope);
@@ -20,7 +18,7 @@ describe('myApp.version.versionDirective', function() {
   }));
 
   it('should display the correct version number', function(){
-    expect($element.html()).toContain(version);
+    expect($element.html()).toContain('2.0.0');
   });
 
 });
