@@ -28,7 +28,7 @@ test:
   override:
     - npm test
   post:
-    - coveralls < coverage/lcov.info
+    - coveralls < ./coverage/lcov.info
 
 # Deployment
 
@@ -36,21 +36,18 @@ deployment:
   prod:
     branch: master
     commands:
-      - grunt build --env production
       - docker build -t $REPO:$TAG .
       - docker tag $REPO:$TAG $REPO:prod
       - docker push $REPO:prod
   qa:
     branch: /release\/.*/
     commands:
-      - grunt build --env production
       - docker build -t $REPO:$TAG .
       - docker tag $REPO:$TAG $REPO:qa
       - docker push $REPO:qa
   latest:
     branch: develop
     commands:
-      - grunt build --env production
       - docker build -t $REPO:$TAG .
       - docker tag $REPO:$TAG $REPO:latest
       - docker push $REPO:latest

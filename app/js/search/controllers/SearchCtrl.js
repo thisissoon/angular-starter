@@ -5,11 +5,10 @@
  * page in example app
  * @module   myApp.search.SearchCtrl
  * @author   SOON_
- * @requires config
  *
  */
 angular.module('myApp.search.SearchCtrl', [
-  'config'
+
 ])
 /**
  * @constructor
@@ -25,8 +24,7 @@ angular.module('myApp.search.SearchCtrl', [
   '$rootScope',
   '$http',
   '$location',
-  'env',
-  function ($scope, $rootScope, $http, $location, env) {
+  function ($scope, $rootScope, $http, $location) {
 
     /**
      * Search locations based on val
@@ -34,7 +32,7 @@ angular.module('myApp.search.SearchCtrl', [
      * @param  {String} val location to query
      */
     $scope.getLocation = function getLocation(val){
-      $http.get(env.GOOGLE_MAPS_API_ADDRESS + 'maps/api/geocode/json', {
+      $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
         params: {
           address: val,
           sensor: false

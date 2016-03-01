@@ -26,8 +26,7 @@ describe('myApp.search.SearchCtrl', function (){
       $scope: _scope,
       $rootScope: _rootScope,
       $http: _http,
-      $location: _location,
-      env: $injector.get('env')
+      $location: _location
     });
 
   }));

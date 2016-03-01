@@ -13,7 +13,7 @@ install:
 script:
   - npm test
 after_success:
-  - coveralls < coverage/lcov.info
+  - coveralls < ./coverage/lcov.info
 # addons:
 #   sauce_connect: true
 sudo: false
