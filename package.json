@@ -1,41 +1,62 @@
 {
-  "name": "angular-start",
-  "private": false,
+  "name": "angular-starter",
   "version": "1.0.0",
-  "description": "The start of all angularjs projects. A base template for a typical angularjs application.",
-  "repository": "https://github.com/thisissoon/angular-start",
+  "description": "An example SOON_ Angular project by SOON_",
+  "private": false,
   "license": "MIT",
-  "dependencies": {},
-  "devDependencies": {
-    "bower": "~1.5.3",
-    "connect-livereload": "~0.5.4",
-    "connect-modrewrite": "~0.9.0",
-    "coveralls": "~2.11.9",
-    "grunt": "~0.4.5",
-    "grunt-bump": "~0.7.0",
-    "grunt-contrib-clean": "~1.0.0",
-    "grunt-contrib-concat": "~1.0.0",
-    "grunt-contrib-connect": "~1.0.1",
-    "grunt-contrib-copy": "~1.0.0",
-    "grunt-contrib-jasmine": "~1.0.0",
-    "grunt-contrib-jshint": "~1.0.0",
-    "grunt-contrib-less": "~1.2.0",
-    "grunt-contrib-uglify": "~1.0.1",
-    "grunt-contrib-watch": "~1.0.0",
-    "grunt-contrib-yuidoc": "~1.0.0",
-    "grunt-htmllint": "~0.2.7",
-    "grunt-lesslint": "~3.1.0",
-    "grunt-ng-constant": "~2.0.1",
-    "grunt-processhtml": "~0.3.13",
-    "grunt-protractor-runner": "~2.1.0",
-    "grunt-protractor-webdriver": "~0.2.5",
-    "grunt-sails-linker": "~0.10.1",
-    "grunt-template-jasmine-istanbul": "~0.4.0",
-    "protractor": "~2.5.1",
-    "yuidoc-bootstrap-theme": "~1.0.6"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thisissoon/angular-starter"
   },
+  "author": "SOON_ <dorks@thisissoon.com>",
+  "contributors": [
+    "Ed Opare-Aryee <ed@thisissoon.com>",
+    "James Warren <james@thisissoon.com>"
+  ],
   "scripts": {
-    "postinstall": "bower install",
-    "test": "grunt test:unit:development"
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build --prod",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "dependencies": {
+    "@angular/animations": "^5.2.0",
+    "@angular/common": "^5.2.0",
+    "@angular/compiler": "^5.2.0",
+    "@angular/core": "^5.2.0",
+    "@angular/forms": "^5.2.0",
+    "@angular/http": "^5.2.0",
+    "@angular/platform-browser": "^5.2.0",
+    "@angular/platform-browser-dynamic": "^5.2.0",
+    "@angular/router": "^5.2.0",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.5.6",
+    "zone.js": "^0.8.19"
+  },
+  "devDependencies": {
+    "@angular/cli": "~1.7.4",
+    "@angular/compiler-cli": "^5.2.0",
+    "@angular/language-service": "^5.2.0",
+    "@types/jasmine": "~2.8.3",
+    "@types/jasminewd2": "~2.0.2",
+    "@types/node": "~6.0.60",
+    "codelyzer": "^4.0.1",
+    "jasmine-core": "~2.8.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~2.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "^1.2.1",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "protractor": "~5.1.2",
+    "ts-node": "~4.1.0",
+    "tslint": "~5.9.1",
+    "typescript": "~2.5.3"
+  },
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.5.0"
   }
 }
