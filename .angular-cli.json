@@ -15,7 +15,10 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": ["styles.scss"],
+      "styles": ["scss/main.scss"],
+      "stylePreprocessorOptions": {
+        "includePaths": ["scss"]
+      },
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
@@ -33,7 +36,10 @@
       "tsconfig": "tsconfig.server.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": ["styles.scss"],
+      "styles": ["scss/main.scss"],
+      "stylePreprocessorOptions": {
+        "includePaths": ["scss"]
+      },
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
