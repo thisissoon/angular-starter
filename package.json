@@ -1,7 +1,7 @@
 {
   "name": "angular-starter",
   "version": "1.0.0",
-  "description": "An example SOON_ Angular project by SOON_",
+  "description": "An example Angular project by SOON_",
   "private": false,
   "license": "MIT",
   "repository": {
@@ -20,6 +20,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "coverage": "coveralls < coverage/lcov.info",
     "release": "standard-version"
   },
   "dependencies": {
@@ -44,6 +45,7 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "^4.0.1",
+    "coveralls": "^3.0.0",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~2.0.0",
@@ -56,7 +58,8 @@
     "tslint": "~5.9.1",
     "typescript": "~2.5.3",
     "cz-conventional-changelog": "^2.1.0",
-    "standard-version": "^4.3.0"
+    "standard-version": "^4.3.0",
+    "karma-spec-reporter": "0.0.32"
   },
   "engines": {
     "node": ">= 8.9.0",
