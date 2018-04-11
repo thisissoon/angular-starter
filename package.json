@@ -18,10 +18,16 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
-    "lint": "ng lint",
+    "lint": "npm run format:check && npm run lint:ts && npm run lint:scss",
     "e2e": "ng e2e",
     "coverage": "coveralls < coverage/lcov.info",
-    "release": "standard-version"
+    "release": "standard-version",
+    "lint:ts": "ng lint",
+    "lint:scss": "stylelint --syntax scss \"src/**/*.scss\"",
+    "format:check": "prettier --config ./.prettierrc -l \"{src/{app,environments,assets}/**/*.{ts,json,css,scss},./*.{ts,js,json,css,scss}}\"",
+    "format:fix:staged": "pretty-quick --staged",
+    "format:fix:all": "npm run format:check -- --write && npm run lint:scss -- --fix && npm run lint:ts -- --fix",
+    "precommit": "npm run format:fix:staged && npm run lint"
   },
   "dependencies": {
     "@angular/animations": "^5.2.0",
@@ -59,7 +65,15 @@
     "typescript": "~2.5.3",
     "cz-conventional-changelog": "^2.1.0",
     "standard-version": "^4.3.0",
-    "karma-spec-reporter": "0.0.32"
+    "karma-spec-reporter": "0.0.32",
+    "husky": "^0.14.3",
+    "prettier": "^1.11.1",
+    "pretty-quick": "^1.4.1",
+    "stylelint": "^9.2.0",
+    "stylelint-order": "^0.8.1",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-scss": "^3.0.0"
   },
   "engines": {
     "node": ">= 8.9.0",
