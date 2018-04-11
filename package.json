@@ -27,7 +27,11 @@
     "format:check": "prettier --config ./.prettierrc -l \"{src/{app,environments,assets}/**/*.{ts,json,css,scss},./*.{ts,js,json,css,scss}}\"",
     "format:fix:staged": "pretty-quick --staged",
     "format:fix:all": "npm run format:check -- --write && npm run lint:scss -- --fix && npm run lint:ts -- --fix",
-    "precommit": "npm run format:fix:staged && npm run lint"
+    "precommit": "npm run format:fix:staged && npm run lint",
+    "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
+    "serve:ssr": "node dist/server.js",
+    "build:client-and-server-bundles": "ng build --prod && ng build --prod --app ssr --output-hashing false",
+    "webpack:server": "webpack --config webpack.server.js --progress --colors"
   },
   "dependencies": {
     "@angular/animations": "^5.2.0",
@@ -41,7 +45,12 @@
     "@angular/router": "^5.2.0",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.6",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "@angular/platform-server": "^5.2.0",
+    "@nguniversal/express-engine": "^5.0.0",
+    "@nguniversal/module-map-ngfactory-loader": "^5.0.0",
+    "express": "^4.16.3",
+    "ts-loader": "^3.5.0"
   },
   "devDependencies": {
     "@angular/cli": "~1.7.4",
