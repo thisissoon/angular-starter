@@ -1,0 +1,33 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  background-color: $white;
+  display: block;
+  margin-bottom: 1rem;
+  @include grid-padding();
+}
+
+.nav-list {
+  display: flex;
+  @include list-reset();
+}
+
+.nav-list-item-link {
+  border-bottom: 0.25rem solid transparent;
+  color: $gray;
+  display: block;
+  height: 3.75rem;
+  line-height: 3.5rem;
+  padding-left: $content-padding;
+  padding-right: $content-padding;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    border-color: $blue;
+    color: $blue;
+    text-decoration: none;
+  }
+}

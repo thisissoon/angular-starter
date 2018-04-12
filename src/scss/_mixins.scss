@@ -1,0 +1,46 @@
+// Lists
+@mixin list-reset {
+  list-style: none;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+// Grid
+@mixin grid-padding($for-content: false) {
+  $padding: 0;
+
+  @if ($for-content) {
+    $padding: $content-padding;
+  }
+
+  padding-left: $grid-padding-xs + $padding;
+  padding-right: $grid-padding-xs + $padding;
+
+  @media (min-width: $grid-breakpoint-sm) {
+    padding-left: $grid-padding-sm + $padding;
+    padding-right: $grid-padding-sm + $padding;
+  }
+
+  @media (min-width: $grid-breakpoint-md) {
+    padding-left: $grid-padding-md + $padding;
+    padding-right: $grid-padding-md + $padding;
+  }
+
+  @media (min-width: $grid-breakpoint-lg) {
+    padding-left: $grid-padding-lg;
+    padding-right: $grid-padding-lg;
+  }
+}
+
+// Links
+@mixin link($color: $blue, $hover: darken($color, 10%)) {
+  color: $color;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: $hover;
+    text-decoration: none;
+  }
+}

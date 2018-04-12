@@ -1,0 +1,5 @@
+<a class="link" [routerLink]="['/posts', item.id]">
+  <img class="image" [src]="item.id + 500 | image" [alt]="item.title">
+  <h3 class="title">{{ item.title }}</h3>
+  <p class="body">{{ item.body }}</p>
+</a>

@@ -1,0 +1,12 @@
+<h3 class="name">{{ item.name }}</h3>
+<p class="body">{{ item.body }}</p>
+<p class="email">
+  <small>
+    <a
+      class="email-link"
+      target="_blank"
+      [href]="'mailto:' + item.email">
+      {{ item.email }}
+    </a>
+  </small>
+</p>

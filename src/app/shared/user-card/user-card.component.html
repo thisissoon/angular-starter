@@ -1,0 +1,7 @@
+<a class="link" [routerLink]="['/users', item.id]">
+  <img class="image" [src]="item.id + 1000 | image : {width: 200, height: 200}" [alt]="item.name">
+  <p class="name">
+    <strong>{{ item.name }}</strong>
+    <small class="username">(@{{ item.username }})</small>
+  </p>
+</a>
