@@ -3,6 +3,8 @@
 [![CircleCI](https://circleci.com/gh/thisissoon/angular-starter.svg?style=shield)](https://circleci.com/gh/thisissoon/angular-starter)
 [![Coverage Status](https://coveralls.io/repos/github/thisissoon/angular-starter/badge.svg?branch=master)](https://coveralls.io/github/thisissoon/angular-starter?branch=master)
 
+An example Angular project by SOON\_
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
 ## Development server
