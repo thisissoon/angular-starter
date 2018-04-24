@@ -1,0 +1,41 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  background-color: $white;
+  display: block;
+  margin: 0 auto;
+  max-width: 37.5rem;
+  padding-bottom: 1rem;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($white, 0.5%);
+  }
+}
+
+.link {
+  display: block;
+  @include link($gray);
+}
+
+.image {
+  width: 100%;
+}
+
+.title,
+.body {
+  font-weight: 500;
+  padding-left: $content-padding;
+  padding-right: $content-padding;
+}
+
+.title {
+  margin-bottom: 0.3125rem;
+  margin-top: 1rem;
+}
+
+.body {
+  margin-bottom: 0;
+}

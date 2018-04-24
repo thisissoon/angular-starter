@@ -1,0 +1,13 @@
+<img class="image" [src]="user.id + 1000 | image" [alt]="user.name">
+<h1 class="name">
+  {{ user.name }}
+  <small class="username">@{{ user.username }}</small>
+</h1>
+
+<h2 class="post-heading">Posts</h2>
+
+<ul class="post-list">
+  <li class="post-list-item" *ngFor="let post of posts">
+    <app-post-card [item]="post"></app-post-card>
+  </li>
+</ul>

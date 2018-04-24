@@ -1,0 +1,30 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  display: block;
+}
+
+.link {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding-left: $content-padding;
+  padding-right: $content-padding;
+  @include link();
+}
+
+.image {
+  border-radius: 50%;
+  height: 2.5rem;
+  margin-right: 0.5rem;
+  width: 2.5rem;
+}
+
+.name {
+  margin-bottom: 0;
+}
+
+.username {
+  color: $muted;
+}

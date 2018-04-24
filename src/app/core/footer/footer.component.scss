@@ -1,0 +1,19 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  display: block;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  text-align: right;
+}
+
+.copy {
+  padding-bottom: 0;
+  @include grid-padding($for-content: true);
+}
+
+.copy-link {
+  font-size: 0.75rem;
+  @include link($muted, $gray);
+}

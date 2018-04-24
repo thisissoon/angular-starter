@@ -1,0 +1,14 @@
+<img class="image" [src]="post.id + 500 | image" [alt]="post.title">
+
+<h1 class="title">{{ post.title }}</h1>
+<p class="body">{{ post.body }}</p>
+
+<app-user-card class="user-card" [item]="post.user"></app-user-card>
+
+<h2 class="comments-heading">Comments</h2>
+
+<ul class="comments-list">
+  <li class="comments-list-item" *ngFor="let comment of comments">
+    <app-comment class="app-comment" [item]="comment"></app-comment>
+  </li>
+</ul>

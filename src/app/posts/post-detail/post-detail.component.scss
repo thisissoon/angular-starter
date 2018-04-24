@@ -1,0 +1,47 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  background-color: $white;
+  display: block;
+}
+
+.image {
+  display: block;
+  width: 100%;
+}
+
+.title,
+.body,
+.comments-heading {
+  @include grid-padding($for-content: true);
+}
+
+.title {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.body {
+  margin-bottom: 1rem;
+}
+
+.user-card {
+  margin-bottom: 2rem;
+  @include grid-padding();
+}
+
+.comments-list {
+  margin: 0;
+  @include list-reset();
+  @include grid-padding();
+  @media (min-width: $grid-breakpoint-sm) {
+    width: 66.667%;
+  }
+}
+
+.comments-list-item:last-child {
+  .app-comment {
+    border-color: transparent;
+  }
+}

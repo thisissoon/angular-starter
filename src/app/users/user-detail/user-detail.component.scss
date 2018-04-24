@@ -1,0 +1,38 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  display: block;
+}
+
+.image {
+  display: block;
+  width: 100%;
+}
+
+.name {
+  background-color: $white;
+  color: $blue;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  @include grid-padding($for-content: true);
+}
+
+.username {
+  color: $muted;
+}
+
+.post-heading {
+  margin: 1rem auto;
+  max-width: 37.5rem;
+  padding-left: $content-padding;
+  padding-right: $content-padding;
+}
+
+.post-list {
+  @include list-reset();
+}
+
+.post-card {
+  margin-bottom: 2rem;
+}

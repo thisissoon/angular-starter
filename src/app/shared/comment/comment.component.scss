@@ -1,0 +1,19 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  border-bottom: 1px solid $muted;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.name,
+.body,
+.email {
+  padding-left: $content-padding;
+  padding-right: $content-padding;
+}
+
+.email-link {
+  @include link();
+}

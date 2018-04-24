@@ -1,0 +1,14 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  display: block;
+}
+
+.list {
+  @include list-reset();
+}
+
+.list-item:first-child .post-card {
+  width: 100%;
+}

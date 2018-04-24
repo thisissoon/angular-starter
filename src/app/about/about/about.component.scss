@@ -1,0 +1,12 @@
+@import "variables";
+@import "mixins";
+
+:host {
+  display: block;
+}
+
+.text {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  @include grid-padding($for-content: true);
+}
