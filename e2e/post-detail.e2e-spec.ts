@@ -1,11 +1,11 @@
-import { AppPage } from './app.po';
+import { PostDetailPage } from './post-detail.po';
 import { browser } from 'protractor';
 
-describe('App', () => {
-  let page: AppPage;
+describe('PostDetail', () => {
+  let page: PostDetailPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new PostDetailPage();
     page.navigateTo();
     browser.waitForAngular();
   });
@@ -18,25 +18,25 @@ describe('App', () => {
     expect(resultAbout).toBeFalsy();
   });
 
-  it('should have list of posts', () => {
-    const result = page.getPostsCount();
-    expect(result).toBe(10);
+  it('should have list of comments', () => {
+    const result = page.getCommentCount();
+    expect(result).toBe(5);
   });
 
   it('should display post image', () => {
-    const result = page.getPostImageUrl(0);
+    const result = page.getPostImageUrl();
     expect(result).toEqual('https://picsum.photos/640/360?image=501');
   });
 
+  it('should display user name', () => {
+    const result = page.getUserName();
+    expect(result).toEqual('Leanne Graham (@Bret)');
+  });
+
   it('should display post title', () => {
-    const result = page.getPostTitle(0);
+    const result = page.getTitle();
     expect(result).toEqual(
       'sunt aut facere repellat provident occaecati excepturi optio reprehenderit'
     );
-  });
-
-  it('should have copyright', () => {
-    const result = page.getFooterCopyrightText();
-    expect(result).toEqual('© 2018 SOON_');
   });
 });

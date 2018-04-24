@@ -1,38 +1,52 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+
+import { Window } from './core/window/window-token';
 import { AppComponent } from './app.component';
+import { Router, NavigationEnd } from '@angular/router';
+
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+  const mockWindow = {
+    scrollTo: jasmine.createSpy('scrollTo')
+  };
+  const mockRouter = {
+    events: new Subject()
+  };
+
   beforeEach(
-    async(() => {
+    async(() =>
       TestBed.configureTestingModule({
+        providers: [
+          { provide: Window, useValue: mockWindow },
+          { provide: Router, useValue: mockRouter }
+        ],
+        schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
         declarations: [AppComponent]
-      }).compileComponents();
-    })
+      }).compileComponents()
+    )
   );
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
   it(
     'should create the app',
     async(() => {
-      const fixture = TestBed.createComponent(AppComponent);
-      const app = fixture.debugElement.componentInstance;
-      expect(app).toBeTruthy();
+      expect(component).toBeTruthy();
     })
   );
+
   it(
-    `should have as title 'app'`,
+    'scroll to top of page on route change',
     async(() => {
-      const fixture = TestBed.createComponent(AppComponent);
-      const app = fixture.debugElement.componentInstance;
-      expect(app.title).toEqual('app');
-    })
-  );
-  it(
-    'should render title in a h1 tag',
-    async(() => {
-      const fixture = TestBed.createComponent(AppComponent);
-      fixture.detectChanges();
-      const compiled = fixture.debugElement.nativeElement;
-      expect(compiled.querySelector('h1').textContent).toContain(
-        'Welcome to app!'
-      );
+      mockRouter.events.next(new NavigationEnd(1, '/', '/'));
+      expect(mockWindow.scrollTo).toHaveBeenCalledWith(0, 0);
     })
   );
 });

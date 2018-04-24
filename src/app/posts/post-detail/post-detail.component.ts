@@ -13,9 +13,7 @@ import { Comment } from '../models/comment.model';
 })
 export class PostDetailComponent implements OnInit, OnDestroy {
   post: Post;
-
   comments: Comment[];
-
   ngUnsubscribe$: Subject<void> = new Subject<void>();
 
   constructor(private route: ActivatedRoute) {}

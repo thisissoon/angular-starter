@@ -1,24 +1,16 @@
 import { browser, by, element } from 'protractor';
 
-export class AppPage {
+export class UserDetailPage {
   navigateTo() {
-    return browser.get('/');
-  }
-
-  getNavItem(label: string) {
-    return element(
-      by.cssContainingText(`app-header .nav-list-item-link`, label)
-    );
-  }
-
-  getNavItemActive(label: string) {
-    return this.getNavItem(label)
-      .getAttribute('class')
-      .then(className => className.includes('active'));
+    return browser.get('/users/1');
   }
 
   getPosts() {
     return element.all(by.css('app-post-card'));
+  }
+
+  getTitle() {
+    return element(by.css('h1')).getText();
   }
 
   getPostsCount() {

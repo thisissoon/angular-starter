@@ -1,21 +1,18 @@
-import { AppPage } from './app.po';
+import { UserDetailPage } from './user-detail.po';
 import { browser } from 'protractor';
 
-describe('App', () => {
-  let page: AppPage;
+describe('UserDetail', () => {
+  let page: UserDetailPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new UserDetailPage();
     page.navigateTo();
     browser.waitForAngular();
   });
 
-  it('should set post nav item as active', () => {
-    const result = page.getNavItemActive('Posts');
-    expect(result).toBeTruthy();
-
-    const resultAbout = page.getNavItemActive('About');
-    expect(resultAbout).toBeFalsy();
+  it('should display name', () => {
+    const result = page.getTitle();
+    expect(result).toEqual('Leanne Graham @Bret');
   });
 
   it('should have list of posts', () => {
@@ -33,10 +30,5 @@ describe('App', () => {
     expect(result).toEqual(
       'sunt aut facere repellat provident occaecati excepturi optio reprehenderit'
     );
-  });
-
-  it('should have copyright', () => {
-    const result = page.getFooterCopyrightText();
-    expect(result).toEqual('© 2018 SOON_');
   });
 });

@@ -20,7 +20,7 @@ describe('FooterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should get year', () => {
+    expect(component.year).toBeGreaterThanOrEqual(2018);
   });
 });

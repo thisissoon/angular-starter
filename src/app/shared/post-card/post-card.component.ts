@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
-import { Post } from '../../posts/models/post.model';
 import { Subject } from 'rxjs/Subject';
+
+import { Post } from '../../posts/models/post.model';
 
 @Component({
   selector: 'app-post-card',
